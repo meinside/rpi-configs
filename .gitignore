@@ -1,7 +1,7 @@
 # git ignore file of meinside@gmail.com
 # last update: 2012.06.01.
 
-# binary files
+# unnecessary binary files
 *.o
 *.lo
 *.la
@@ -26,10 +26,6 @@ build/*
 *.mode1v3
 *.mode2v3
 xcuserdata
-
-# android dirs
-gen/*
-bin/*
 
 # other scm files
 .svn
