@@ -1,0 +1,43 @@
+# git ignore file of meinside@gmail.com
+# last update: 2012.06.01.
+
+# binary files
+*.o
+*.lo
+*.la
+*.al
+.libs
+*.so
+*.so.[0-9]*
+*.a
+*.pyc
+*.pyo
+*.class
+
+# swap files
+*.swp
+*~.nib
+
+# xcode files
+build/*
+*.pbxuser
+*.perspective
+*.perspectivev3
+*.mode1v3
+*.mode2v3
+xcuserdata
+
+# android dirs
+gen/*
+bin/*
+
+# other scm files
+.svn
+.cvs
+
+# osx files
+.DS_Store
+
+# temp files/dirs
+tmp
+

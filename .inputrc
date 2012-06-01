@@ -1,0 +1,22 @@
+"\e[3~": delete-char
+# this is actually equivalent to "\C-?": delete-char
+
+# VT
+"\e[1~": beginning-of-line
+"\e[4~": end-of-line
+
+# kvt
+"\e[H":beginning-of-line
+"\e[F":end-of-line
+
+# rxvt and konsole (i.e. the KDE-app...)
+"\e[7~":beginning-of-line
+"\e[8~":end-of-line
+
+set meta-flag On
+set convert-meta Off
+set output-meta On
+set completion-ignore-case On
+set horizontal-scroll-mode On
+set show-all-if-ambiguous On
+

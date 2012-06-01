@@ -1,0 +1,5 @@
+# git attributes file of meinside@gmail.com
+# last update: 10.02.01.
+
+*.pbxproj -crlf -diff -merge
+

@@ -1,0 +1,21 @@
+# .gitconfig file of meinside@gmail.com
+#
+# last update: 2011.07.12.
+
+[alias]
+	co = checkout
+	ci = commit
+	st = status
+	br = branch
+	ll = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+	type = cat-file -t
+	dump = cat-file -p
+[user]
+	name = Sungjin Han
+	email = meinside@gmail.com
+[color]
+	ui = auto
+
+# 
+# git pull = git fetch + git merge origin/master
+#
