@@ -6,7 +6,7 @@
 # notify me about current status of raspberry pi
 # 
 # created on : 2012.05.31
-# last update: 2012.06.01
+# last update: 2012.06.02
 # 
 # by meinside@gmail.com
 
@@ -14,7 +14,7 @@ require "rubygems"
 require "gmail"	# gem install mime ruby-gmail (https://github.com/dcparker/ruby-gmail)
 require "yaml"
 
-CONFIG_FILEPATH = File.expand_path("./configs.yml")
+CONFIG_FILEPATH = File.join(File.dirname(__FILE__), "configs.yml")
 
 def read_configs
 	if File.exists? CONFIG_FILEPATH
