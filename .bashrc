@@ -1,7 +1,7 @@
 # .bashrc
 #
 # created on 12.05.31.
-# updated on 12.06.01.
+# updated on 12.06.04.
 #
 # ... by meinside@gmail.com
 
@@ -81,7 +81,7 @@ esac
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
-    alias ll="ls -G -l"
+    alias ll="ls -alF"
     alias grep="grep --color=auto"
     alias ctags='ctags -R --totals=yes'
 fi
