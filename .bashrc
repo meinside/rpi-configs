@@ -103,7 +103,7 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 # for RVM
-[[ -s "/home/meinside/.rvm/scripts/rvm" ]] && source "/home/meinside/.rvm/scripts/rvm"  # This loads RVM into a shell session.
+[[ -s "/etc/profile.d/rvm.sh" ]] && source "/etc/profile.d/rvm.sh"  # This loads RVM into a shell session.
 
 # custom paths
 if [ -d "$HOME/ruby" ] ; then
