@@ -1,9 +1,9 @@
 #!/usr/bin/env ruby
 # coding: UTF-8
 
-# notify_meinside.rb
+# notify_stats.rb
 # 
-# notify me about current status of raspberry pi
+# notify about current status of raspberry pi
 # 
 # created on : 2012.05.31
 # last update: 2012.06.02
