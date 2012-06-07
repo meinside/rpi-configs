@@ -6,7 +6,7 @@
 # notify about current status of raspberry pi
 # 
 # created on : 2012.05.31
-# last update: 2012.06.02
+# last update: 2012.06.07
 # 
 # by meinside@gmail.com
 
@@ -15,6 +15,10 @@ require "gmail"	# gem install mime ruby-gmail (https://github.com/dcparker/ruby-
 require "yaml"
 
 CONFIG_FILEPATH = File.join(File.dirname(__FILE__), "configs.yml")
+
+DEFAULT_MAIL_TITLE = "Current Status of Raspberry Pi"
+RASPI_LOGO_IMG_URL = "http://www.raspberrypi.org/wp-content/uploads/2012/03/Raspi_Colour_R.png"
+RASPI_URL = "http://raspberrypi.org/"
 
 def read_configs
 	if File.exists? CONFIG_FILEPATH
@@ -31,14 +35,22 @@ def read_configs
 	return nil
 end
 
-def send_gmail(configs, title, content)
+def send_gmail(configs, title, text_content, html_content)
 	Gmail.new(configs["gmail_sender"]["username"], configs["gmail_sender"]["passwd"]) {|gmail|
 		gmail.deliver {
 			to configs["notification_recipient"]["email"]
 			subject title
-			text_part {
-				body content
-			}
+			if text_content
+				text_part {
+					body text_content
+				}
+			end
+			if html_content
+				html_part {
+					content_type 'text/html; charset=UTF-8'
+					body html_content
+				}
+			end
 		}
 	}
 end
@@ -66,32 +78,38 @@ def get_uname
 	return `uname -a`.strip
 end
 
+def decorate(title, content)
+	return "<p><b>* #{title}:</b><br/>#{content.gsub("\n", "<br/>")}</p><hr/>"
+end
+
 if __FILE__ == $0
+
+	title = ARGV.count > 0 ? ARGV.join(" ") : DEFAULT_MAIL_TITLE
 
 	current_ip = get_current_ip
 	if current_ip
 		content = []
 
 		# uname
-		content << "* System: \n#{get_uname}"
+		content << decorate("System", get_uname)
 
 		# uptime
-		content << "* Uptime: \n#{get_uptime}"
+		content << decorate("Uptime", get_uptime)
 
 		# ip
-		content << "* IP: #{current_ip}" if current_ip
+		content << decorate("IP", current_ip)
 
 		# storage
-		content << "* Free Storage: \n#{get_current_storage}"
+		content << decorate("Free Storage", get_current_storage)
 
 		# memory
-		content << "* Free memory: \n#{get_current_memory}"
-		
-		content << "\n\n"
-		content << "This email was sent at #{Time.now.strftime("%Y-%m-%d %H:%M")}, using: #{__FILE__}\n\n"
+		content << decorate("Free Memory", get_current_memory)
+
+		# footer
+		content << "<p><a href='#{RASPI_URL}'><img src='#{RASPI_LOGO_IMG_URL}' width='50px' alt='Logo'/></a>&nbsp;<i>This email was sent at #{Time.now.strftime("%Y-%m-%d %H:%M")}, using: #{__FILE__}</i></p>"
 
 		# send result
-		send_gmail(read_configs, "Current Status of Raspberry Pi", content.join("\n----\n")) if current_ip
+		send_gmail(read_configs, title, nil, content.join(""))
 	end
 
 end
