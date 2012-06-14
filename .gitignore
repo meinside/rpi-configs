@@ -37,3 +37,17 @@ xcuserdata
 # temp files/dirs
 tmp
 
+# etc. files/dirs
+.bash_history
+.mysql_history
+.vim
+.ssh
+.gem
+.viminfo
+.bash_logout
+.profile
+ruby
+rails
+public_html
+bin/configs.yml
+
