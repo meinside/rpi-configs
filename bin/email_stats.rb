@@ -1,9 +1,9 @@
 #!/usr/bin/env ruby
 # coding: UTF-8
 
-# notify_stats.rb
+# email_stats.rb
 # 
-# notify about current status of raspberry pi
+# notify through gmail about current status of this machine
 # 
 # created on : 2012.05.31
 # last update: 2012.06.14
@@ -17,8 +17,8 @@ require "yaml"
 CONFIG_FILEPATH = File.join(File.dirname(__FILE__), "configs.yml")
 
 DEFAULT_MAIL_TITLE = "Current Status of Raspberry Pi"
-RASPI_LOGO_IMG_URL = "http://www.raspberrypi.org/wp-content/uploads/2012/03/Raspi_Colour_R.png"
-RASPI_URL = "http://raspberrypi.org/"
+LOGO_IMG_URL = "http://www.raspberrypi.org/wp-content/uploads/2012/03/Raspi_Colour_R.png"
+LOGO_LINK_URL = "http://raspberrypi.org/"
 
 def read_configs
 	if File.exists? CONFIG_FILEPATH
@@ -106,7 +106,7 @@ if __FILE__ == $0
 		content << decorate("Free Memory", get_current_memory)
 
 		# footer
-		content << "<p><a href='#{RASPI_URL}'><img src='#{RASPI_LOGO_IMG_URL}' width='50px' alt='Logo'/></a>&nbsp;<i>This email was sent at #{Time.now.strftime("%Y-%m-%d %H:%M")}, using: #{__FILE__}</i></p>"
+		content << "<p><a href='#{LOGO_LINK_URL}'><img src='#{LOGO_IMG_URL}' width='50px' alt='Logo'/></a>&nbsp;<i>This email was sent at #{Time.now.strftime("%Y-%m-%d %H:%M")}, using: #{__FILE__}</i></p>"
 
 		# send result
 		send_gmail(read_configs, title, nil, content.join(""))
