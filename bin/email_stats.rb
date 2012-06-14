@@ -79,7 +79,7 @@ def get_uname
 end
 
 def decorate(title, content)
-	return "<p><b>* #{title}:</b><br/>#{content.gsub("\n", "<br/>")}</p><hr/>"
+	return "<p><b>* #{title}:</b><br/><pre>#{content}</pre></p><hr/>"
 end
 
 if __FILE__ == $0
