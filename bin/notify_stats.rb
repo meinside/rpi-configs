@@ -6,7 +6,7 @@
 # notify about current status of raspberry pi
 # 
 # created on : 2012.05.31
-# last update: 2012.06.07
+# last update: 2012.06.14
 # 
 # by meinside@gmail.com
 
@@ -56,7 +56,7 @@ def send_gmail(configs, title, text_content, html_content)
 end
 
 def get_current_ip
-	if `ifconfig eth0` =~ /(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})/
+	if `/sbin/ifconfig eth0` =~ /(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})/
 		return $1.strip
 	end
 	return nil
