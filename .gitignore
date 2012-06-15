@@ -40,6 +40,8 @@ tmp
 # etc. files/dirs
 .bash_history
 .mysql_history
+.irb-history
+.irb_history
 .vim
 .ssh
 .gem
