@@ -36,6 +36,7 @@ xcuserdata
 
 # temp files/dirs
 tmp
+backups
 
 # other src files
 ruby
