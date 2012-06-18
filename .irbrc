@@ -1,8 +1,8 @@
-# .irbrc file for OSX
+# .irbrc file
 #
 # meinside@gmail.com
 #
-# last update: 11.04.04.
+# last update: 12.06.18.
 
 require "rubygems"
 
@@ -35,6 +35,6 @@ def ri(*names)
 end
 
 # custom libraries
-MY_LIBRARY_PATH = "~/ruby/meinside"
+MY_LIBRARY_PATH = "~/ruby/libs"
 $: << File.expand_path(MY_LIBRARY_PATH)
 
