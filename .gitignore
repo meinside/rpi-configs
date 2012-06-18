@@ -55,4 +55,5 @@ bin/configs.yml
 .viminfo
 .bash_logout
 .profile
+backups.yml
 
