@@ -1,7 +1,7 @@
 # .bashrc
 #
 # created on 12.05.31.
-# updated on 12.06.04.
+# updated on 12.06.19.
 #
 # ... by meinside@gmail.com
 
@@ -108,6 +108,9 @@ fi
 # custom paths
 if [ -d "$HOME/ruby" ] ; then
 	PATH="$PATH:$HOME/ruby"
+fi
+if [ -d "$HOME/node" ] ; then
+	PATH="$PATH:$HOME/node"
 fi
 if [ -d "$HOME/bin" ] ; then
     PATH="$PATH:$HOME/bin"
