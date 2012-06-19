@@ -3,6 +3,6 @@ gmail_sender:
   username: _gmail_username_
   passwd: _gmail_passwd_
 
-notification_recipient:
+email_recipient:
   email: _recipient_email_address_
 

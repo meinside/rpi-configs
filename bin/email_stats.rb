@@ -6,7 +6,7 @@
 # notify through gmail about current status of this machine
 # 
 # created on : 2012.05.31
-# last update: 2012.06.14
+# last update: 2012.06.19
 # 
 # by meinside@gmail.com
 
@@ -38,7 +38,7 @@ end
 def send_gmail(configs, title, text_content, html_content)
 	Gmail.new(configs["gmail_sender"]["username"], configs["gmail_sender"]["passwd"]) {|gmail|
 		gmail.deliver {
-			to configs["notification_recipient"]["email"]
+			to configs["email_recipient"]["email"]
 			subject title
 			if text_content
 				text_part {
