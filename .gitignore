@@ -18,6 +18,9 @@
 *.swp
 *~.nib
 
+# cache files/dirs
+.cache
+
 # xcode files
 build/*
 *.pbxuser
