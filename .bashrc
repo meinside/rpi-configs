@@ -1,7 +1,7 @@
 # .bashrc
 #
 # created on 12.05.31.
-# updated on 12.06.19.
+# updated on 12.06.26.
 #
 # ... by meinside@gmail.com
 
@@ -115,3 +115,7 @@ fi
 if [ -d "$HOME/bin" ] ; then
     PATH="$PATH:$HOME/bin"
 fi
+
+# for node
+export NODE_PATH=/usr/local/lib/node_modules
+
