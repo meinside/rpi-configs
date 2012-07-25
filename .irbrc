@@ -2,7 +2,7 @@
 #
 # meinside@gmail.com
 #
-# last update: 12.06.18.
+# last update: 12.07.25.
 
 require "rubygems"
 
@@ -12,6 +12,9 @@ when "irb"
 	# initialize wirble
 	begin
 		require "wirble"
+		Wirble::Colorize.colors = Wirble::Colorize.colors.merge({
+			#object_class: :white,
+		})
 		Wirble.init
 		Wirble.colorize
 	rescue
@@ -29,9 +32,21 @@ require "irb/completion"
 # turn on auto indent
 IRB.conf[:AUTO_INDENT] = true
 
-# define ri helper function
-def ri(*names)
-	system(%{ri #{names.map{|name| name.to_s}.join(" ")}})
+# definitions of irb helper functions
+def clear
+	system 'clear'
+end
+
+class Object
+	def own_methods(omit_superclass_methods = true)
+		omit_superclass_methods ? 
+			(self.methods - self.class.superclass.instance_methods).sort : 
+			(self.methods - Object.instance_methods).sort
+	end
+
+	def ri(obj = self)
+		puts `ri '#{obj.kind_of?(String) ? obj : (obj.class == Class ? obj : obj.class)}'`
+	end
 end
 
 # custom libraries
