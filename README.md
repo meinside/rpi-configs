@@ -5,5 +5,5 @@ by Sungjin Han <meinside@gmail.com>
 
 My personal config/profile files for Raspberry Pi server,
 
-currently running on Debian Wheezy.
+currently running on Raspbian
 
