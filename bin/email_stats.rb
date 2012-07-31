@@ -6,7 +6,7 @@
 # notify through gmail about current status of this machine
 # 
 # created on : 2012.05.31
-# last update: 2012.06.19
+# last update: 2012.07.31
 # 
 # by meinside@gmail.com
 
@@ -19,6 +19,18 @@ CONFIG_FILEPATH = File.join(File.dirname(__FILE__), "configs.yml")
 DEFAULT_MAIL_TITLE = "Current Status of Raspberry Pi"
 LOGO_IMG_URL = "http://www.raspberrypi.org/wp-content/uploads/2012/03/Raspi_Colour_R.png"
 LOGO_LINK_URL = "http://raspberrypi.org/"
+
+CRON_SCRIPT_EXAMPLE = <<CRON_SCRIPT
+#!/bin/bash
+
+. /etc/profile.d/rvm.sh
+SHELL=/usr/local/bin/rvm-shell
+
+RUBY=/usr/local/rvm/rubies/ruby-1.9.3-p194/bin/ruby
+SCRIPT=/home/meinside/bin/email_stats.rb
+
+$RUBY $SCRIPT "Daily Status Report of Raspberry Pi"
+CRON_SCRIPT
 
 def read_configs
 	if File.exists? CONFIG_FILEPATH
