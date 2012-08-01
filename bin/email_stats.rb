@@ -6,7 +6,7 @@
 # notify through gmail about current status of this machine
 # 
 # created on : 2012.05.31
-# last update: 2012.07.31
+# last update: 2012.08.01
 # 
 # by meinside@gmail.com
 
@@ -48,9 +48,13 @@ def read_configs
 end
 
 def send_gmail(configs, title, text_content, html_content)
-	Gmail.new(configs["gmail_sender"]["username"], configs["gmail_sender"]["passwd"]) {|gmail|
+	username = configs["gmail_sender"]["username"]
+	passwd = configs["gmail_sender"]["passwd"]
+	recipient = configs["email_recipient"]["email"]
+
+	Gmail.new(username, passwd) {|gmail|
 		gmail.deliver {
-			to configs["email_recipient"]["email"]
+			to recipient
 			subject title
 			if text_content
 				text_part {
@@ -68,9 +72,11 @@ def send_gmail(configs, title, text_content, html_content)
 end
 
 def get_current_ip
-	if `/sbin/ifconfig eth0` =~ /(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})/
-		return $1.strip
-	end
+	["eth0", "wlan0"].each{|interface|
+		if `/sbin/ifconfig #{interface}` =~ /inet addr:(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})/
+			return $1.strip
+		end
+	}
 	return nil
 end
 

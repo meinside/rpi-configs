@@ -1,5 +1,5 @@
 # git ignore file of meinside@gmail.com
-# last update: 2012.06.18.
+# last update: 2012.08.01.
 
 # unnecessary binary files
 *.o
@@ -53,6 +53,7 @@ bin/configs.yml
 .mysql_history
 .irb-history
 .irb_history
+.lesshst
 .vim
 .ssh
 .gem
