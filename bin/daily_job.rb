@@ -1,12 +1,12 @@
 #!/usr/bin/env ruby
 # coding: UTF-8
 
-# email_stats.rb
+# daily_job.rb
 # 
-# notify through gmail about current status of this machine
+# daily-run script for raspberry pi server
 # 
 # created on : 2012.05.31
-# last update: 2012.08.01
+# last update: 2012.08.17
 # 
 # by meinside@gmail.com
 
@@ -16,7 +16,7 @@ require "yaml"
 
 CONFIG_FILEPATH = File.join(File.dirname(__FILE__), "configs.yml")
 
-DEFAULT_MAIL_TITLE = "Current Status of Raspberry Pi"
+DEFAULT_MAIL_TITLE = "Current status report of Raspberry Pi"
 LOGO_IMG_URL = "http://www.raspberrypi.org/wp-content/uploads/2012/03/Raspi_Colour_R.png"
 LOGO_LINK_URL = "http://raspberrypi.org/"
 
@@ -27,9 +27,9 @@ CRON_SCRIPT_EXAMPLE = <<CRON_SCRIPT
 SHELL=/usr/local/bin/rvm-shell
 
 RUBY=/usr/local/rvm/rubies/ruby-1.9.3-p194/bin/ruby
-SCRIPT=/home/meinside/bin/email_stats.rb
+SCRIPT=/home/meinside/bin/daily_job.rb
 
-$RUBY $SCRIPT "Daily Status Report of Raspberry Pi"
+$RUBY $SCRIPT "Daily status report of Raspberry Pi"
 CRON_SCRIPT
 
 def read_configs
