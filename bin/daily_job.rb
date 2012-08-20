@@ -6,7 +6,7 @@
 # daily-run script for raspberry pi server
 # 
 # created on : 2012.05.31
-# last update: 2012.08.17
+# last update: 2012.08.20
 # 
 # by meinside@gmail.com
 
@@ -113,7 +113,7 @@ class DailyJob
 			return "<p><b>* #{title}:</b><br/><pre>#{content}</pre></p><hr/>"
 		end
 
-		def self.summary
+		def self.html_summary
 			content = []
 
 			# server stats
@@ -137,7 +137,7 @@ if __FILE__ == $0
 	email_title = ARGV.count > 0 ? ARGV.join(" ") : DEFAULT_MAIL_TITLE
 
 	DailyJob.new{|job|
-		job.send_gmail(email_title, nil, DailyJob::ServerStatCheck.summary)
+		job.send_gmail(email_title, nil, DailyJob::ServerStatCheck.html_summary)
 	}
 
 end

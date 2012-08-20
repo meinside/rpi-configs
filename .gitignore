@@ -54,6 +54,7 @@ bin/configs.yml
 .irb-history
 .irb_history
 .lesshst
+.Rhistory
 .vim
 .ssh
 .gem
