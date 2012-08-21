@@ -6,7 +6,7 @@
 # daily-run script for raspberry pi server
 # 
 # created on : 2012.05.31
-# last update: 2012.08.20
+# last update: 2012.08.21
 # 
 # by meinside@gmail.com
 
@@ -35,6 +35,8 @@ class DailyJob
 
 	def initialize
 		@configs = read_configs
+		exit unless @configs
+
 		if block_given?
 			yield self
 		end
