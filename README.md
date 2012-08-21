@@ -27,6 +27,11 @@ $ sudo chown root.rvm /etc/profile.d/rvm.sh
 [[ -s "/etc/profile.d/rvm.sh" ]] && source "/etc/profile.d/rvm.sh"  # This loads RVM into a shell session.
 ```
 
+```
+# (if gem complains about bundler like: 'Gem::InstallError: gem "bundler" is not installed':)
+$ rvm gemset use global
+```
+
 ### WiFi Configuration (Asus USB N10) ###
 
 ``$ sudo vi /etc/network/interfaces``
