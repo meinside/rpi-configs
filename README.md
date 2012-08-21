@@ -18,6 +18,7 @@ $ sudo /usr/sbin/usermod -a -G rvm username
 $ sudo chown root.rvm /etc/profile.d/rvm.sh
 ```
 
+#### * load rvm.sh when login ####
 ``$ vi .bashrc``
 
 ```
@@ -27,10 +28,8 @@ $ sudo chown root.rvm /etc/profile.d/rvm.sh
 [[ -s "/etc/profile.d/rvm.sh" ]] && source "/etc/profile.d/rvm.sh"  # This loads RVM into a shell session.
 ```
 
-```
-# (if gem complains about bundler like: 'Gem::InstallError: gem "bundler" is not installed':)
-$ rvm gemset use global
-```
+#### * if gem complains about bundler like: 'Gem::InstallError: gem "bundler" is not installed': ####
+``$ rvm gemset use global``
 
 ### WiFi Configuration (Asus USB N10) ###
 
