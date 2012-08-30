@@ -46,7 +46,7 @@ ruby
 rails
 node
 public_html
-bin/configs.yml
+configs.yml
 
 # X files
 .Xauthority

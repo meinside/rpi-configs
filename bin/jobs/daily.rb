@@ -1,12 +1,12 @@
 #!/usr/bin/env ruby
 # coding: UTF-8
 
-# daily_job.rb
+# daily.rb
 # 
 # daily-run script for raspberry pi server
 # 
 # created on : 2012.05.31
-# last update: 2012.08.21
+# last update: 2012.08.30
 # 
 # by meinside@gmail.com
 
@@ -14,7 +14,7 @@ require "rubygems"
 require "gmail"	# gem install mime ruby-gmail (https://github.com/dcparker/ruby-gmail)
 require "yaml"
 
-CONFIG_FILEPATH = File.join(File.dirname(__FILE__), "configs.yml")
+CONFIG_FILEPATH = File.expand_path(File.join(File.dirname(__FILE__), "..", "..", "configs", "configs.yml"))
 
 DEFAULT_MAIL_TITLE = "Current status report of Raspberry Pi"
 
@@ -25,7 +25,7 @@ CRON_SCRIPT_EXAMPLE = <<CRON_SCRIPT
 SHELL=/usr/local/bin/rvm-shell
 
 RUBY=/usr/local/rvm/rubies/ruby-1.9.3-p194/bin/ruby
-SCRIPT=/home/meinside/bin/daily_job.rb
+SCRIPT=/home/meinside/bin/jobs/daily.rb
 
 $RUBY $SCRIPT "Daily status report of Raspberry Pi"
 CRON_SCRIPT
@@ -139,6 +139,7 @@ if __FILE__ == $0
 	email_title = ARGV.count > 0 ? ARGV.join(" ") : DEFAULT_MAIL_TITLE
 
 	DailyJob.new{|job|
+		# send daily-status-report email
 		job.send_gmail(email_title, nil, DailyJob::ServerStatCheck.html_summary)
 	}
 
