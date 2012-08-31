@@ -8,6 +8,28 @@ My personal config/profile files for Raspberry Pi server, currently running on R
 
 * * *
 
+## Useful Configurations ##
+
+### Setting up watchdog ###
+
+```
+$ sudo modprobe bcm2708_wdog
+
+$ sudo vi /etc/modules
+
+# Add following line:
+bcm2708_wdog
+
+# and install watchdog daemon:
+$ sudo apt-get install watchdog
+$ chkconfig watchdog on
+$ sudo /etc/init.d/watchdog start
+
+$ sudo vi /etc/watchdog.conf
+
+# Uncomment line: 'watchdog-device = /dev/watchdog'
+```
+
 ## Additional Configurations ##
 
 ### Install RVM for multi-users ###
