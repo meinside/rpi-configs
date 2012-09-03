@@ -5,6 +5,8 @@ by Sungjin Han <meinside@gmail.com>
 
 My personal config/profile files for Raspberry Pi server, currently running on Raspbian.
 
+(referencing: https://github.com/meinside/myrubyscripts as submodule)
+
 
 * * *
 
