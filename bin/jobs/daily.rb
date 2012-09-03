@@ -6,20 +6,21 @@
 # daily-run script for raspberry pi server
 # 
 # created on : 2012.05.31
-# last update: 2012.08.30
+# last update: 2012.09.03
 # 
 # by meinside@gmail.com
 
+$: << File.dirname(__FILE__)
+
 require "rubygems"
-require "gmail"	# gem install mime ruby-gmail (https://github.com/dcparker/ruby-gmail)
-require "yaml"
 
-CONFIG_FILEPATH = File.expand_path(File.join(File.dirname(__FILE__), "..", "..", "configs", "configs.yml"))
+require "job"
 
-DEFAULT_MAIL_TITLE = "Current status report of Raspberry Pi"
+=begin
 
-CRON_SCRIPT_EXAMPLE = <<CRON_SCRIPT
 #!/bin/bash
+
+# sample cron script
 
 . /etc/profile.d/rvm.sh
 SHELL=/usr/local/bin/rvm-shell
@@ -28,58 +29,12 @@ RUBY=/usr/local/rvm/rubies/ruby-1.9.3-p194/bin/ruby
 SCRIPT=/home/meinside/bin/jobs/daily.rb
 
 $RUBY $SCRIPT "Daily status report of Raspberry Pi"
-CRON_SCRIPT
 
-class DailyJob
-	@configs = nil
+=end
 
-	def initialize
-		@configs = read_configs
-		exit unless @configs
+class DailyJob < Job
 
-		if block_given?
-			yield self
-		end
-	end
-
-	def read_configs
-		if File.exists? CONFIG_FILEPATH
-			File.open(CONFIG_FILEPATH, "r"){|file|
-				begin
-					return YAML.load(file)
-				rescue
-					puts "* error parsing config file: #{CONFIG_FILEPATH}"
-				end
-			}
-		else
-			puts "* config file not found: #{CONFIG_FILEPATH}"
-		end
-		return nil
-	end
-
-	def send_gmail(title, text_content, html_content)
-		username = @configs["gmail_sender"]["username"]
-		passwd = @configs["gmail_sender"]["passwd"]
-		recipient = @configs["email_recipient"]["email"]
-
-		Gmail.new(username, passwd) {|gmail|
-			gmail.deliver {
-				to recipient
-				subject title
-				if text_content
-					text_part {
-						body text_content
-					}
-				end
-				if html_content
-					html_part {
-						content_type 'text/html; charset=UTF-8'
-						body html_content
-					}
-				end
-			}
-		}
-	end
+	DEFAULT_MAIL_TITLE = "Current status report of Raspberry Pi"
 
 	class ServerStatCheck
 
@@ -140,7 +95,7 @@ if __FILE__ == $0
 
 	DailyJob.new{|job|
 		# send daily-status-report email
-		job.send_gmail(email_title, nil, DailyJob::ServerStatCheck.html_summary)
+		job.send_gmail(email_title, DailyJob::ServerStatCheck.html_summary)
 	}
 
 end

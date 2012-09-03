@@ -6,14 +6,21 @@
 # daily-run script for raspberry pi server
 # 
 # created on : 2012.08.21
-# last update: 2012.08.30
+# last update: 2012.09.03
 # 
 # by meinside@gmail.com
 
-require "wiringpi"	# gem install wiringpi
+$: << File.dirname(__FILE__)
 
-CRON_SCRIPT_EXAMPLE = <<CRON_SCRIPT
+require "rubygems"
+
+require "job"
+
+=begin
+
 #!/bin/bash
+
+# sample cron script
 
 . /etc/profile.d/rvm.sh
 SHELL=/usr/local/bin/rvm-shell
@@ -22,22 +29,21 @@ RUBY=/usr/local/rvm/rubies/ruby-1.9.3-p194/bin/ruby
 SCRIPT=/home/meinside/bin/jobs/hourly.rb
 
 $RUBY $SCRIPT
-CRON_SCRIPT
 
-class HourlyJob
+=end
+
+class HourlyJob < Job
 
 	GPIO_PIN_LED_R = 23	# GPIO #23
 	GPIO_PIN_LED_G = 24	# GPIO #24
 	GPIO_PIN_LED_B = 25	# GPIO #25
 
-	RUN_CYCLE_SECONDS = 0.1
-
 	def initialize
-		@io = WiringPi::GPIO.new(WPI_MODE_GPIO)
-
-		@io.mode(GPIO_PIN_LED_R, OUTPUT)
-		@io.mode(GPIO_PIN_LED_G, OUTPUT)
-		@io.mode(GPIO_PIN_LED_B, OUTPUT)
+		@gpio = MyGPIO.new(WPI_MODE_GPIO){|gpio|
+			gpio.mode(GPIO_PIN_LED_R, OUTPUT)
+			gpio.mode(GPIO_PIN_LED_G, OUTPUT)
+			gpio.mode(GPIO_PIN_LED_B, OUTPUT)
+		}
 
 		if block_given?
 			yield self
@@ -45,9 +51,9 @@ class HourlyJob
 	end
 
 	def led_rgb(r = true, g =  true, b = true)
-		@io.write(GPIO_PIN_LED_R, r ? LOW : HIGH)
-		@io.write(GPIO_PIN_LED_G, g ? LOW : HIGH)
-		@io.write(GPIO_PIN_LED_B, b ? LOW : HIGH)
+		@gpio.write(GPIO_PIN_LED_R, r ? LOW : HIGH)
+		@gpio.write(GPIO_PIN_LED_G, g ? LOW : HIGH)
+		@gpio.write(GPIO_PIN_LED_B, b ? LOW : HIGH)
 	end
 
 	def change_led_color(color)
