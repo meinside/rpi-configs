@@ -7,7 +7,7 @@
 # (referenced: https://gist.github.com/3023588)
 # 
 # created on : 2012.08.21
-# last update: 2012.08.21
+# last update: 2012.09.04
 # 
 # by meinside@gmail.com
 
@@ -60,9 +60,9 @@ I7 +.=+:=~I777 7 77.:                         ~7 II7I?7I 77:7I77II
     77I,.,+I7I                                        7I77I7 7I
      77777??                                            :?7777
 
-Type 'startx' to launch a graphical session
-
 MOTD_LOGO
+
+MOTD_FILEPATH = "/etc/motd"
 
 def print_usage
 	puts "* should login as root first"
@@ -71,7 +71,7 @@ end
 if __FILE__ == $0
 	if `whoami`.strip == 'root'
 		begin
-			File.open("/etc/motd.tail", "w"){|file|
+			File.open(MOTD_FILEPATH, "w"){|file|
 				file << MOTD_LOGO
 			}
 			`/etc/init.d/bootlogs`

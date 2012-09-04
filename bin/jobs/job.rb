@@ -6,11 +6,11 @@
 # base class for server jobs
 # 
 # created on : 2012.09.03
-# last update: 2012.09.03
+# last update: 2012.09.04
 # 
 # by meinside@gmail.com
 
-$: << File.expand_path("~/ruby/libs")
+$: << File.expand_path(File.join(File.dirname(__FILE__), "..", "..", "ruby", "libs"))
 
 require "rubygems"
 
