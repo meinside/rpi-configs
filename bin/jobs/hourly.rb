@@ -6,7 +6,7 @@
 # daily-run script for raspberry pi server
 # 
 # created on : 2012.08.21
-# last update: 2012.09.03
+# last update: 2012.09.06
 # 
 # by meinside@gmail.com
 
@@ -56,7 +56,7 @@ class HourlyJob < Job
 		@gpio.write(GPIO_PIN_LED_B, b ? LOW : HIGH)
 	end
 
-	def change_led_color(color)
+	def change_led_color_to(color)
 		case color
 		when :red
 			led_rgb(true, false, false)
@@ -65,7 +65,7 @@ class HourlyJob < Job
 		when :blue
 			led_rgb(false, false, true)
 		when :purple
-			led_rgb(true, false, false)
+			led_rgb(true, false, true)
 		when :yellow
 			led_rgb(true, true, false)
 		when :cyan
@@ -79,15 +79,24 @@ class HourlyJob < Job
 		end
 	end
 
+	def rotate_led_colors(colors, interval)
+		colors.each{|color|
+			change_led_color_to(color)
+			sleep(interval)
+		}
+	end
+
 end
 
 if __FILE__ == $0
 
-	color_seqs = [:red, :green, :blue, :purple, :yellow, :cyan]
+	rotate_colors = [:white, :red, :yellow, :green, :blue, :cyan, :purple, :black]
+	status_colors = [:red, :yellow, :green, :blue, :cyan, :purple]
 
 	HourlyJob.new{|job|
 		# change led's color hourly
-		job.change_led_color(color_seqs[Time.now.hour % color_seqs.size])
+		job.rotate_led_colors(rotate_colors, 1.0)
+		job.change_led_color_to(status_colors[Time.now.hour % status_colors.size])
 	}
 
 end
