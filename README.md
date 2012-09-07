@@ -32,6 +32,27 @@ $ sudo vi /etc/watchdog.conf
 # Uncomment line: 'watchdog-device = /dev/watchdog'
 ```
 
+### Setting up i2c ###
+
+```
+$ sudo modprobe i2c_dev
+
+$ sudo vi /etc/modules
+
+# Add following line:
+i2c-dev
+
+$ sudo vi /etc/modprobe.d/raspi-blacklist.conf 
+
+# Comment out following lines:
+blacklist spi-bcm2708
+blacklist i2c-bcm2708
+
+$ sudo apt-get install i2c-tools
+
+$ sudo usermod -a -G i2c username
+```
+
 ## Additional Configurations ##
 
 ### Install RVM for multi-users ###
