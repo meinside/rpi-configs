@@ -6,7 +6,7 @@
 # base class for server jobs
 # 
 # created on : 2012.09.03
-# last update: 2012.09.04
+# last update: 2012.09.12
 # 
 # by meinside@gmail.com
 
@@ -15,7 +15,6 @@ $: << File.expand_path(File.join(File.dirname(__FILE__), "..", "..", "ruby", "li
 require "rubygems"
 
 require "my_gmail"
-require "my_gpio"
 
 require "yaml"
 
