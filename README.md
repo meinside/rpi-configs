@@ -105,6 +105,32 @@ iface wlan0 inet dhcp
 
 ``$ sudo ifup wlan0``
 
+### WiFi connection checker ###
+
+``$ vi /some/where/wlan_check.sh``
+
+```
+#!/bin/bash
+
+if iwconfig wlan0 | grep -o "Access Point: Not-Associated"
+then
+	ifconfig wlan0 down
+	sleep 10
+	ifconfig wlan0 up
+fi
+```
+
+``$ chmod +x /some/where/wlan_check.sh``
+
+``$ sudo crontab -e``
+
+```
+# (add following)
+
+# will check wlan connectivity every 5 minutes
+*/5 * * * * /some/where/wlan_check.sh
+```
+
 
 ### UTF-8 configuration for MySQL ###
 
