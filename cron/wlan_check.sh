@@ -1,8 +1,19 @@
 #!/bin/bash
 
-if iwconfig wlan0 | grep -o "Access Point: Not-Associated"
+# cron script for checking wlan connectivity
+
+IP_FOR_TEST="8.8.8.8"
+INTERFACE="wlan0"
+
+# ping test
+`which ping` -c 5 $IP_FOR_TEST > /dev/null
+if [ $? -ge 1 ]
 then
-	ifconfig wlan0 down
+	echo "$INTERFACE seems to be down, trying to bring it up..."
+
+	ifconfig $INTERFACE down
 	sleep 10
-	ifconfig wlan0 up
+	ifconfig $INTERFACE up
+else
+	echo "$INTERFACE is up"
 fi
