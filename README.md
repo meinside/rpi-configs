@@ -112,11 +112,27 @@ iface wlan0 inet dhcp
 ```
 #!/bin/bash
 
-if iwconfig wlan0 | grep -o "Access Point: Not-Associated"
+# cron script for checking wlan connectivity
+IP_FOR_TEST="8.8.8.8"
+PING_COUNT=5
+
+PING="/bin/ping"
+IFUP="/sbin/ifup"
+IFDOWN="/sbin/ifdown"
+
+INTERFACE="wlan0"
+
+# ping test
+$PING -c $PING_COUNT $IP_FOR_TEST > /dev/null
+if [ $? -ge 1 ]
 then
-	ifconfig wlan0 down
+	echo "$INTERFACE seems to be down, trying to bring it up..."
+
+	$IFDOWN $INTERFACE
 	sleep 10
-	ifconfig wlan0 up
+	$IFUP $INTERFACE
+else
+	echo "$INTERFACE is up"
 fi
 ```
 
