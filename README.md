@@ -84,6 +84,7 @@ $ sudo chown root.rvm /etc/profile.d/rvm.sh
 # (add following)
 
 # for hidden ssid (PSK)
+allow-hotplug wlan0
 auto wlan0
 iface wlan0 inet dhcp
     wpa-driver wext
@@ -97,6 +98,7 @@ iface wlan0 inet dhcp
     wpa-psk [some_password]
 
 # for typical ssid (PSK)
+#allow-hotplug wlan0
 #auto wlan0
 #iface wlan0 inet dhcp
 #    wpa-ssid [some_ssid]
