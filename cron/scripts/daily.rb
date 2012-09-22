@@ -32,9 +32,9 @@ $RUBY $SCRIPT "Daily status report of Raspberry Pi"
 
 =end
 
-class DailyJob < Job
+DEFAULT_MAIL_TITLE = "Current status report of Raspberry Pi"
 
-	DEFAULT_MAIL_TITLE = "Current status report of Raspberry Pi"
+class DailyJob < Job
 
 	class ServerStatCheck
 
