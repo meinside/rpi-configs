@@ -6,7 +6,7 @@
 # base class for server jobs
 # 
 # created on : 2012.09.03
-# last update: 2012.09.12
+# last update: 2012.10.08
 # 
 # by meinside@gmail.com
 
@@ -35,39 +35,40 @@ email_recipient:
 
 =end
 
-	@configs = nil
+  @configs = nil
 
-	def initialize
-		@configs = read_configs
+  def initialize
+    @configs = read_configs
 
-		if block_given?
-			yield self
-		end
-	end
+    if block_given?
+      yield self
+    end
+  end
 
-	def read_configs
-		if File.exists? CONFIG_FILEPATH
-			File.open(CONFIG_FILEPATH, "r"){|file|
-				begin
-					return YAML.load(file)
-				rescue
-					puts "* error parsing config file: #{CONFIG_FILEPATH}"
-				end
-			}
-		else
-			puts "* config file not found: #{CONFIG_FILEPATH}"
-		end
-		return nil
-	end
+  def read_configs
+    if File.exists? CONFIG_FILEPATH
+      File.open(CONFIG_FILEPATH, "r"){|file|
+        begin
+          return YAML.load(file)
+        rescue
+          puts "* error parsing config file: #{CONFIG_FILEPATH}"
+        end
+      }
+    else
+      puts "* config file not found: #{CONFIG_FILEPATH}"
+    end
+    return nil
+  end
 
-	def send_gmail(title, html_content)
-		MyGmail.send({
-			username: @configs["gmail_sender"]["username"],
-			passwd: @configs["gmail_sender"]["passwd"],
-			recipient: @configs["email_recipient"]["email"],
-			title: title,
-			html_content: html_content,
-		})
-	end
+  def send_gmail(title, html_content)
+    MyGmail.send({
+      username: @configs["gmail_sender"]["username"],
+      passwd: @configs["gmail_sender"]["passwd"],
+      recipient: @configs["email_recipient"]["email"],
+      title: title,
+      html_content: html_content,
+    })
+  end
 
 end
+

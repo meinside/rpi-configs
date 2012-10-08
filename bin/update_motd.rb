@@ -7,7 +7,7 @@
 # (referenced: https://gist.github.com/3023588)
 # 
 # created on : 2012.08.21
-# last update: 2012.09.04
+# last update: 2012.10.08
 # 
 # by meinside@gmail.com
 
@@ -65,21 +65,22 @@ MOTD_LOGO
 MOTD_FILEPATH = "/etc/motd"
 
 def print_usage
-	puts "* should login as root first"
+  puts "* should login as root first"
 end
 
 if __FILE__ == $0
-	if `whoami`.strip == 'root'
-		begin
-			File.open(MOTD_FILEPATH, "w"){|file|
-				file << MOTD_LOGO
-			}
-			`/etc/init.d/bootlogs`
-			puts "* MOTD was updated successfully"
-		rescue
-			puts $!
-		end
-	else
-		print_usage
-	end
+  if `whoami`.strip == 'root'
+    begin
+      File.open(MOTD_FILEPATH, "w"){|file|
+        file << MOTD_LOGO
+      }
+      `/etc/init.d/bootlogs`
+      puts "* MOTD was updated successfully"
+    rescue
+      puts $!
+    end
+  else
+    print_usage
+  end
 end
+
