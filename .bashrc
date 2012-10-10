@@ -1,7 +1,7 @@
 # .bashrc
 #
 # created on 12.05.31.
-# updated on 12.08.29.
+# updated on 12.10.10.
 #
 # ... by meinside@gmail.com
 
@@ -12,8 +12,8 @@
 export DISPLAY=:0.0
 export EDITOR="/usr/bin/vim"
 export SVN_EDITOR="/usr/bin/vim"
-export LANG="ko_KR.UTF-8"
-export LC_ALL="ko_KR.UTF-8"
+export LANG="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
 export TERM="xterm-color"
 export CLICOLOR=true
 
