@@ -1,7 +1,7 @@
 # .bashrc
 #
 # created on 12.05.31.
-# updated on 12.10.10.
+# updated on 12.10.19.
 #
 # ... by meinside@gmail.com
 
@@ -46,6 +46,7 @@ fi
 
 # for RVM
 [[ -s "/etc/profile.d/rvm.sh" ]] && source "/etc/profile.d/rvm.sh"  # This loads RVM into a shell session.
+PATH=$PATH:/usr/local/rvm/bin # Add RVM to PATH for scripting
 
 # custom paths
 if [ -d "$HOME/ruby" ] ; then
@@ -60,4 +61,3 @@ fi
 
 # for node
 export NODE_PATH=/usr/local/lib/node_modules
-
