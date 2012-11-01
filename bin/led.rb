@@ -10,7 +10,7 @@
 # * prerequisite: http://www.skpang.co.uk/blog/archives/575
 # 
 # created on : 2012.08.21
-# last update: 2012.09.13
+# last update: 2012.11.01
 # 
 # by meinside@gmail.com
 
@@ -311,7 +311,7 @@ def exec_command(cmd, arg)
     end
   when /8x8/i
     if LED_8X8_SYMBOLS.has_key? arg.to_sym
-      AdafruitLED8x8Matrix.new("/dev/i2c-0", 0x70, {brightness: LED8X8_BRIGHTNESS, blink_rate: AdafruitLED8x8Matrix::HT16K33_BLINKRATE_HALFHZ}){|led|
+      AdafruitLED8x8Matrix.new("/dev/i2c-1", 0x70, {brightness: LED8X8_BRIGHTNESS, blink_rate: AdafruitLED8x8Matrix::HT16K33_BLINKRATE_HALFHZ}){|led|
         led.clear
         led.write_array LED_8X8_SYMBOLS[arg.to_sym]
       }
