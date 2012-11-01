@@ -1,6 +1,6 @@
 # .gitconfig file of meinside@gmail.com
 #
-# last update: 2011.07.12.
+# last update: 2012.11.02.
 
 [alias]
 	co = checkout
@@ -16,6 +16,5 @@
 [color]
 	ui = auto
 
-# 
-# git pull = git fetch + git merge origin/master
-#
+# for updating submodules recursively: git pull --recurse-submodules && git submodule update
+
