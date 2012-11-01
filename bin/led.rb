@@ -215,7 +215,7 @@ class AdafruitLED8x8Matrix
   MAX_COL = 8
   MAX_ROW = 8
 
-  def initialize(device = "/dev/i2c-0", address = 0x70, options = {blink_rate: HT16K33_BLINKRATE_OFF, brightness: 15})
+  def initialize(device = "/dev/i2c-1", address = 0x70, options = {blink_rate: HT16K33_BLINKRATE_OFF, brightness: 15})
     if device.kind_of? String
       @device = ::I2C.create(device)
     else
