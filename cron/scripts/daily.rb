@@ -6,7 +6,7 @@
 # daily-run script for raspberry pi server
 # 
 # created on : 2012.05.31
-# last update: 2012.10.08
+# last update: 2012.11.02
 # 
 # by meinside@gmail.com
 
@@ -51,11 +51,11 @@ class DailyJob < Job
     end
 
     def self.get_current_storage
-      return `df -h`.strip
+      return `df -h`
     end
 
     def self.get_current_memory
-      return `free`.strip
+      return `free`
     end
 
     def self.get_uptime
@@ -63,7 +63,7 @@ class DailyJob < Job
     end
 
     def self.get_uname
-      return `uname -a`.strip
+      return `uname -a`
     end
 
     def self.get_cpu_temperature
