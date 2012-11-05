@@ -25,7 +25,7 @@ require "job"
 . /etc/profile.d/rvm.sh
 SHELL=/usr/local/bin/rvm-shell
 
-RUBY=/usr/local/rvm/rubies/ruby-1.9.3-p194/bin/ruby
+RUBY=/usr/local/rvm/rubies/ruby-1.9.3-p286/bin/ruby
 SCRIPT=/home/meinside/cron/scripts/daily.rb
 
 $RUBY $SCRIPT "Daily status report of Raspberry Pi"

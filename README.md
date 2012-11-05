@@ -157,7 +157,8 @@ fi
 ```
 # (add following)
 
-[mysql]default-character-set = utf8
+[mysql]
+default-character-set = utf8
  
 [client]
 default-character-set = utf8

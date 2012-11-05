@@ -10,7 +10,7 @@
 # * prerequisite: http://www.skpang.co.uk/blog/archives/575
 # 
 # created on : 2012.08.21
-# last update: 2012.11.01
+# last update: 2012.11.05
 # 
 # by meinside@gmail.com
 
@@ -33,7 +33,7 @@ require "i2c/backends/i2c-dev.rb"
 . /etc/profile.d/rvm.sh
 SHELL=/usr/local/bin/rvm-shell
 
-RUBY=/usr/local/rvm/rubies/ruby-1.9.3-p194/bin/ruby
+RUBY=/usr/local/rvm/rubies/ruby-1.9.3-p286/bin/ruby
 SCRIPT=/home/meinside/bin/led.rb
 
 $RUBY $SCRIPT
