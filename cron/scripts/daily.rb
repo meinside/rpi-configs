@@ -6,7 +6,7 @@
 # daily-run script for raspberry pi server
 # 
 # created on : 2012.05.31
-# last update: 2012.11.02
+# last update: 2012.11.13
 # 
 # by meinside@gmail.com
 
@@ -25,7 +25,7 @@ require "job"
 . /etc/profile.d/rvm.sh
 SHELL=/usr/local/bin/rvm-shell
 
-RUBY=/usr/local/rvm/rubies/ruby-1.9.3-p286/bin/ruby
+RUBY=/usr/local/rvm/rubies/ruby-1.9.3-p327/bin/ruby
 SCRIPT=/home/meinside/cron/scripts/daily.rb
 
 $RUBY $SCRIPT "Daily status report of Raspberry Pi"
