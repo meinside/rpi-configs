@@ -1,6 +1,6 @@
 " meinside's vimrc file,
 " created by meinside@gmail.com,
-" last update: 12.05.11.
+" last update: 2012.11.13.
 "
 "
 "
@@ -27,34 +27,39 @@ endif
 
 """"""""""""""""""""""""""""""""""""
 " settings for vundle (https://github.com/gmarik/vundle)
-set nocompatible               " be iMproved
-filetype off                   " required!
+let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
+if filereadable(vundle_readme)
+	set nocompatible               " be iMproved
+	filetype off                   " required!
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+	set rtp+=~/.vim/bundle/vundle/
+	call vundle#rc()
 
-" let Vundle manage Vundle
-"  " required! 
-Bundle 'gmarik/vundle'
+	" let Vundle manage Vundle
+	"  " required! 
+	Bundle 'gmarik/vundle'
 
-" add bundles here
-Bundle 'surround.vim'
-Bundle 'matchit.zip'
-Bundle 'ragtag.vim'
-Bundle 'snippetsEmu'
-Bundle 'fugitive.vim'
+	" add bundles here
+	Bundle 'surround.vim'
+	Bundle 'matchit.zip'
+	Bundle 'ragtag.vim'
+	Bundle 'snippetsEmu'
+	Bundle 'fugitive.vim'
 
-filetype plugin indent on     " required!
+	filetype plugin indent on     " required!
 
-"
-" :BundleList          - list configured bundles
-" :BundleInstall(!)    - install(update) bundles
-" :BundleSearch(!) foo - search(or refresh cache first) for foo
-" :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
-" see :h vundle for more details or wiki for FAQ
-" NOTE: comments after Bundle command are not allowed..
-"
-""""""""""""""""""""""""""""""""""""
+	"
+	" :BundleList          - list configured bundles
+	" :BundleInstall(!)    - install(update) bundles
+	" :BundleSearch(!) foo - search(or refresh cache first) for foo
+	" :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
+	" see :h vundle for more details or wiki for FAQ
+	" NOTE: comments after Bundle command are not allowed..
+	"
+	""""""""""""""""""""""""""""""""""""
+else
+	echo "Install vundle: git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle"
+endif
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
