@@ -1,7 +1,7 @@
 # .bashrc
 #
 # created on 12.05.31.
-# updated on 12.10.19.
+# updated on 12.11.22.
 #
 # ... by meinside@gmail.com
 
@@ -38,6 +38,9 @@ fi
 
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
+fi
+if [ -f ~/.custom_aliases ]; then
+    . ~/.custom_aliases
 fi
 
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then

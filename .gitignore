@@ -1,5 +1,5 @@
 # git ignore file of meinside@gmail.com
-# last update: 2012.08.29.
+# last update: 2012.11.22.
 
 # unnecessary binary files
 *.o
@@ -70,4 +70,5 @@ configs.yml
 .bash_logout
 .profile
 .subversion
+.custom_aliases
 
