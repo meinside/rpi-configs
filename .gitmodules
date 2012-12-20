@@ -1,3 +1,0 @@
-[submodule "modules/ruby"]
-	path = modules/ruby
-	url = git://github.com/meinside/myrubyscripts.git
