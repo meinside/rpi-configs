@@ -1,7 +1,7 @@
 # .bashrc
 #
 # created on 12.05.31.
-# updated on 12.11.29.
+# updated on 13.02.05.
 #
 # ... by meinside@gmail.com
 
@@ -15,6 +15,7 @@ export SVN_EDITOR="/usr/bin/vim"
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 export TERM="xterm-color"
+export PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
 export CLICOLOR=true
 
 HISTCONTROL=ignoreboth
