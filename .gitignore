@@ -36,6 +36,9 @@ xcuserdata
 
 # osx files
 .DS_Store
+.AppleDouble
+.AppleDB
+.AppleDesktop
 
 # temp files/dirs
 tmp
