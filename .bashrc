@@ -1,7 +1,7 @@
 # .bashrc
 #
 # created on 12.05.31.
-# updated on 13.02.05.
+# updated on 13.02.23.
 #
 # ... by meinside@gmail.com
 
@@ -14,8 +14,6 @@ export EDITOR="/usr/bin/vim"
 export SVN_EDITOR="/usr/bin/vim"
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
-export TERM="xterm-color"
-export PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
 export CLICOLOR=true
 
 HISTCONTROL=ignoreboth
@@ -24,11 +22,19 @@ shopt -s histappend
 shopt -s checkwinsize
 
 # prompt
-if [ `whoami` = "root" ]; then
-   	PS1='\[\033[01;31m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-else
-   	PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-fi
+case ${TERM} in
+	xterm*|rxvt*|Eterm|aterm|kterm|gnome*|screen)
+		PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
+		if [ `whoami` = "root" ]; then
+			PS1='\[\033[01;31m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+		else
+			PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+		fi
+		;;
+	*)
+		PS1='\h \w \$ '
+		;;
+esac
 
 # colors
 if [ -x /usr/bin/dircolors ]; then
