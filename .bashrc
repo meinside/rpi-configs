@@ -59,6 +59,7 @@ fi
 # for RVM
 [[ -s "/etc/profile.d/rvm.sh" ]] && source "/etc/profile.d/rvm.sh"  # This loads RVM into a shell session.
 PATH=$PATH:/usr/local/rvm/bin # Add RVM to PATH for scripting
+export rvmsudo_secure_path=1
 
 # for node
 export NODE_PATH=/usr/local/lib/node_modules
