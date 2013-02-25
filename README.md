@@ -5,7 +5,7 @@ by Sungjin Han <meinside@gmail.com>
 
 My personal config/profile files for Raspberry Pi server, currently running on Raspbian.
 
-(referencing: https://github.com/meinside/myrubyscripts as submodule)
+(dependent on: https://github.com/meinside/myrubyscripts as $HOME/ruby/)
 
 
 * * *
@@ -50,7 +50,7 @@ blacklist i2c-bcm2708
 
 $ sudo apt-get install i2c-tools
 
-$ sudo usermod -a -G i2c username
+$ sudo usermod -a -G i2c USERNAME
 ```
 
 ## Additional Configurations ##
@@ -59,24 +59,14 @@ $ sudo usermod -a -G i2c username
 
 ```
 $ curl -L get.rvm.io | sudo bash -s stable
-$ sudo /usr/sbin/usermod -a -G rvm username
+$ sudo /usr/sbin/usermod -a -G rvm USERNAME
 $ sudo chown root.rvm /etc/profile.d/rvm.sh
-```
-
-#### * load rvm.sh when login ####
-``$ vi .bashrc``
-
-```
-# (add following)
-
-# for RVM
-[[ -s "/etc/profile.d/rvm.sh" ]] && source "/etc/profile.d/rvm.sh"  # This loads RVM into a shell session.
 ```
 
 #### * if gem complains about bundler like: 'Gem::InstallError: gem "bundler" is not installed': ####
 ``$ rvm gemset use global``
 
-### WiFi Configuration (Asus USB N10) ###
+### WiFi Configuration ###
 
 ``$ sudo vi /etc/network/interfaces``
 
@@ -107,38 +97,7 @@ iface wlan0 inet dhcp
 
 ``$ sudo ifup wlan0``
 
-### WiFi connection checker ###
-
-``$ vi /some/where/wlan_check.sh``
-
-```
-#!/bin/bash
-
-# cron script for checking wlan connectivity
-IP_FOR_TEST="8.8.8.8"
-PING_COUNT=5
-
-PING="/bin/ping"
-IFUP="/sbin/ifup"
-IFDOWN="/sbin/ifdown"
-
-INTERFACE="wlan0"
-
-# ping test
-$PING -c $PING_COUNT $IP_FOR_TEST > /dev/null
-if [ $? -ge 1 ]
-then
-	echo "$INTERFACE seems to be down, trying to bring it up..."
-
-	$IFDOWN $INTERFACE
-	sleep 10
-	$IFUP $INTERFACE
-else
-	echo "$INTERFACE is up"
-fi
-```
-
-``$ chmod +x /some/where/wlan_check.sh``
+### run WiFi connection checker periodically ###
 
 ``$ sudo crontab -e``
 
@@ -146,7 +105,7 @@ fi
 # (add following)
 
 # will check wlan connectivity every 5 minutes
-*/5 * * * * /some/where/wlan_check.sh
+*/5 * * * * /home/USERNAME/cron/wlan_check.sh
 ```
 
 
@@ -180,21 +139,22 @@ default-character-set = utf8
 #### How to install Apache-Passenger module ####
 
 ```
-$ rvm use 1.9.3
 $ gem install passenger
 $ sudo passenger-install-apache2-module
-$ sudo ln -sf ~/rails/rails_app/public /var/www/rails_app
-$ sudo chown username.www-data ~/rails/rails_app -R
+
+# (and do as the install script says...)
 ```
 
 #### Configure rails page as webroot's subdir ####
 
-``$ sudo vi /etc/apache2/sites-available/default``
-
 ```
+$ sudo ln -sf /path/to/rails_app/public /var/www/rails_app
+$ sudo chown USERNAME.www-data /path/to/rails_app -R
+$ sudo vi /etc/apache2/sites-available/default
+
 # (add following)
 
-<Directory /home/meinside/rails/rails_app/public>
+<Directory /path/to/rails_app/public>
     RailsBaseURI /rails_app
     PassengerResolveSymlinksInDocumentRoot on
 </Directory>
@@ -208,10 +168,10 @@ $ sudo chown username.www-data ~/rails/rails_app -R
 # (create a new file)
 
 <VirtualHost *:80>
-    ServerAdmin meinside@gmail.com
+    ServerAdmin someone@some_domain.com
     ServerName rails_app.some_domain.com
-    DocumentRoot ~/rails/rails_app/public
-    <Directory ~/rails/rails_app/public>
+    DocumentRoot /path/to/rails_app/public
+    <Directory /path/to/rails_app/public>
         PassengerResolveSymlinksInDocumentRoot on
     </Directory>
 </VirtualHost>
