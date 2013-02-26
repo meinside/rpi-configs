@@ -14,57 +14,63 @@ My personal config/profile files for Raspberry Pi server, currently running on R
 
 ### Setting up watchdog ###
 
+``$ sudo modprobe bcm2708_wdog``
+
+``$ sudo vi /etc/modules``
+
 ```
-$ sudo modprobe bcm2708_wdog
-
-$ sudo vi /etc/modules
-
 # Add following line:
 bcm2708_wdog
+```
 
-# and install watchdog daemon:
-$ sudo apt-get install watchdog
-$ chkconfig watchdog on
-$ sudo /etc/init.d/watchdog start
+``$ sudo apt-get install watchdog``
 
-$ sudo vi /etc/watchdog.conf
+``$ sudo chkconfig watchdog on``
 
-# Uncomment line: 'watchdog-device = /dev/watchdog'
+``$ sudo /etc/init.d/watchdog start``
+
+``$ sudo vi /etc/watchdog.conf``
+
+```
+# Uncomment line:
+
+watchdog-device = /dev/watchdog
 ```
 
 ### Setting up i2c ###
 
+``$ sudo modprobe i2c_dev``
+
+``$ sudo vi /etc/modules``
+
 ```
-$ sudo modprobe i2c_dev
-
-$ sudo vi /etc/modules
-
 # Add following line:
+
 i2c-dev
+```
 
-$ sudo vi /etc/modprobe.d/raspi-blacklist.conf 
+``$ sudo vi /etc/modprobe.d/raspi-blacklist.conf ``
 
+```
 # Comment out following lines:
+
 blacklist spi-bcm2708
 blacklist i2c-bcm2708
-
-$ sudo apt-get install i2c-tools
-
-$ sudo usermod -a -G i2c USERNAME
 ```
+
+``$ sudo apt-get install i2c-tools``
+
+``$ sudo usermod -a -G i2c USERNAME``
 
 ## Additional Configurations ##
 
 ### Install RVM for multi-users ###
 
-```
-$ curl -L get.rvm.io | sudo bash -s stable
-$ sudo /usr/sbin/usermod -a -G rvm USERNAME
-$ sudo chown root.rvm /etc/profile.d/rvm.sh
-```
+``$ curl -L get.rvm.io | sudo bash -s stable``
 
-#### * if gem complains about bundler like: 'Gem::InstallError: gem "bundler" is not installed': ####
-``$ rvm gemset use global``
+``$ sudo /usr/sbin/usermod -a -G rvm USERNAME``
+
+``$ sudo chown root.rvm /etc/profile.d/rvm.sh``
 
 ### WiFi Configuration ###
 
@@ -134,24 +140,27 @@ default-character-set = utf8
 ```
 
 
-### Apache-Passenger configurations ###
+### Rails: Apache-Passenger configurations ###
 
 #### How to install Apache-Passenger module ####
 
-```
-$ gem install passenger
-$ sudo passenger-install-apache2-module
+``$ gem install passenger``
 
+``$ sudo passenger-install-apache2-module``
+
+```
 # (and do as the install script says...)
 ```
 
 #### Configure rails page as webroot's subdir ####
 
-```
-$ sudo ln -sf /path/to/rails_app/public /var/www/rails_app
-$ sudo chown USERNAME.www-data /path/to/rails_app -R
-$ sudo vi /etc/apache2/sites-available/default
+``$ sudo ln -sf /path/to/rails_app/public /var/www/rails_app``
 
+``$ sudo chown USERNAME.www-data /path/to/rails_app -R``
+
+``$ sudo vi /etc/apache2/sites-available/default``
+
+```
 # (add following)
 
 <Directory /path/to/rails_app/public>
@@ -175,4 +184,58 @@ $ sudo vi /etc/apache2/sites-available/default
         PassengerResolveSymlinksInDocumentRoot on
     </Directory>
 </VirtualHost>
+```
+
+#### Configure logrotate for rails page ####
+
+``$ sudo vi /etc/logrotate.d/some-config-file``
+
+```
+# (create a new file with following content)
+
+/some/where/log/*.log {
+    compress
+    copytruncate
+    daily
+    delaycompress
+    missingok
+    rotate 7
+    size=5M
+}
+```
+
+
+### AFP & Zero-conf DNS configuration ###
+
+``$ sudo apt-get install netatalk``
+
+``$ sudo apt-get install avahi-daemon``
+
+``$ sudo apt-get install libapache2-mod-dnssd``
+
+``$ sudo a2enmod mod-dnssd``
+
+``$ sudo vi /etc/avahi/services/SERVICE_NAME.service``
+
+```
+# (create a new file with following content:)
+
+<?xml version="1.0" standalone='no'?><!--*-nxml-*-->
+<!DOCTYPE service-group SYSTEM "avahi-service.dtd">
+<service-group>
+    <name replace-wildcards="yes">%h</name>
+    <service>
+        <type>_afpovertcp._tcp</type>
+        <port>548</port>
+    </service>
+    <service>
+        <type>_http._tcp</type>
+        <port>80</port>
+    </service>
+    <service>
+        <type>_device-info._tcp</type>
+        <port>0</port>
+        <txt-record>model=Xserve</txt-record>
+    </service>
+</service-group>
 ```
