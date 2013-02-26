@@ -174,7 +174,7 @@ default-character-set = utf8
 ``$ sudo vi /etc/apache2/sites-available/rails_app``
 
 ```
-# (create a new file)
+# (create a new file with following content)
 
 <VirtualHost *:80>
     ServerAdmin someone@some_domain.com
@@ -218,7 +218,7 @@ default-character-set = utf8
 ``$ sudo vi /etc/avahi/services/SERVICE_NAME.service``
 
 ```
-# (create a new file with following content:)
+# (create a new file with following content)
 
 <?xml version="1.0" standalone='no'?><!--*-nxml-*-->
 <!DOCTYPE service-group SYSTEM "avahi-service.dtd">
