@@ -1,7 +1,7 @@
 # .bashrc
 #
 # created on 12.05.31.
-# updated on 13.02.23.
+# updated on 13.02.26.
 #
 # ... by meinside@gmail.com
 
@@ -32,7 +32,7 @@ case ${TERM} in
 		fi
 		;;
 	*)
-		PS1='\h \w \$ '
+		PS1='\u@\h \w \$ '
 		;;
 esac
 
