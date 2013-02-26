@@ -207,13 +207,19 @@ default-character-set = utf8
 
 ### AFP & Zero-conf DNS configuration ###
 
+#### install netatalk and avahi-daemon ####
+
 ``$ sudo apt-get install netatalk``
 
 ``$ sudo apt-get install avahi-daemon``
 
+#### install dnssd module for apache2 ####
+
 ``$ sudo apt-get install libapache2-mod-dnssd``
 
 ``$ sudo a2enmod mod-dnssd``
+
+#### add an avahi-daemon service ####
 
 ``$ sudo vi /etc/avahi/services/SERVICE_NAME.service``
 
