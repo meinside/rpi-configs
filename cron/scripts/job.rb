@@ -6,33 +6,27 @@
 # base class for server jobs
 # 
 # created on : 2012.09.03
-# last update: 2012.10.08
+# last update: 2013.03.04
 # 
 # by meinside@gmail.com
 
-$: << File.expand_path(File.join(File.dirname(__FILE__), "..", "..", "ruby", "libs"))
-
-require "rubygems"
-
-require "my_gmail"
-
 require "yaml"
+
+require_relative "../../ruby/libs/my_gmail"
 
 class Job
 
-	CONFIG_FILEPATH = File.expand_path(File.join(File.dirname(__FILE__), "..", "..", "configs", "configs.yml"))
+  CONFIG_FILEPATH = File.expand_path(File.join(File.dirname(__FILE__), "..", "..", "configs", "configs.yml"))
 
-=begin
 # config file(.yml) format
-
+=begin
 ---
-gmail_sender:
-  username: _gmail_username_
-  passwd: _gmail_passwd_
-
-email_recipient:
-  email: _recipient_email_address_
-
+mail_notification:
+  gmail_sender:
+    username: _gmail_username_
+    passwd: _gmail_passwd_
+  email_recipient:
+    email: _recipient_email_address_
 =end
 
   @configs = nil
@@ -61,10 +55,11 @@ email_recipient:
   end
 
   def send_gmail(title, html_content)
+    configs = @configs["mail_notification"]
     MyGmail.send({
-      username: @configs["gmail_sender"]["username"],
-      passwd: @configs["gmail_sender"]["passwd"],
-      recipient: @configs["email_recipient"]["email"],
+      username: configs["gmail_sender"]["username"],
+      passwd: configs["gmail_sender"]["passwd"],
+      recipient: configs["email_recipient"]["email"],
       title: title,
       html_content: html_content,
     })
