@@ -29,4 +29,5 @@ rm -rf $TMP_DIR
 # re-login for loading configs
 echo
 echo -e "\033[31m*** logout, and login again for reloading configs ***\033[0m"
-echo "$ exit\n"
+echo "$ exit"
+echo

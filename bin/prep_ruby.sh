@@ -26,4 +26,5 @@ sudo chown root.rvm /etc/profile.d/rvm.sh
 # re-login for loading rvm and installing ruby
 echo
 echo -e "\033[31m*** logout, and login again for installing Ruby ***\033[0m"
-echo "$ rvm install ruby\n"
+echo "$ rvm install ruby"
+echo
