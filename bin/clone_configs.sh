@@ -15,7 +15,7 @@ TMP_DIR="$HOME/configs.tmp"
 
 echo -e "\033[32mThis script will clone config files for Raspberry Pi\033[0m\n"
 
-if ! `which git` > /dev/null; then
+if ! which git > /dev/null; then
 	echo -e "\033[33m>>> installing git...\033[0m\n"
 	sudo apt-get install git
 fi
