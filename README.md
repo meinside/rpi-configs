@@ -10,9 +10,9 @@ My personal config/profile files for Raspberry Pi server, currently running on R
 
 * * *
 
-## Useful Configurations ##
+## 1. Useful Configurations ##
 
-### Setting up watchdog ###
+### A. Setting up watchdog ###
 
 ``$ sudo modprobe bcm2708_wdog``
 
@@ -37,7 +37,7 @@ bcm2708_wdog
 watchdog-device = /dev/watchdog
 ```
 
-### Setting up i2c ###
+### B. Setting up i2c ###
 
 ``$ sudo modprobe i2c_dev``
 
@@ -62,9 +62,9 @@ blacklist i2c-bcm2708
 
 ``$ sudo usermod -a -G i2c USERNAME``
 
-## Additional Configurations ##
+## 2. Additional Configurations ##
 
-### Install RVM for multi-users ###
+### A. Install RVM for multi-users ###
 
 ``$ curl -L get.rvm.io | sudo bash -s stable``
 
@@ -72,7 +72,7 @@ blacklist i2c-bcm2708
 
 ``$ sudo chown root.rvm /etc/profile.d/rvm.sh``
 
-### WiFi Configuration ###
+### B. WiFi Configuration ###
 
 ``$ sudo vi /etc/network/interfaces``
 
@@ -103,7 +103,7 @@ iface wlan0 inet dhcp
 
 ``$ sudo ifup wlan0``
 
-### run WiFi connection checker periodically ###
+### C. run WiFi connection checker periodically ###
 
 ``$ sudo crontab -e``
 
@@ -115,7 +115,7 @@ iface wlan0 inet dhcp
 ```
 
 
-### UTF-8 configuration for MySQL ###
+### D. UTF-8 configuration for MySQL ###
 
 ``$ sudo vi /etc/mysql/my.cnf``
 
@@ -140,86 +140,26 @@ default-character-set = utf8
 ```
 
 
-### Rails: Apache-Passenger configurations ###
+### E. Rails: Passenger configurations ###
 
-#### How to install Apache-Passenger module ####
-
-``$ gem install passenger``
-
-``$ sudo passenger-install-apache2-module``
-
-```
-# (and do as the install script says...)
-```
-
-#### Configure rails page as webroot's subdir ####
-
-``$ sudo ln -sf /path/to/rails_app/public /var/www/rails_app``
-
-``$ sudo chown USERNAME.www-data /path/to/rails_app -R``
-
-``$ sudo vi /etc/apache2/sites-available/default``
-
-```
-# (add following)
-
-<Directory /path/to/rails_app/public>
-    RailsBaseURI /rails_app
-    PassengerResolveSymlinksInDocumentRoot on
-</Directory>
-```
-
-#### Configure rails page as subdomain ####
-
-``$ sudo vi /etc/apache2/sites-available/rails_app``
-
-```
-# (create a new file with following content)
-
-<VirtualHost *:80>
-    ServerAdmin someone@some_domain.com
-    ServerName rails_app.some_domain.com
-    DocumentRoot /path/to/rails_app/public
-    <Directory /path/to/rails_app/public>
-        PassengerResolveSymlinksInDocumentRoot on
-    </Directory>
-</VirtualHost>
-```
-
-#### Configure logrotate for rails page ####
-
-``$ sudo vi /etc/logrotate.d/some-config-file``
-
-```
-# (create a new file with following content)
-
-/some/where/log/*.log {
-    compress
-    copytruncate
-    daily
-    delaycompress
-    missingok
-    rotate 7
-    size=5M
-}
-```
+* https://github.com/meinside/rails-on-raspberrypi#install-passenger-module
 
 
-### AFP & Zero-conf DNS configuration ###
+### F. AFP & Zero-conf DNS configuration ###
 
-#### install netatalk and avahi-daemon ####
+#### a. install netatalk and avahi-daemon ####
 
 ``$ sudo apt-get install netatalk``
 
 ``$ sudo apt-get install avahi-daemon``
 
-#### install dnssd module for apache2 ####
+#### b. install dnssd module for apache2 ####
 
 ``$ sudo apt-get install libapache2-mod-dnssd``
 
 ``$ sudo a2enmod mod-dnssd``
 
-#### add an avahi-daemon service ####
+#### c. add an avahi-daemon service ####
 
 ``$ sudo vi /etc/avahi/services/SERVICE_NAME.service``
 
