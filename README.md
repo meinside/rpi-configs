@@ -185,3 +185,14 @@ default-character-set = utf8
     </service>
 </service-group>
 ```
+
+## 3. Etc. Tips ##
+
+### A. set static dns server even when using DHCP ###
+
+``$ sudo vi /etc/dhcp/dhclient.conf``
+
+```
+# add following:
+supersede domain-name-servers 8.8.8.8, 8.8.4.4;
+```
