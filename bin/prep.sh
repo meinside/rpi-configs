@@ -1,11 +1,11 @@
 #!/bin/bash
 
-# clone_configs.sh
+# prep.sh
 # 
 # for cloning config files from github for Raspberry Pi
-# (https://raw.github.com/meinside/raspiconfigs/master/bin/clone_configs.sh)
+# (https://raw.github.com/meinside/raspiconfigs/master/bin/prep.sh)
 # 
-# last update: 2013.03.04.
+# last update: 2013.03.05.
 # 
 # by meinside@gmail.com
 
@@ -20,7 +20,7 @@ if ! which git > /dev/null; then
 	sudo apt-get install git
 fi
 rm -rf $TMP_DIR
-git clone git://github.com/meinside/raspiconfigs.git $TMP_DIR
+git clone $REPOSITORY $TMP_DIR
 
 shopt -s dotglob nullglob
 mv $TMP_DIR/* $HOME/
