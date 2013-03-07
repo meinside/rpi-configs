@@ -5,9 +5,6 @@ by Sungjin Han <meinside@gmail.com>
 
 My personal config/profile files for Raspberry Pi server, currently running on Raspbian.
 
-(dependent on: https://github.com/meinside/myrubyscripts as $HOME/ruby/)
-
-
 * * *
 
 ## 1. Useful Configurations ##
@@ -142,7 +139,7 @@ default-character-set = utf8
 
 ### E. Rails: Passenger configurations ###
 
-* https://github.com/meinside/rails-on-raspberrypi#install-passenger-module
+* see: https://github.com/meinside/rails-on-raspberrypi#install-passenger-module
 
 
 ### F. AFP & Zero-conf DNS configuration ###
@@ -195,4 +192,44 @@ default-character-set = utf8
 ```
 # add following:
 supersede domain-name-servers 8.8.8.8, 8.8.4.4;
+```
+
+### B. when using bluetooth with dongle ###
+
+* referenced: http://wiki.debian.org/BluetoothUser
+
+#### a. make raspberry pi discoverable by other bluetooth devices ####
+
+``$ sudo hciconfig hci0 piscan``
+
+``$ sudo bluetooth-agent 0000``
+
+do something here,
+and make raspberry pi hidden from other bluetooth devices again
+
+``$ sudo hciconfig hci0 noscan``
+
+#### b. display bluetooth device (for checking proper installation) ####
+
+``$ hcitool dev``
+
+#### c. scan nearby bluetooth devices ####
+
+``$ hcitool scan``
+
+#### d. settings ####
+
+``$ sudo vi /etc/default/bluetooth``
+
+```
+# edit
+#HID2HCI_ENABLED=0
+HID2HCI_ENABLED=1
+
+# add static device informations
+device 01:23:45:AB:CD:EF {
+    name "Bluetooth Device Name";
+    auth enable;
+    encrypt enable;
+}
 ```
