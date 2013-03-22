@@ -109,6 +109,8 @@ iface wlan0 inet dhcp
 
 # will check wlan connectivity every 5 minutes
 */5 * * * * /home/USERNAME/cron/wlan_check.sh
+# or every 1 hour
+0 */1 * * * /home/USERNAME/cron/wlan_check.sh
 ```
 
 
