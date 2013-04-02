@@ -3,15 +3,16 @@
 
 # job.rb
 # 
-# base class for server jobs
+# base class for cron jobs
 # 
 # created on : 2012.09.03
-# last update: 2013.03.04
+# last update: 2013.04.02
 # 
 # by meinside@gmail.com
 
 require "yaml"
 
+# using: https://github.com/meinside/myrubyscripts
 require_relative "../../ruby/libs/my_gmail"
 
 class Job
