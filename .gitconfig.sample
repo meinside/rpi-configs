@@ -1,6 +1,6 @@
-# .gitconfig file of meinside@gmail.com
+# sample .gitconfig file of mine
 #
-# last update: 2012.11.02.
+# last update: 2013.04.03.
 
 [alias]
 	co = checkout
@@ -15,6 +15,4 @@
 	email = meinside@gmail.com
 [color]
 	ui = auto
-
-# for updating submodules recursively: git pull --recurse-submodules && git submodule update
 

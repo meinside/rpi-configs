@@ -61,6 +61,9 @@ configs.yml
 .local/
 .xsession-errors
 
+# private files (ignored for customizing)
+.gitconfig
+
 # etc. files/dirs
 .bash_history
 .mysql_history
