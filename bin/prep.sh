@@ -30,12 +30,15 @@ mv $TMP_DIR/* $HOME/
 rm -rf $TMP_DIR
 
 # upgrade packages
+echo -e "\033[33m>>> upgrading installed packages...\033[0m\n"
 sudo apt-get -y upgrade
 
 # install other essential packages
+echo -e "\033[33m>>> installing other essential packages...\033[0m\n"
 sudo apt-get -y install vim
 
 # cleanup
+echo -e "\033[33m>>> cleaning up...\033[0m\n"
 sudo apt-get -y autoremove
 sudo apt-get -y autoclean
 
