@@ -7,6 +7,16 @@ My personal config/profile files for Raspberry Pi server, currently running on R
 
 * * *
 
+## 0. For My Comfort ##
+
+### A. use prep script ###
+
+```
+$ wget "https://github.com/meinside/raspiconfigs/raw/master/bin/prep.sh"
+$ chmod +x prep.sh
+$ ./prep.sh
+```
+
 ## 1. Useful Configurations ##
 
 ### A. Setting up watchdog ###
