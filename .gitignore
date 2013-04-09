@@ -1,5 +1,5 @@
 # git ignore file of meinside@gmail.com
-# last update: 2012.11.22.
+# last update: 2013.04.09.
 
 # unnecessary binary files
 *.o
@@ -46,12 +46,19 @@ Temporary Items
 tmp
 backups
 
-# other src files
+# ruby files/dirs
 ruby
 rails
+.irb-history
+.irb_history
+
+# node files/dirs
 node
+.npm
+node_modules
+
+# other src files
 public_html
-configs.yml
 
 # X files
 .Xauthority
@@ -63,12 +70,12 @@ configs.yml
 
 # private files (ignored for customizing)
 .gitconfig
+.custom_aliases
+configs.yml
 
 # etc. files/dirs
 .bash_history
 .mysql_history
-.irb-history
-.irb_history
 .lesshst
 .Rhistory
 .vim
@@ -78,5 +85,4 @@ configs.yml
 .bash_logout
 .profile
 .subversion
-.custom_aliases
 
