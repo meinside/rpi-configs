@@ -71,7 +71,7 @@ public_html
 # private files (ignored for customizing)
 .gitconfig
 .custom_aliases
-configs.yml
+.conf/*.yml
 
 # etc. files/dirs
 .bash_history

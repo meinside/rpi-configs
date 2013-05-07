@@ -6,7 +6,7 @@
 # base class for cron jobs
 # 
 # created on : 2012.09.03
-# last update: 2013.04.02
+# last update: 2013.05.07
 # 
 # by meinside@gmail.com
 
@@ -17,17 +17,18 @@ require_relative "../../ruby/libs/my_gmail"
 
 class Job
 
-  CONFIG_FILEPATH = File.expand_path(File.join(File.dirname(__FILE__), "..", "..", "configs", "configs.yml"))
+  CONFIG_FILEPATH = File.expand_path(File.join(File.dirname(__FILE__), "..", "..", ".conf", "configs.yml"))
 
 # config file(.yml) format
 =begin
 ---
-mail_notification:
-  gmail_sender:
-    username: _gmail_username_
-    passwd: _gmail_passwd_
-  email_recipient:
-    email: _recipient_email_address_
+email:
+  notification:
+    gmail_sender:
+      username: _gmail_username_
+      passwd: _gmail_passwd_
+    recipient:
+      email: _recipient_email_address_
 =end
 
   @configs = nil
@@ -56,11 +57,11 @@ mail_notification:
   end
 
   def send_gmail(title, html_content)
-    configs = @configs["mail_notification"]
+    configs = @configs["email"]["notification"]
     MyGmail.send({
       username: configs["gmail_sender"]["username"],
       passwd: configs["gmail_sender"]["passwd"],
-      recipient: configs["email_recipient"]["email"],
+      recipient: configs["recipient"]["email"],
       title: title,
       html_content: html_content,
     })
