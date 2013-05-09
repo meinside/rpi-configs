@@ -1,13 +1,14 @@
 # sample .gitconfig file of mine
 #
-# last update: 2013.04.03.
+# last update: 2013.05.09.
 
 [alias]
 	co = checkout
 	ci = commit
 	st = status
 	br = branch
-	ll = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+	ls = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+	ll = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short -p
 	type = cat-file -t
 	dump = cat-file -p
 [user]
