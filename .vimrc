@@ -1,6 +1,6 @@
 " meinside's vimrc file,
 " created by meinside@gmail.com,
-" last update: 2012.11.13.
+" last update: 2013.05.21.
 "
 "
 "
@@ -75,6 +75,7 @@ set smartindent
 set nu
 set ts=4
 set sw=4
+set sts=4
 set fencs=ucs-bom,utf-8,korea
 set termencoding=utf-8
 colo evening
@@ -127,7 +128,10 @@ if has("autocmd")
   autocmd FileType text setlocal textwidth=78
 
   " For ruby
-  autocmd FileType ruby,eruby,yaml set ai sw=2 sts=2 et
+  autocmd FileType ruby,eruby,yaml set ai sw=2 ts=2 sts=2 et
+
+  " For html/javascript
+  autocmd FileType htm,html,js,erb set ai sw=2 ts=2 sts=2 et
 
   " When editing a file, always jump to the last known cursor position.
   " Don't do it when the position is invalid or when inside an event handler
