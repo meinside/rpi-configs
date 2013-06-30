@@ -246,7 +246,7 @@ device 01:23:45:AB:CD:EF {
 }
 ```
 
-### C. use logrotate.d
+### C. use logrotate.d ###
 
 ``$ sudo vi /etc/logrotate.d/some_file``
 
