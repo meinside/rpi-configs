@@ -245,3 +245,19 @@ device 01:23:45:AB:CD:EF {
     encrypt enable;
 }
 ```
+
+### C. use logrotate.d
+
+``$ sudo vi /etc/logrotate.d/some_file``
+
+```
+    /some_where/*.log {
+      compress
+      copytruncate
+      daily
+      delaycompress
+      missingok
+      rotate 7
+      size=5M
+    }
+```
