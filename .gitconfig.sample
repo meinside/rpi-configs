@@ -1,6 +1,6 @@
 # sample .gitconfig file of mine
 #
-# last update: 2013.05.09.
+# last update: 2013.07.03.
 
 [alias]
 	co = checkout
@@ -11,6 +11,7 @@
 	ll = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short -p
 	type = cat-file -t
 	dump = cat-file -p
+	unstage = reset HEAD --
 [user]
 	name = Sungjin Han
 	email = meinside@gmail.com
