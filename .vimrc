@@ -1,6 +1,6 @@
 " meinside's vimrc file,
 " created by meinside@gmail.com,
-" last update: 2013.05.21.
+" last update: 2013.07.03.
 "
 "
 "
@@ -45,6 +45,8 @@ if filereadable(vundle_readme)
 	Bundle 'ragtag.vim'
 	Bundle 'snippetsEmu'
 	Bundle 'fugitive.vim'
+	Bundle 'mattn/webapi-vim'
+	Bundle 'mattn/gist-vim'
 
 	filetype plugin indent on     " required!
 

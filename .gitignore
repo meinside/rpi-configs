@@ -1,5 +1,5 @@
 # git ignore file of meinside@gmail.com
-# last update: 2013.04.09.
+# last update: 2013.07.03.
 
 # unnecessary binary files
 *.o
@@ -70,6 +70,7 @@ public_html
 
 # private files (ignored for customizing)
 .gitconfig
+.gist-vim
 .custom_aliases
 .conf/*.yml
 
