@@ -6,7 +6,7 @@
 # and setting up several things for Raspberry Pi
 # (https://raw.github.com/meinside/raspiconfigs/master/bin/prep.sh)
 # 
-# last update: 2013.04.03.
+# last update: 2013.07.10.
 # 
 # by meinside@gmail.com
 
@@ -32,6 +32,7 @@ rm -rf $TMP_DIR
 
 # upgrade packages
 echo -e "\033[33m>>> upgrading installed packages...\033[0m"
+sudo apt-get update
 sudo apt-get -y upgrade
 
 # install other essential packages
