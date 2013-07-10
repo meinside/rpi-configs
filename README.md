@@ -12,9 +12,11 @@ My personal config/profile files for Raspberry Pi server, currently running on R
 ### A. use prep script ###
 
 ```
+$ cd ~
 $ wget "https://github.com/meinside/raspiconfigs/raw/master/bin/prep.sh"
 $ chmod +x prep.sh
 $ ./prep.sh
+$ rm ./prep.sh
 ```
 
 ## 1. Useful Configurations ##
