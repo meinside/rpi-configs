@@ -41,6 +41,7 @@ def download(version)
     puts "> will extract files to: #{node_dir}"
     `sudo mkdir -p "#{INSTALLATION_DIR}"`
     `sudo tar -xzvf "#{File.join(TEMPORARY_DIR, filename)}" -C "#{INSTALLATION_DIR}"`
+    `sudo chown -R $USER "#{node_dir}"`
     `sudo ln -sfn "#{node_dir}" "#{File.join(INSTALLATION_DIR, "node")}"`
   else
     puts "# no such version exists: #{version}"
