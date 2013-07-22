@@ -49,8 +49,6 @@ backups
 # ruby files/dirs
 ruby
 rails
-.irb-history
-.irb_history
 
 # node files/dirs
 node
@@ -74,11 +72,11 @@ public_html
 .custom_aliases
 .conf/*.yml
 
+# history files
+.*history
+
 # etc. files/dirs
-.bash_history
-.mysql_history
 .lesshst
-.Rhistory
 .vim
 .ssh
 .gem
