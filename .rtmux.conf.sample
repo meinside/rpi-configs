@@ -1,0 +1,25 @@
+---
+rails:  # for rails projects
+  session_name: "%d"
+  windows:
+  - name: console
+  - name: models
+    cmd: cd ./app/models; clear
+  - name: views
+    cmd: cd ./app/views; clear
+  - name: controllers
+    cmd: cd ./app/controllers; clear
+  - name: configs
+    cmd: cd ./config; clear
+  - name: server
+    split:
+      vertical: true
+      percentage: 50
+      panes:
+      - pane: 1
+        cmd: rails server
+      - pane: 2
+        cmd: rails console
+  focus:
+    name: console
+    pane: 1

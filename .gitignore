@@ -71,6 +71,7 @@ public_html
 .gist-vim
 .custom_aliases
 .conf/*.yml
+.rtmux.conf
 
 # history files
 .*history
