@@ -117,8 +117,10 @@ iface wlan0 inet dhcp
 ``$ sudo crontab -e``
 
 ```
-# (add following)
+*/1 * * * * bash -l /some/script_that_needs_login.sh
+0 1 * * * bash -l -c /some/ruby_script_under_rvm.rb
 
+# (add following)
 # will check wlan connectivity every 5 minutes
 */5 * * * * /home/USERNAME/cron/wlan_check.sh
 # or every 1 hour
