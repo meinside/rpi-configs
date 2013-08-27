@@ -265,3 +265,13 @@ device 01:23:45:AB:CD:EF {
       size=5M
     }
 ```
+
+### D. mount external hdd on boot time ###
+
+``$ sudo vi /etc/fstab``
+
+```
+# add following (uid and gid can be retrieved with command 'id')
+/dev/some_hdd1  /some/where/to/mount1  ext4  defaults   0 0
+/dev/some_hdd2  /some/where/to/mount2  vfat  rw,noatime,uid=7777,gid=7778,user   0 0
+```
