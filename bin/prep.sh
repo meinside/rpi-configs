@@ -6,7 +6,7 @@
 # and setting up several things for Raspberry Pi
 # (https://raw.github.com/meinside/raspiconfigs/master/bin/prep.sh)
 # 
-# last update: 2013.07.10.
+# last update: 2013.10.10.
 # 
 # by meinside@gmail.com
 
@@ -37,7 +37,7 @@ sudo apt-get -y upgrade
 
 # install other essential packages
 echo -e "\033[33m>>> installing other essential packages...\033[0m"
-sudo apt-get -y install vim tmux
+sudo apt-get -y install vim tmux mosh
 
 # cleanup
 echo -e "\033[33m>>> cleaning up...\033[0m"
