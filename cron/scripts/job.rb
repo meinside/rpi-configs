@@ -6,14 +6,14 @@
 # base class for cron jobs
 # 
 # created on : 2012.09.03
-# last update: 2013.05.07
+# last update: 2013.10.19
 # 
 # by meinside@gmail.com
 
 require "yaml"
 
 # using: https://github.com/meinside/myrubyscripts
-require_relative "../../ruby/libs/my_gmail"
+require_relative "../../ruby/lib/my_gmail"
 
 class Job
 
