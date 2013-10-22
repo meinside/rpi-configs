@@ -47,6 +47,8 @@ if filereadable(vundle_readme)
 	Bundle 'fugitive.vim'
 	Bundle 'mattn/webapi-vim'
 	Bundle 'mattn/gist-vim'
+	Bundle 'kchmck/vim-coffee-script'
+	Bundle 'guns/vim-clojure-static'
 
 	filetype plugin indent on     " required!
 
