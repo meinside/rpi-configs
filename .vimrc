@@ -1,6 +1,6 @@
 " meinside's vimrc file,
 " created by meinside@gmail.com,
-" last update: 2013.10.22.
+" last update: 2013.12.03.
 "
 "
 "
@@ -17,7 +17,7 @@
 
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
-  finish
+	finish
 endif
 
 " Use Vim settings, rather then Vi settings (much better!).
@@ -39,16 +39,30 @@ if filereadable(vundle_readme)
 	"  " required! 
 	Bundle 'gmarik/vundle'
 
+	""""""""
 	" add bundles here
+	"
 	Bundle 'surround.vim'
 	Bundle 'matchit.zip'
 	Bundle 'ragtag.vim'
 	Bundle 'snippetsEmu'
 	Bundle 'fugitive.vim'
+
+	" For uploading Gist
 	Bundle 'mattn/webapi-vim'
 	Bundle 'mattn/gist-vim'
+
+	" CoffeeScript
 	Bundle 'kchmck/vim-coffee-script'
+
+	" Clojure
 	Bundle 'guns/vim-clojure-static'
+
+	" HAML
+	Bundle 'tpope/vim-haml'
+
+	"
+	""""""""
 
 	filetype plugin indent on     " required!
 
@@ -92,10 +106,10 @@ if has("transparency")
 	set noimd
 	set imi=1
 	set ims=-1
-  set transparency=20
-  set fuoptions=maxvert,maxhorz	" maximize window when :set fu
-  win 120 40	" window size (120 x 40)
-  colo pablo
+	set transparency=20
+	set fuoptions=maxvert,maxhorz	" maximize window when :set fu
+	win 120 40	" window size (120 x 40)
+	colo pablo
 endif
 
 " For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
@@ -111,48 +125,48 @@ map Q gq
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
 if &t_Co > 2 || has("gui_running")
-  syntax on
-  set hlsearch
+	syntax on
+	set hlsearch
 endif
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
 
-  " Enable file type detection.
-  " Use the default filetype settings, so that mail gets 'tw' set to 72,
-  " 'cindent' is on in C files, etc.
-  " Also load indent files, to automatically do language-dependent indenting.
-  filetype plugin indent on
+	" Enable file type detection.
+	" Use the default filetype settings, so that mail gets 'tw' set to 72,
+	" 'cindent' is on in C files, etc.
+	" Also load indent files, to automatically do language-dependent indenting.
+	filetype plugin indent on
 
-  " Put these in an autocmd group, so that we can delete them easily.
-  augroup vimrcEx
-  au!
+	" Put these in an autocmd group, so that we can delete them easily.
+	augroup vimrcEx
+	au!
 
-  " For all text files set 'textwidth' to 78 characters.
-  autocmd FileType text setlocal textwidth=78
+	" For all text files set 'textwidth' to 78 characters.
+	autocmd FileType text setlocal textwidth=78
 
-  " For ruby
-  autocmd FileType ruby,eruby,yaml set ai sw=2 ts=2 sts=2 et
+	" For ruby
+	autocmd FileType ruby,eruby,yaml set ai sw=2 ts=2 sts=2 et
 
-  " For html/javascript/coffee/css
-  autocmd FileType htm,html,js,erb,coffee set ai sw=2 ts=2 sts=2 et
-  autocmd FileType css,scss set ai sw=2 ts=2 sts=2 et
+	" For html/javascript/coffee/css
+	autocmd FileType htm,html,erb,haml,js,coffee set ai sw=2 ts=2 sts=2 et
+	autocmd FileType css,scss set ai sw=2 ts=2 sts=2 et
 
-  " For other languages
-  autocmd FileType clj set ai sw=2 ts=2 sts=2 et
+	" For other programming languages
+	autocmd FileType clj set ai sw=2 ts=2 sts=2 et
 
-  " When editing a file, always jump to the last known cursor position.
-  " Don't do it when the position is invalid or when inside an event handler
-  " (happens when dropping a file on gvim).
-  autocmd BufReadPost *
-    \ if line("'\"") > 0 && line("'\"") <= line("$") |
-    \   exe "normal g`\"" |
-    \ endif
+	" When editing a file, always jump to the last known cursor position.
+	" Don't do it when the position is invalid or when inside an event handler
+	" (happens when dropping a file on gvim).
+	autocmd BufReadPost *
+		\ if line("'\"") > 0 && line("'\"") <= line("$") |
+		\   exe "normal g`\"" |
+		\ endif
 
-  augroup END
+	augroup END
 
 else
 
-  set autoindent		" always set autoindenting on
+	set autoindent		" always set autoindenting on
 
 endif " has("autocmd")
