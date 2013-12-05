@@ -1,7 +1,7 @@
 # .bashrc
 #
 # created on 12.05.31.
-# updated on 13.04.09.
+# updated on 13.12.05.
 #
 # ... by meinside@gmail.com
 
@@ -22,13 +22,14 @@ shopt -s histappend
 shopt -s checkwinsize
 
 # prompt
+source ~/.bash/colors
+source ~/.bash/git-prompt
 case ${TERM} in
 	xterm*|rxvt*|Eterm|aterm|kterm|gnome*|screen)
-		PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
 		if [ `whoami` = "root" ]; then
-			PS1='\[\033[01;31m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+			PS1="\[$bldred\]\u@\h\[$txtrst\]:\[$bldblu\]\w\[$txtgrn\]\$git_branch\[$txtylw\]\$git_dirty\[$txtrst\]\$ "
 		else
-			PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+			PS1="\[$bldgrn\]\u@\h\[$txtrst\]:\[$bldblu\]\w\[$txtgrn\]\$git_branch\[$txtylw\]\$git_dirty\[$txtrst\]\$ "
 		fi
 		;;
 	*)
