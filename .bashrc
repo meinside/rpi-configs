@@ -1,7 +1,7 @@
 # .bashrc
 #
 # created on 12.05.31.
-# updated on 13.12.05.
+# updated on 13.12.06.
 #
 # ... by meinside@gmail.com
 
@@ -36,7 +36,7 @@ case ${TERM} in
 		PS1='\u@\h \w \$ '
 		;;
 esac
-export PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}: ${PWD/#$HOME/~}\007";'$PROMPT_COMMAND
+export PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}: ${PWD/#$HOME/~}\007"; find_git_branch; find_git_dirty;'
 
 # colors
 if [ -x /usr/bin/dircolors ]; then
