@@ -13,7 +13,7 @@ My personal config/profile files for Raspberry Pi server, currently running on R
 
 ```
 $ cd ~
-$ wget "https://github.com/meinside/raspiconfigs/raw/master/bin/prep.sh"
+$ wget "https://raw.github.com/meinside/rpi-configs/master/bin/prep.sh"
 $ chmod +x prep.sh
 $ ./prep.sh
 $ rm ./prep.sh
