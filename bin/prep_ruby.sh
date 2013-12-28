@@ -5,7 +5,7 @@
 # for setting up environment for ruby on Raspberry Pi
 # (https://raw.github.com/meinside/raspiconfigs/master/bin/prep_ruby.sh)
 # 
-# last update: 2013.07.22.
+# last update: 2013.12.29.
 # 
 # by meinside@gmail.com
 
@@ -21,6 +21,9 @@ sudo apt-get install -y libxml2-dev libxslt1-dev
 # setting up permissions
 sudo /usr/sbin/usermod -a -G rvm $USER
 sudo chown root.rvm /etc/profile.d/rvm.sh
+
+# when stuck with permission problems, try:
+#rvmsudo rvm fix-permissions system
 
 # re-login for loading rvm and installing ruby
 echo
