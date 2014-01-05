@@ -1,5 +1,5 @@
 # git ignore file of meinside@gmail.com
-# last update: 2013.07.03.
+# last update: 2014.01.05.
 
 # unnecessary binary files
 *.o
@@ -56,6 +56,7 @@ node
 node_modules
 
 # other src files
+srcs
 public_html
 
 # X files
