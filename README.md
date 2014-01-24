@@ -275,3 +275,15 @@ device 01:23:45:AB:CD:EF {
 /dev/some_hdd1  /some/where/to/mount1  ext4  defaults   0 0
 /dev/some_hdd2  /some/where/to/mount2  vfat  rw,noatime,uid=7777,gid=7778,user   0 0
 ```
+
+### E. Problem: 'smsc95xx 1-1.1:1.0: eth0: kevent 2 may have been dropped' ###
+
+* append 'smsc95xx.turbo_mode=N' to /boot/cmdline.txt
+
+* add(edit) following in /etc/sysctl.conf
+```
+#vm.vfs_cache_pressure = 100
+vm.vfs_cache_pressure = 300
+#vm.min_free_kbytes=8192
+vm.min_free_kbytes=32768
+```
