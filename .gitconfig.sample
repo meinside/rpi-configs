@@ -3,15 +3,31 @@
 # last update: 2014.02.04.
 
 [alias]
+	# commands
+	cl = clone
 	co = checkout
 	ci = commit
 	st = status
 	br = branch
-	ls = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
-	ll = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short -p
+	unstage = reset HEAD --
 	type = cat-file -t
 	dump = cat-file -p
-	unstage = reset HEAD --
+	cp = cherry-pick
+
+	# log
+	l = log
+	ls = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+	ll = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short -p
+
+	# diff
+	diff = diff --word-diff
+	ds = diff --staged
+	dc = diff --cached
+
+	# stash
+	sl = stash list
+	sa = stash apply
+	ss = stash save
 [user]
 	name = Sungjin Han
 	email = meinside@gmail.com
