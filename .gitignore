@@ -1,5 +1,5 @@
 # git ignore file of meinside@gmail.com
-# last update: 2014.01.05.
+# last update: 2014.02.04.
 
 # unnecessary binary files
 *.o
@@ -63,7 +63,6 @@ public_html
 .Xauthority
 .config/
 .dbus/
-.gstreamer-0.10/
 .local/
 .xsession-errors
 
