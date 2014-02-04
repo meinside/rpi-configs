@@ -1,6 +1,6 @@
 # sample .gitconfig file of mine
 #
-# last update: 2013.07.03.
+# last update: 2014.02.04.
 
 [alias]
 	co = checkout
@@ -20,7 +20,9 @@
 [color]
 	ui = auto
 [push]
-	default = simple
+#	default = simple
 [merge]
 	tool = vimdiff
+[branch]
+#   autosetuprebase = always    # or `git pull --rebase`
 
