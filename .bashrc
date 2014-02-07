@@ -1,7 +1,7 @@
 # .bashrc
 #
 # created on 12.05.31.
-# updated on 13.12.06.
+# updated on 14.02.07.
 #
 # ... by meinside@gmail.com
 
@@ -70,9 +70,6 @@ if [ -d /opt/node/bin ]; then
 fi
 
 # additional paths
-if [ -d "$HOME/ruby" ] ; then
-	PATH="$PATH:$HOME/ruby"
-fi
 if [ -d "$HOME/node" ] ; then
 	PATH="$PATH:$HOME/node"
 fi

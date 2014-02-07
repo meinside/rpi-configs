@@ -1,5 +1,5 @@
 # git ignore file of meinside@gmail.com
-# last update: 2014.02.04.
+# last update: 2014.02.07.
 
 # unnecessary binary files
 *.o
@@ -49,6 +49,7 @@ backups
 # ruby files/dirs
 ruby
 rails
+Gemfile.lock
 
 # node files/dirs
 node

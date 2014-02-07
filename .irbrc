@@ -2,7 +2,7 @@
 #
 # meinside@gmail.com
 #
-# last update: 12.07.25.
+# last update: 14.02.07.
 
 require "rubygems"
 
@@ -49,7 +49,6 @@ class Object
 	end
 end
 
-# custom libraries
-MY_LIBRARY_PATH = "~/ruby/libs"
-$: << File.expand_path(MY_LIBRARY_PATH)
+# for loading gems installed from git with bundler
+require 'bundler/setup'
 
