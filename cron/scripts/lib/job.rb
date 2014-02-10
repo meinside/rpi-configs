@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 # coding: UTF-8
 
-# job.rb
+# cron/scripts/lib/job.rb
 # 
 # base class for cron jobs
 # 
@@ -17,7 +17,7 @@ require 'bundler/setup'
 require 'my_gmail'
 
 class Job
-  CONFIG_FILEPATH = File.expand_path(File.join(File.dirname(__FILE__), "..", "..", ".conf", "configs.yml"))
+  CONFIG_FILEPATH = File.expand_path(File.join(File.dirname(__FILE__), '..', '..', '..', '.conf', 'configs.yml'))
 
   @configs = nil
 
@@ -31,7 +31,7 @@ class Job
 
   def read_configs
     if File.exists? CONFIG_FILEPATH
-      File.open(CONFIG_FILEPATH, "r"){|file|
+      File.open(CONFIG_FILEPATH, 'r'){|file|
         begin
           return YAML.load(file)
         rescue
@@ -45,11 +45,11 @@ class Job
   end
 
   def send_gmail(title, html_content)
-    configs = @configs["email"]["notification"]
+    configs = @configs['email']['notification']
     MyGmail.send({
-      username: configs["sender"]["username"],
-      passwd: configs["sender"]["passwd"],
-      recipient: configs["recipient"]["email"],
+      username: configs['sender']['username'],
+      passwd: configs['sender']['passwd'],
+      recipient: configs['recipient']['email'],
       title: title,
       html_content: html_content,
     })
