@@ -6,31 +6,18 @@
 # base class for cron jobs
 # 
 # created on : 2012.09.03
-# last update: 2014.02.08
+# last update: 2014.02.10
 # 
 # by meinside@gmail.com
 
-require "yaml"
+require 'yaml'
 
 # using: https://github.com/meinside/meinside-ruby
 require 'bundler/setup'
 require 'my_gmail'
 
 class Job
-
   CONFIG_FILEPATH = File.expand_path(File.join(File.dirname(__FILE__), "..", "..", ".conf", "configs.yml"))
-
-# config file(.yml) format
-=begin
----
-email:
-  notification:
-    gmail_sender:
-      username: _gmail_username_
-      passwd: _gmail_passwd_
-    recipient:
-      email: _recipient_email_address_
-=end
 
   @configs = nil
 
@@ -60,8 +47,8 @@ email:
   def send_gmail(title, html_content)
     configs = @configs["email"]["notification"]
     MyGmail.send({
-      username: configs["gmail_sender"]["username"],
-      passwd: configs["gmail_sender"]["passwd"],
+      username: configs["sender"]["username"],
+      passwd: configs["sender"]["passwd"],
       recipient: configs["recipient"]["email"],
       title: title,
       html_content: html_content,

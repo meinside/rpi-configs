@@ -1,7 +1,7 @@
 ---
 email:
   notification:
-    gmail_sender:
+    sender:
       username: _gmail_username_
       passwd: _gmail_passwd_
     recipient:
