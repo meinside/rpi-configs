@@ -1,7 +1,7 @@
 # .bashrc
 #
 # created on 12.05.31.
-# updated on 14.02.07.
+# updated on 14.02.13.
 #
 # ... by meinside@gmail.com
 
@@ -63,16 +63,18 @@ fi
 PATH=$PATH:/usr/local/rvm/bin # Add RVM to PATH for scripting
 export rvmsudo_secure_path=1
 
-# for node (binary node files for raspberrypi are here: http://nodejs.org/dist)
+# for node
 if [ -d /opt/node/bin ]; then
 	PATH=$PATH:/opt/node/bin
 	export NODE_PATH=/opt/node/lib/node_modules
 fi
 
-# additional paths
-if [ -d "$HOME/node" ] ; then
-	PATH="$PATH:$HOME/node"
+# for phantomjs
+if [ -d /opt/phantomjs/bin ]; then
+	PATH=$PATH:/opt/phantomjs/bin
 fi
+
+# additional paths
 if [ -d "$HOME/bin" ] ; then
     PATH="$PATH:$HOME/bin"
 fi
