@@ -8,7 +8,7 @@
 # * tested: PhantomJS 1.9.7 / Raspbian (Wheezy)
 # 
 # created on : 2014.02.13
-# last update: 2014.02.15
+# last update: 2014.02.16
 # 
 # by meinside@gmail.com
 
@@ -28,8 +28,8 @@ end
 # download needed files
 def download
   # clone
-  puts "> cloning and checking out branch: #{PHANTOMJS_BRANCH}"
-  `git clone #{PHANTOMJS_REPOSITORY} #{TEMPORARY_BUILD_DIR}; cd #{TEMPORARY_BUILD_DIR}; git checkout #{PHANTOMJS_BRANCH}`
+  puts "> cloning branch: #{PHANTOMJS_BRANCH}"
+  `git clone -b #{PHANTOMJS_BRANCH} #{PHANTOMJS_REPOSITORY} #{TEMPORARY_BUILD_DIR}`
 
   # download 3rd party files
   puts "> downloading 3rd party files..."
