@@ -29,7 +29,7 @@ end
 def download
   # clone
   puts "> cloning and checking out branch: #{PHANTOMJS_BRANCH}"
-  `git clone #{PHANTOMJS_REPOSITORY} #{TEMPORARY_BUILD_DIR}; git checkout #{PHANTOMJS_BRANCH}`
+  `git clone #{PHANTOMJS_REPOSITORY} #{TEMPORARY_BUILD_DIR}; cd #{TEMPORARY_BUILD_DIR}; git checkout #{PHANTOMJS_BRANCH}`
 
   # download 3rd party files
   puts "> downloading 3rd party files..."
@@ -92,8 +92,8 @@ end
 
 # build files
 def build
-  puts "> building..."
   started = Time.now
+  puts "> building..."
   `cd '#{TEMPORARY_BUILD_DIR}'; ./build.sh --jobs 1 --confirm > build.sh.out 2> build.sh.err`
   puts "> packaging..."
   `cd '#{TEMPORARY_BUILD_DIR}'; ./deploy/package.sh > package.sh.out 2> package.sh.err`
