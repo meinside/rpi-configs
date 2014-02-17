@@ -1,7 +1,7 @@
 # .bashrc
 #
 # created on 12.05.31.
-# updated on 14.02.13.
+# updated on 14.02.18.
 #
 # ... by meinside@gmail.com
 
@@ -69,9 +69,12 @@ if [ -d /opt/node/bin ]; then
 	export NODE_PATH=/opt/node/lib/node_modules
 fi
 
-# for phantomjs
+# for phantomjs & casperjs
 if [ -d /opt/phantomjs/bin ]; then
 	PATH=$PATH:/opt/phantomjs/bin
+fi
+if [ -d /opt/casperjs/bin ]; then
+	PATH=$PATH:/opt/casperjs/bin
 fi
 
 # additional paths
