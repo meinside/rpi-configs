@@ -1,5 +1,5 @@
 # git ignore file of meinside@gmail.com
-# last update: 2014.02.07.
+# last update: 2014.02.17.
 
 # unnecessary binary files
 *.o
@@ -22,68 +22,69 @@
 .cache
 
 # xcode files
-build/*
 *.pbxuser
 *.perspective
 *.perspectivev3
 *.mode1v3
 *.mode2v3
+build/*
 xcuserdata
 
 # other scm files
-.svn
 .cvs
+.svn
 
 # osx files
-.DS_Store
-.AppleDouble
 .AppleDB
 .AppleDesktop
+.AppleDouble
+.DS_Store
 Network Trash Folder
 Temporary Items
 
 # temp files/dirs
-tmp
 backups
+tmp
 
 # ruby files/dirs
-ruby
-rails
 Gemfile.lock
+rails
+ruby
 
 # node files/dirs
-node
 .npm
+node
 node_modules
 
 # other src files
-srcs
 public_html
+srcs
 
 # X files
-.Xauthority
 .config/
 .dbus/
 .local/
 .xsession-errors
+.Xauthority
 
 # private files (ignored for customizing)
-.gitconfig
-.gist-vim
-.custom_aliases
 .conf/*.yml
+.custom_aliases
+.gist-vim
+.gitconfig
 .rtmux.conf
 
 # history files
 .*history
 
 # etc. files/dirs
-.lesshst
-.vim
-.ssh
-.gem
-.viminfo
 .bash_logout
+.gem
+.lesshst
 .profile
+.qws
+.ssh
 .subversion
+.vim
+.viminfo
 
