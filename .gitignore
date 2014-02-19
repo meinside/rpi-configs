@@ -1,5 +1,5 @@
 # git ignore file of meinside@gmail.com
-# last update: 2014.02.17.
+# last update: 2014.02.20.
 
 # unnecessary binary files
 *.o
@@ -45,6 +45,7 @@ Temporary Items
 # temp files/dirs
 backups
 tmp
+.rpi-firmware
 
 # ruby files/dirs
 Gemfile.lock
