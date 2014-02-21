@@ -24,14 +24,23 @@ GIT
 GEM
   remote: http://rubygems.org/
   specs:
+    activemodel (3.2.17)
+      activesupport (= 3.2.17)
+      builder (~> 3.0.0)
+    activesupport (3.2.17)
+      i18n (~> 0.6, >= 0.6.4)
+      multi_json (~> 1.0)
+    addressable (2.3.5)
     aws-sdk (1.34.1)
       json (~> 1.4)
       nokogiri (>= 1.4.4)
       uuidtools (~> 2.1)
+    builder (3.0.4)
     coderay (1.1.0)
     diff-lcs (1.2.5)
     dropbox-sdk (1.6.3)
       json
+    i18n (0.6.9)
     i2c (0.2.22)
     json (1.8.1)
     mail (2.5.4)
@@ -41,6 +50,7 @@ GEM
     mime-types (1.25.1)
     mimemagic (0.2.1)
     mini_portile (0.5.2)
+    multi_json (1.8.4)
     mysql (2.9.1)
     net-scp (1.1.2)
       net-ssh (>= 2.6.5)
@@ -49,7 +59,10 @@ GEM
     net-ssh (2.8.0)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
+    oauth (0.4.7)
     polyglot (0.3.4)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
     rspec (2.14.1)
       rspec-core (~> 2.14.0)
       rspec-expectations (~> 2.14.0)
@@ -66,6 +79,12 @@ GEM
       shared-mime-info
     ruby-hmac (0.4.0)
     ruby-ole (1.2.11.7)
+    ruby-trello (1.1.0)
+      activemodel (~> 3.2.0)
+      addressable (~> 2.3)
+      json
+      oauth (~> 0.4.5)
+      rest-client (~> 1.6.7)
     shared-mime-info (0.2.5)
     spreadsheet (0.9.7)
       ruby-ole (>= 1.0)
@@ -86,4 +105,5 @@ DEPENDENCIES
   meinside-ruby!
   rspec
   rtmux
+  ruby-trello
   wirble
