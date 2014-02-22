@@ -1,5 +1,5 @@
 # git ignore file of meinside@gmail.com
-# last update: 2014.02.21.
+# last update: 2014.02.22.
 
 # unnecessary binary files
 *.o
@@ -48,6 +48,7 @@ tmp
 .rpi-firmware
 
 # ruby files/dirs
+.bundle
 #Gemfile.lock
 rails
 ruby
