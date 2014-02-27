@@ -11,6 +11,7 @@ gem 'meinside-ruby', github: 'meinside/meinside-ruby'	# my ruby scripts and libr
 
 # for development
 gem 'rails', '~> 4.1.0.rc1'
+gem 'passenger'
 
 # temporary (for testing?)
 gem 'ruby-trello'
