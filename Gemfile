@@ -1,4 +1,4 @@
-# last update: 2014.02.21.
+# last update: 2014.02.27.
 source 'http://rubygems.org'
 
 # useful gems
@@ -9,6 +9,9 @@ gem 'rspec'
 gem 'rtmux'
 gem 'meinside-ruby', github: 'meinside/meinside-ruby'	# my ruby scripts and libraries
 
-# temporary (for development?)
+# for development
+gem 'rails', '~> 4.1.0.rc1'
+
+# temporary (for testing?)
 gem 'ruby-trello'
 
