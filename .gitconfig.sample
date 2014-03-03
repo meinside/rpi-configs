@@ -1,6 +1,7 @@
 # sample .gitconfig file of mine
+# (copy as .gitconfig and customize it)
 #
-# last update: 2014.02.04.
+# last update: 2014.03.03.
 
 [alias]
 	# commands
@@ -28,17 +29,25 @@
 	sl = stash list
 	sa = stash apply
 	ss = stash save
-[user]
-	name = Sungjin Han
-	email = meinside@gmail.com
-[github]
-	user = meinside
+
+	# grep with group
+	g = "grep --break --heading --line-number"
+[grep]
+	extendRegexp = true
+	lineNumber = true
 [color]
 	ui = auto
+[core]
+	editor = vim
 [push]
 #	default = simple
 [merge]
 	tool = vimdiff
 [branch]
 #   autosetuprebase = always    # or `git pull --rebase`
+[user]
+	name = Sungjin Han
+	email = meinside@gmail.com
+[github]
+	user = meinside
 
