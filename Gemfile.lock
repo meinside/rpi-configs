@@ -52,7 +52,7 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.3.5)
     arel (5.0.0)
-    atomic (1.1.15)
+    atomic (1.1.16)
     aws-sdk (1.36.1)
       json (~> 1.4)
       nokogiri (>= 1.4.4)
