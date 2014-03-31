@@ -122,14 +122,14 @@ GEM
     rspec-mocks (2.14.6)
     rtmux (0.0.3)
       thor (~> 0)
-    ruby-gmail (0.3.0)
+    ruby-gmail (0.3.1)
       mail (>= 2.2.1)
       mime (>= 0.1)
       shared-mime-info
     ruby-hmac (0.4.0)
     ruby-ole (1.2.11.7)
-    ruby-trello (1.0.4)
-      activemodel
+    ruby-trello (1.1.1)
+      activemodel (>= 3.2.0)
       addressable (~> 2.3)
       json
       oauth (~> 0.4.5)
