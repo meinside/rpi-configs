@@ -6,7 +6,7 @@
 # status-report script for raspberry pi server
 # 
 # created on : 2012.05.31
-# last update: 2014.02.10
+# last update: 2014.04.02
 # 
 # by meinside@gmail.com
 
@@ -46,7 +46,7 @@ class Report < Job
     end
 
     def self.get_current_memory
-      return `free`
+      return `free -o -h`
     end
 
     def self.get_uptime
@@ -58,11 +58,11 @@ class Report < Job
     end
 
     def self.get_cpu_temperature
-      temp = 0.0
-      File.open('/sys/class/thermal/thermal_zone0/temp', 'r'){|file|
-        temp = file.read.strip.to_f / 1000.0
-      }
-      return temp
+      cpu_temp = `vcgencmd measure_temp`.strip  # XXX - vcgencmd requires the user to be in 'video' group
+      if cpu_temp =~ /temp=(.*)/
+        cpu_temp = $1
+      end
+      cpu_temp
     end
 
     def self.decorate(title, content)
@@ -75,7 +75,7 @@ class Report < Job
       # server stats
       content << decorate('System', get_uname)
       content << decorate('Uptime', get_uptime)
-      content << decorate('CPU Temperature', "%.1f °C" %[get_cpu_temperature])
+      content << decorate('CPU Temperature', get_cpu_temperature)
       content << decorate('IP', get_current_ip)
       content << decorate('Free Storage', get_current_storage)
       content << decorate('Free Memory', get_current_memory)
