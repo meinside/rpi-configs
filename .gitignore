@@ -1,5 +1,5 @@
 # git ignore file of meinside@gmail.com
-# last update: 2014.02.22.
+# last update: 2014.04.16.
 
 # unnecessary binary files
 *.o
@@ -74,6 +74,7 @@ srcs
 .custom_aliases
 .gist-vim
 .gitconfig
+.gnupg
 .rtmux.conf
 
 # history files
