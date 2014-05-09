@@ -168,7 +168,7 @@ PLATFORMS
 DEPENDENCIES
   meinside-ruby!
   passenger
-  rails (~> 4.1.0)
+  rails (~> 4.1.1)
   rspec
   rtmux
   ruby-trello
