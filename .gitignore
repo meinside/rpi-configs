@@ -1,5 +1,5 @@
 # git ignore file of meinside@gmail.com
-# last update: 2014.04.16.
+# last update: 2014.06.17.
 
 # unnecessary binary files
 *.o
@@ -49,6 +49,7 @@ tmp
 
 # ruby files/dirs
 .bundle
+.bundler
 #Gemfile.lock
 rails
 ruby
