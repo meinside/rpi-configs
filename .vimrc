@@ -1,6 +1,6 @@
 " meinside's vimrc file,
 " created by meinside@gmail.com,
-" last update: 2013.12.03.
+" last update: 2014.06.18.
 "
 "
 "
@@ -100,17 +100,6 @@ colo evening
 
 " custom key mappings, 11.04.15,
 nmap <F2> :30vsplit . <CR>
-
-" for macvim, 09.02.23,
-if has("transparency")
-	set noimd
-	set imi=1
-	set ims=-1
-	set transparency=20
-	set fuoptions=maxvert,maxhorz	" maximize window when :set fu
-	win 120 40	" window size (120 x 40)
-	colo pablo
-endif
 
 " For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
 " let &guioptions = substitute(&guioptions, "t", "", "g")
