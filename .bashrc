@@ -1,7 +1,7 @@
-# .bashrc
+# .bashrc for Raspberry Pi
 #
 # created on 12.05.31.
-# updated on 14.02.18.
+# updated on 14.06.18.
 #
 # ... by meinside@gmail.com
 
@@ -65,16 +65,22 @@ export rvmsudo_secure_path=1
 
 # for node
 if [ -d /opt/node/bin ]; then
-	PATH=$PATH:/opt/node/bin
+	export PATH=$PATH:/opt/node/bin
 	export NODE_PATH=/opt/node/lib/node_modules
+fi
+
+# for go
+if [ -d /opt/go/bin ]; then
+	export GOROOT=/opt/go
+	export PATH=$PATH:$GOROOT/bin
 fi
 
 # for phantomjs & casperjs
 if [ -d /opt/phantomjs/bin ]; then
-	PATH=$PATH:/opt/phantomjs/bin
+	export PATH=$PATH:/opt/phantomjs/bin
 fi
 if [ -d /opt/casperjs/bin ]; then
-	PATH=$PATH:/opt/casperjs/bin
+	export PATH=$PATH:/opt/casperjs/bin
 fi
 
 # additional paths
