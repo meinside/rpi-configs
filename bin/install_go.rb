@@ -7,7 +7,7 @@
 # from: http://nodejs.org/dist/
 # 
 # created on : 2014.06.18
-# last update: 2014.06.18
+# last update: 2014.06.19
 # 
 # by meinside@gmail.com
 
@@ -24,8 +24,8 @@ def download
   go_dir = File.join(INSTALLATION_DIR, File.basename(filename, '.tar.gz'))
   puts "> will extract files to: #{go_dir}"
   `sudo mkdir -p "#{INSTALLATION_DIR}"`
-  `sudo tar -xzvf "#{File.join(TEMPORARY_DIR, filename)}" -C "#{INSTALLATION_DIR}"`
-  `sudo mv "#{File.join(INSTALLATION_DIR, 'go')}" "#{go_dir}"`
+  `sudo tar -xzvf "#{File.join(TEMPORARY_DIR, filename)}" -C "#{TEMPORARY_DIR}"`
+  `sudo mv "#{File.join(TEMPORARY_DIR, 'go')}" "#{go_dir}"`
   `sudo chown -R $USER "#{go_dir}"`
   `sudo ln -sfn "#{go_dir}" "#{File.join(INSTALLATION_DIR, 'go')}"`
 end
