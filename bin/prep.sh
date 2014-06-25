@@ -6,12 +6,12 @@
 # and setting up several things for Raspberry Pi
 # (https://raw.github.com/meinside/raspiconfigs/master/bin/prep.sh)
 # 
-# last update: 2013.10.10.
+# last update: 2014.06.25.
 # 
 # by meinside@gmail.com
 
-#REPOSITORY="git@github.com:meinside/raspiconfigs.git"
-REPOSITORY="git://github.com/meinside/raspiconfigs.git"
+#REPOSITORY="git@github.com:meinside/rpi-configs.git"
+REPOSITORY="https://github.com/meinside/rpi-configs.git"
 TMP_DIR="$HOME/configs.tmp"
 
 echo -e "\033[32mThis script will setup several things for your Raspberry Pi\033[0m\n"
