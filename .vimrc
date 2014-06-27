@@ -1,6 +1,6 @@
 " meinside's vimrc file,
 " created by meinside@gmail.com,
-" last update: 2014.06.19.
+" last update: 2014.06.27.
 "
 "
 "
@@ -47,6 +47,7 @@ if filereadable(vundle_readme)
 	Bundle 'ragtag.vim'
 	Bundle 'snippetsEmu'
 	Bundle 'fugitive.vim'
+	Bundle 'tpope/vim-endwise'
 
 	" For uploading Gist
 	Bundle 'mattn/webapi-vim'
@@ -60,6 +61,9 @@ if filereadable(vundle_readme)
 
 	" Go
 	Bundle 'jnwhiteh/vim-golang'
+
+	" CSS
+	Bundle 'cakebaker/scss-syntax.vim'
 
 	" HAML
 	Bundle 'tpope/vim-haml'
