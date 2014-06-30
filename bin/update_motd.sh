@@ -1,18 +1,13 @@
-#!/usr/bin/env ruby
-# coding: UTF-8
+#!/usr/bin/env bash
 
 # update_motd.rb
 # 
-# script for updating MOTD
-# (referenced: https://gist.github.com/3023588)
-# 
 # created on : 2012.08.21
-# last update: 2012.10.08
+# last update: 2014.06.30
 # 
 # by meinside@gmail.com
 
-MOTD_LOGO = <<MOTD_LOGO
-
+sudo bash -c "cat > /etc/motd" <<MY_MOTD
                         ..:~:=II77I++~,:.,,
                     ..~I777I7I7 I7 I7I777?+=:.,
                    :7 I77777 7 7 7777777 I7777.,
@@ -60,27 +55,5 @@ I7 +.=+:=~I777 7 77.:                         ~7 II7I?7I 77:7I77II
     77I,.,+I7I                                        7I77I7 7I
      77777??                                            :?7777
 
-MOTD_LOGO
-
-MOTD_FILEPATH = "/etc/motd"
-
-def print_usage
-  puts "* should login as root first"
-end
-
-if __FILE__ == $0
-  if `whoami`.strip == 'root'
-    begin
-      File.open(MOTD_FILEPATH, "w"){|file|
-        file << MOTD_LOGO
-      }
-      `/etc/init.d/bootlogs`
-      puts "* MOTD was updated successfully"
-    rescue
-      puts $!
-    end
-  else
-    print_usage
-  end
-end
+MY_MOTD
 

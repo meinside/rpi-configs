@@ -1,11 +1,11 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # prep_ruby.sh
 # 
 # for setting up environment for ruby on Raspberry Pi
 # (https://raw.github.com/meinside/raspiconfigs/master/bin/prep_ruby.sh)
 # 
-# last update: 2014.06.26.
+# last update: 2014.06.30.
 # 
 # by meinside@gmail.com
 
