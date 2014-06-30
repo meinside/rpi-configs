@@ -40,7 +40,7 @@ sudo apt-get -y upgrade
 
 # install other essential packages
 echo -e "\033[33m>>> installing other essential packages...\033[0m"
-sudo apt-get -y install vim tmux mosh
+sudo apt-get -y install zsh vim tmux mosh
 
 # cleanup
 echo -e "\033[33m>>> cleaning up...\033[0m"
