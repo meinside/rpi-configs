@@ -1,28 +1,6 @@
 " meinside's vimrc file,
 " created by meinside@gmail.com,
-" last update: 2014.06.27.
-"
-"
-"
-" An example for a vimrc file.
-"
-" Maintainer:	Bram Moolenaar <Bram@vim.org>
-" Last change:	2002 Sep 19
-"
-" To use it, copy it to
-"     for Unix and OS/2:  ~/.vimrc
-"	      for Amiga:  s:.vimrc
-"  for MS-DOS and Win32:  $VIM\_vimrc
-"	    for OpenVMS:  sys$login:.vimrc
-
-" When started as "evim", evim.vim will already have done these settings.
-if v:progname =~? "evim"
-	finish
-endif
-
-" Use Vim settings, rather then Vi settings (much better!).
-" This must be first, because it changes other options as a side effect.
-"set nocompatible
+" last update: 2014.06.30.
 
 
 """"""""""""""""""""""""""""""""""""
@@ -36,7 +14,7 @@ if filereadable(vundle_readme)
 	call vundle#rc()
 
 	" let Vundle manage Vundle
-	"  " required! 
+	" required!
 	Bundle 'gmarik/vundle'
 
 	""""""""
@@ -105,7 +83,7 @@ set fencs=ucs-bom,utf-8,korea
 set termencoding=utf-8
 colo evening
 
-" custom key mappings, 11.04.15,
+" custom key mappings, 2011.04.15,
 nmap <F2> :30vsplit . <CR>
 
 " For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
