@@ -6,7 +6,7 @@
 # and setting up several things for Raspberry Pi
 # (https://raw.github.com/meinside/raspiconfigs/master/bin/prep.sh)
 # 
-# last update: 2014.06.25.
+# last update: 2014.06.30.
 # 
 # by meinside@gmail.com
 
@@ -15,6 +15,9 @@ REPOSITORY="https://github.com/meinside/rpi-configs.git"
 TMP_DIR="$HOME/configs.tmp"
 
 echo -e "\033[32mThis script will setup several things for your Raspberry Pi\033[0m\n"
+
+# authenticate for sudo if needed
+sudo -l > /dev/null
 
 # clone config files
 if ! which git > /dev/null; then
