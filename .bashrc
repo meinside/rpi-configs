@@ -1,7 +1,7 @@
 # .bashrc for Raspberry Pi
 #
-# created on 12.05.31.
-# updated on 14.06.18.
+# created on 2012.05.31.
+# updated on 2014.06.30.
 #
 # ... by meinside@gmail.com
 
