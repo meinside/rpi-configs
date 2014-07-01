@@ -4,6 +4,8 @@
 # 
 # Build and install Golang from the official repository
 # for Raspberry Pi
+#
+# (or, can get prebuilt packages at: http://dave.cheney.net/unofficial-arm-tarballs)
 # 
 # created on : 2014.07.01
 # last update: 2014.07.01
