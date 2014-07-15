@@ -1,6 +1,6 @@
 " meinside's vimrc file,
 " created by meinside@gmail.com,
-" last update: 2014.06.30.
+" last update: 2014.07.15.
 
 
 """"""""""""""""""""""""""""""""""""
@@ -81,6 +81,9 @@ set sw=4
 set sts=4
 set fencs=ucs-bom,utf-8,korea
 set termencoding=utf-8
+
+" for color schemes
+set t_Co=256
 colo evening
 
 " custom key mappings, 2011.04.15,
