@@ -84,7 +84,7 @@ GEM
     nokogiri (1.6.2.1)
       mini_portile (= 0.6.0)
     oauth (0.4.7)
-    passenger (4.0.45)
+    passenger (4.0.46)
       daemon_controller (>= 1.2.0)
       rack
       rake (>= 0.8.1)
