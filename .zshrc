@@ -1,7 +1,7 @@
 # .zshrc
 #
 # created on 2014.06.30.
-# updated on 2014.07.02.
+# updated on 2014.07.23.
 #
 # ... by meinside@gmail.com
 #
@@ -91,6 +91,7 @@ fi
 # for go
 if [ -d /opt/go/bin ]; then
 	export GOROOT=/opt/go
+	export GOPATH=$HOME/srcs/go
 	export PATH=$PATH:$GOROOT/bin
 fi
 
