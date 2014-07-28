@@ -1,6 +1,6 @@
 " meinside's vimrc file,
 " created by meinside@gmail.com,
-" last update: 2014.07.15.
+" last update: 2014.07.28.
 
 
 """"""""""""""""""""""""""""""""""""
@@ -84,7 +84,7 @@ set termencoding=utf-8
 
 " for color schemes
 set t_Co=256
-colo evening
+colo elflord
 
 " custom key mappings, 2011.04.15,
 nmap <F2> :30vsplit . <CR>
