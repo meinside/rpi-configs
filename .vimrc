@@ -32,7 +32,6 @@ if filereadable(vundle_readme)
 	Bundle 'mattn/gist-vim'
 
 	" For Ruby
-	Bundle 'tpope/vim-bundler'
 	Bundle 'vim-ruby/vim-ruby'
 
 	" CoffeeScript
