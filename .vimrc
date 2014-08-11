@@ -1,6 +1,6 @@
 " meinside's vimrc file,
 " created by meinside@gmail.com,
-" last update: 2014.07.28.
+" last update: 2014.08.11.
 
 
 """"""""""""""""""""""""""""""""""""
@@ -30,6 +30,10 @@ if filereadable(vundle_readme)
 	" For uploading Gist
 	Bundle 'mattn/webapi-vim'
 	Bundle 'mattn/gist-vim'
+
+	" For Ruby
+	Bundle 'tpope/vim-bundler'
+	Bundle 'dasch/vim-rack'
 
 	" CoffeeScript
 	Bundle 'kchmck/vim-coffee-script'
@@ -123,7 +127,7 @@ if has("autocmd")
 	autocmd FileType text setlocal textwidth=78
 
 	" For ruby
-	autocmd FileType ruby,eruby,yaml set ai sw=2 ts=2 sts=2 et
+	autocmd FileType ruby,eruby,yaml,ru set ai sw=2 ts=2 sts=2 et
 
 	" For html/javascript/coffee/css
 	autocmd FileType htm,html,erb,haml,js,coffee set ai sw=2 ts=2 sts=2 et
