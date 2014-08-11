@@ -33,7 +33,7 @@ if filereadable(vundle_readme)
 
 	" For Ruby
 	Bundle 'tpope/vim-bundler'
-	Bundle 'dasch/vim-rack'
+	Bundle 'vim-ruby/vim-ruby'
 
 	" CoffeeScript
 	Bundle 'kchmck/vim-coffee-script'
@@ -127,7 +127,7 @@ if has("autocmd")
 	autocmd FileType text setlocal textwidth=78
 
 	" For ruby
-	autocmd FileType ruby,eruby,yaml,ru set ai sw=2 ts=2 sts=2 et
+	autocmd FileType ruby,eruby,yaml set ai sw=2 ts=2 sts=2 et
 
 	" For html/javascript/coffee/css
 	autocmd FileType htm,html,erb,haml,js,coffee set ai sw=2 ts=2 sts=2 et
