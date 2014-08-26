@@ -8,12 +8,12 @@
 # (or, can get prebuilt packages at: http://dave.cheney.net/unofficial-arm-tarballs)
 # 
 # created on : 2014.07.01
-# last update: 2014.07.01
+# last update: 2014.08.26
 # 
 # by meinside@gmail.com
 
 REPOSITORY="https://code.google.com/p/go"
-TAG="go1.3"	# XXX - edit this for different version of Go
+TAG="go1.3.1"	# XXX - edit this for different version of Go
 
 TEMP_DIR="/tmp"
 INSTALLATION_DIR="/opt"
