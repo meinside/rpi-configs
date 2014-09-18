@@ -1,7 +1,7 @@
 # .zshrc
 #
 # created on 2014.06.30.
-# updated on 2014.07.23.
+# updated on 2014.09.18.
 #
 # ... by meinside@gmail.com
 #
@@ -92,7 +92,7 @@ fi
 if [ -d /opt/go/bin ]; then
 	export GOROOT=/opt/go
 	export GOPATH=$HOME/srcs/go
-	export PATH=$PATH:$GOROOT/bin
+	export PATH=$PATH:$GOPATH/bin
 fi
 
 # for phantomjs & casperjs
@@ -105,6 +105,6 @@ fi
 
 # additional paths
 if [ -d "$HOME/bin" ] ; then
-    PATH="$PATH:$HOME/bin"
+    export PATH="$PATH:$HOME/bin"
 fi
 

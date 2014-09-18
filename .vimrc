@@ -1,6 +1,6 @@
 " meinside's vimrc file,
 " created by meinside@gmail.com,
-" last update: 2014.08.11.
+" last update: 2014.09.18.
 
 
 """"""""""""""""""""""""""""""""""""
@@ -19,13 +19,19 @@ if filereadable(vundle_readme)
 
 	""""""""
 	" add bundles here
-	"
+
+	" Useful plugins
 	Bundle 'surround.vim'
 	Bundle 'matchit.zip'
 	Bundle 'ragtag.vim'
 	Bundle 'snippetsEmu'
 	Bundle 'fugitive.vim'
 	Bundle 'tpope/vim-endwise'
+
+	" For source file browsing
+	" XXX: ctags and vim-nox is needed!
+	Bundle 'majutsushi/tagbar'
+	nmap <F8> :TagbarToggle<CR>
 
 	" For uploading Gist
 	Bundle 'mattn/webapi-vim'
@@ -36,12 +42,42 @@ if filereadable(vundle_readme)
 
 	" CoffeeScript
 	Bundle 'kchmck/vim-coffee-script'
+	Bundle 'lukaszkorecki/CoffeeTags'
 
 	" Clojure
 	Bundle 'guns/vim-clojure-static'
 
 	" Go
 	Bundle 'jnwhiteh/vim-golang'
+	" XXX: gotags is needed! ($ go get -u github.com/jstemmer/gotags)
+	Bundle 'jstemmer/gotags'
+	let g:tagbar_type_go = {
+		\ 'ctagstype' : 'go',
+		\ 'kinds'     : [
+			\ 'p:package',
+			\ 'i:imports:1',
+			\ 'c:constants',
+			\ 'v:variables',
+			\ 't:types',
+			\ 'n:interfaces',
+			\ 'w:fields',
+			\ 'e:embedded',
+			\ 'm:methods',
+			\ 'r:constructor',
+			\ 'f:functions'
+		\ ],
+		\ 'sro' : '.',
+		\ 'kind2scope' : {
+			\ 't' : 'ctype',
+			\ 'n' : 'ntype'
+		\ },
+		\ 'scope2kind' : {
+			\ 'ctype' : 't',
+			\ 'ntype' : 'n'
+		\ },
+		\ 'ctagsbin'  : 'gotags',
+		\ 'ctagsargs' : '-sort -silent'
+	\ }
 
 	" CSS
 	Bundle 'cakebaker/scss-syntax.vim'

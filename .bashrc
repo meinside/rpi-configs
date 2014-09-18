@@ -1,7 +1,7 @@
 # .bashrc for Raspberry Pi
 #
 # created on 2012.05.31.
-# updated on 2014.07.23.
+# updated on 2014.09.18.
 #
 # ... by meinside@gmail.com
 
@@ -73,7 +73,7 @@ fi
 if [ -d /opt/go/bin ]; then
 	export GOROOT=/opt/go
 	export GOPATH=$HOME/srcs/go
-	export PATH=$PATH:$GOROOT/bin
+	export PATH=$PATH:$GOPATH/bin
 fi
 
 # for phantomjs & casperjs
