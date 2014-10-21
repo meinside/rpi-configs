@@ -58,34 +58,42 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-# for RVM
-[[ -s "/etc/profile.d/rvm.sh" ]] && source "/etc/profile.d/rvm.sh"  # This loads RVM into a shell session.
-PATH=$PATH:/usr/local/rvm/bin # Add RVM to PATH for scripting
-export rvmsudo_secure_path=1
+######################
+##  for development  #
+######################
 
-# for node
-if [ -d /opt/node/bin ]; then
-	export PATH=$PATH:/opt/node/bin
-	export NODE_PATH=/opt/node/lib/node_modules
-fi
+if [[ -z $TMUX ]]; then
 
-# for go
-if [ -d /opt/go/bin ]; then
-	export GOROOT=/opt/go
-	export GOPATH=$HOME/srcs/go
-	export PATH=$PATH:$GOPATH/bin
-fi
+	# for RVM
+	[[ -s "/etc/profile.d/rvm.sh" ]] && source "/etc/profile.d/rvm.sh"  # This loads RVM into a shell session.
+	PATH=$PATH:/usr/local/rvm/bin # Add RVM to PATH for scripting
+	export rvmsudo_secure_path=1
 
-# for phantomjs & casperjs
-if [ -d /opt/phantomjs/bin ]; then
-	export PATH=$PATH:/opt/phantomjs/bin
-fi
-if [ -d /opt/casperjs/bin ]; then
-	export PATH=$PATH:/opt/casperjs/bin
-fi
+	# for node
+	if [ -d /opt/node/bin ]; then
+		export PATH=$PATH:/opt/node/bin
+		export NODE_PATH=/opt/node/lib/node_modules
+	fi
 
-# additional paths
-if [ -d "$HOME/bin" ] ; then
-    PATH="$PATH:$HOME/bin"
+	# for go
+	if [ -d /opt/go/bin ]; then
+		export GOROOT=/opt/go
+		export GOPATH=$HOME/srcs/go
+		export PATH=$PATH:$GOPATH/bin
+	fi
+
+	# for phantomjs & casperjs
+	if [ -d /opt/phantomjs/bin ]; then
+		export PATH=$PATH:/opt/phantomjs/bin
+	fi
+	if [ -d /opt/casperjs/bin ]; then
+		export PATH=$PATH:/opt/casperjs/bin
+	fi
+
+	# additional paths
+	if [ -d "$HOME/bin" ] ; then
+		PATH="$PATH:$HOME/bin"
+	fi
+
 fi
 
