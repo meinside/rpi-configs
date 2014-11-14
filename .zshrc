@@ -1,7 +1,7 @@
 # .zshrc
 #
 # created on 2014.06.30.
-# updated on 2014.10.21.
+# updated on 2014.11.14.
 #
 # ... by meinside@gmail.com
 #
@@ -80,6 +80,27 @@ fi
 ######################
 ##  for development  #
 ######################
+
+# XXX - for using my global Gemfile as fallback...
+autoload -U add-zsh-hook
+set-fallback-gemfile () {
+		_search () {
+				slashes=${PWD//[^\/]/}
+				directory="$PWD"
+				for (( n=${#slashes}; n>0; --n )); do
+						test -e "$directory/$1" && echo "$directory/$1" && return
+						directory="$directory/.."
+				done
+		}
+		if [ `_search "Gemfile.lock"` ]; then   # XXX - check if 'Gemfile.lock' exists in any of direct-upper directories
+				# using local Gemfile
+				unset BUNDLE_GEMFILE
+		else    # if no Gemfile is provided, use my own(system-wide?) one instead
+				# using fallback Gemfile at $HOME/Gemfile
+				export BUNDLE_GEMFILE=$HOME/Gemfile
+		fi
+}
+add-zsh-hook chpwd set-fallback-gemfile
 
 if [[ -z $TMUX ]]; then
 

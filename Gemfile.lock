@@ -1,8 +1,8 @@
 GIT
   remote: git://github.com/meinside/meinside-ruby.git
-  revision: d8536e2c73683adffa5cc3d12b039eb1aec00189
+  revision: 4c8cdf87a7ba1611d989540f2e69b2156e808933
   specs:
-    meinside-ruby (0.0.4)
+    meinside-ruby (0.0.5)
       aws-sdk (~> 1.0)
       coderay (~> 1.0)
       dropbox-sdk (~> 1.0)
