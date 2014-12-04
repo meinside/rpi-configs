@@ -1,7 +1,7 @@
 # .zshrc
 #
 # created on 2014.06.30.
-# updated on 2014.11.14.
+# updated on 2014.12.04.
 #
 # ... by meinside@gmail.com
 #
@@ -89,7 +89,7 @@ set-fallback-gemfile () {
 				directory="$PWD"
 				for (( n=${#slashes}; n>0; --n )); do
 						test -e "$directory/$1" && echo "$directory/$1" && return
-						directory="$directory/.."
+						directory="$(dirname "$directory")"
 				done
 		}
 		if [ `_search "Gemfile.lock"` ]; then   # XXX - check if 'Gemfile.lock' exists in any of direct-upper directories
