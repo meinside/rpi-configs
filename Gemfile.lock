@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/meinside/meinside-ruby.git
-  revision: 4c8cdf87a7ba1611d989540f2e69b2156e808933
+  revision: 4652809c0623b350503c9b39024f938631cc0c9a
   specs:
     meinside-ruby (0.0.5)
       aws-sdk (~> 1.0)
