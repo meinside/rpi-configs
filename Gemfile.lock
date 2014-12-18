@@ -103,6 +103,8 @@ GEM
       daemon_controller (>= 1.2.0)
       rack
       rake (>= 0.8.1)
+    pushbullet-ruby (0.0.1)
+      mimemagic (~> 0.0)
     rack (1.6.0.beta2)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -193,6 +195,7 @@ PLATFORMS
 DEPENDENCIES
   meinside-ruby!
   passenger
+  pushbullet-ruby
   rails (~> 4.2.0.rc3)
   rspec
   rtmux

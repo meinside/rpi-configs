@@ -1,4 +1,4 @@
-# last update: 2014.12.14.
+# last update: 2014.12.18.
 source 'http://rubygems.org'
 
 # useful gems
@@ -6,6 +6,7 @@ gem 'wirble'
 gem 'rspec'
 
 # my gems
+gem 'pushbullet-ruby'
 gem 'rtmux'
 gem 'meinside-ruby', github: 'meinside/meinside-ruby'	# my ruby scripts and libraries
 
