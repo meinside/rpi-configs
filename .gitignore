@@ -1,5 +1,5 @@
 # git ignore file of meinside@gmail.com
-# last update: 2014.06.30.
+# last update: 2014.12.19.
 
 # unnecessary binary files
 *.o
@@ -51,8 +51,6 @@ tmp
 .bundle
 .bundler
 #Gemfile.lock
-rails
-ruby
 
 # node files/dirs
 .npm
