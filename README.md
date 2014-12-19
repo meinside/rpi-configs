@@ -112,23 +112,8 @@ iface wlan0 inet dhcp
 
 ``$ sudo ifup wlan0``
 
-### C. run WiFi connection checker periodically ###
 
-``$ sudo crontab -e``
-
-```
-*/1 * * * * bash -l /some/script_that_needs_login.sh
-0 1 * * * bash -l -c /some/ruby_script_under_rvm.rb
-
-# (add following)
-# will check wlan connectivity every 5 minutes
-*/5 * * * * /home/USERNAME/cron/wlan_check.sh
-# or every 1 hour
-0 */1 * * * /home/USERNAME/cron/wlan_check.sh
-```
-
-
-### D. UTF-8 configuration for MySQL ###
+### C. UTF-8 configuration for MySQL ###
 
 ``$ sudo vi /etc/mysql/my.cnf``
 
@@ -153,12 +138,12 @@ default-character-set = utf8
 ```
 
 
-### E. Rails: Passenger configurations ###
+### D. Rails: Passenger configurations ###
 
 * see: https://github.com/meinside/rails-on-raspberrypi#install-passenger-module
 
 
-### F. AFP & Zero-conf DNS configuration ###
+### E. AFP & Zero-conf DNS configuration ###
 
 #### a. install netatalk and avahi-daemon ####
 
@@ -276,7 +261,18 @@ device 01:23:45:AB:CD:EF {
 /dev/some_hdd2  /some/where/to/mount2  vfat  rw,noatime,uid=7777,gid=7778,user   0 0
 ```
 
-### E. Problem: 'smsc95xx 1-1.1:1.0: eth0: kevent 2 may have been dropped' ###
+### E. run scripts periodically ###
+
+``$ crontab -e``
+
+```
+# every 5 minutes
+*/1 * * * * bash -l /some/script_that_needs_login.sh
+# every 1 hour
+0 1 * * * bash -l -c /some/ruby_script_under_rvm.rb
+```
+
+### F. Problem: 'smsc95xx 1-1.1:1.0: eth0: kevent 2 may have been dropped' ###
 
 * append 'smsc95xx.turbo_mode=N' to /boot/cmdline.txt
 
