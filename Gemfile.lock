@@ -86,7 +86,7 @@ GEM
     mime (0.4.2)
     mime-types (2.4.3)
     mimemagic (0.2.1)
-    mini_portile (0.6.1)
+    mini_portile (0.6.2)
     minitest (5.5.0)
     multi_json (1.10.1)
     mysql (2.9.1)
@@ -155,7 +155,7 @@ GEM
       mime (>= 0.1)
       shared-mime-info
     ruby-hmac (0.4.0)
-    ruby-ole (1.2.11.7)
+    ruby-ole (1.2.11.8)
     ruby-trello (1.1.2)
       activemodel (>= 3.2.0)
       addressable (~> 2.3)
