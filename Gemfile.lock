@@ -162,7 +162,7 @@ GEM
       json
       oauth (~> 0.4.5)
       rest-client (~> 1.7.2)
-    rubyzip (1.1.6)
+    rubyzip (1.1.7)
     shared-mime-info (0.2.5)
     spreadsheet (1.0.1)
       ruby-ole (>= 1.0)
