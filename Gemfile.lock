@@ -148,7 +148,7 @@ GEM
     rspec-mocks (3.2.0)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.2.0)
-    rspec-support (3.2.0)
+    rspec-support (3.2.1)
     rtmux (0.0.3)
       thor (~> 0)
     ruby-gmail (0.3.1)
