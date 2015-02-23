@@ -1,5 +1,5 @@
 # git ignore file of meinside@gmail.com
-# last update: 2014.12.19.
+# last update: 2015.02.23.
 
 # unnecessary binary files
 *.o
@@ -21,15 +21,6 @@
 # cache files/dirs
 .cache
 
-# xcode files
-*.pbxuser
-*.perspective
-*.perspectivev3
-*.mode1v3
-*.mode2v3
-build/*
-xcuserdata
-
 # other scm files
 .cvs
 .svn
@@ -47,29 +38,30 @@ backups
 tmp
 .rpi-firmware
 
-# ruby files/dirs
-.bundle
-.bundler
-#Gemfile.lock
+# go files/dirs
+.gore/
 
 # node files/dirs
 .npm
 node
 node_modules
 
+# ruby files/dirs
+.bundle
+.bundler
+
 # other src files
 public_html
 srcs
 
 # X files
-.config/
 .dbus/
 .local/
 .xsession-errors
 .Xauthority
 
-# private files (ignored for customizing)
-.conf/*.yml
+# private/config files & dirs
+.config/
 .custom_aliases
 .gist-vim
 .gitconfig
