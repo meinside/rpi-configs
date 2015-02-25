@@ -1,33 +1,23 @@
-# .irbrc file
+# My .irbrc file
 #
 # meinside@gmail.com
 #
-# last update: 14.02.07.
+# last update: 2015.02.25.
 
-require "rubygems"
-
-# check if it's irb or macirb
-case File.basename($0)
-when "irb"
-	# initialize wirble
-	begin
-		require "wirble"
-		Wirble::Colorize.colors = Wirble::Colorize.colors.merge({
-			#object_class: :white,
-		})
-		Wirble.init
-		Wirble.colorize
-	rescue
-		puts "Wirble not installed"
-	end
-when "macirb"
-	framework 'Cocoa'	# load Cocoa framework
-	framework 'Foundation'	# load core foundation
-	framework 'ScriptingBridge'	# load scripting bridge
+# initialize wirble
+begin
+  require 'wirble'
+  Wirble::Colorize.colors = Wirble::Colorize.colors.merge({
+    #object_class: :white,
+  })
+  Wirble.init
+  Wirble.colorize
+rescue
+  puts 'Wirble not installed'
 end
 
 # turn on auto completion
-require "irb/completion"
+require 'irb/completion'
 
 # turn on auto indent
 IRB.conf[:AUTO_INDENT] = true
