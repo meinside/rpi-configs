@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# prep_node.sh
+# prep_nodejs.sh
 # 
 # install pre-built node.js files for Raspberry Pi
 # from: http://nodejs.org/dist/
