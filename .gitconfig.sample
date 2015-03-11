@@ -1,7 +1,7 @@
 # sample .gitconfig file of mine
 # (copy as .gitconfig and customize it)
 #
-# last update: 2014.03.03.
+# last update: 2015.03.11.
 
 [alias]
 	# commands
@@ -29,6 +29,9 @@
 	sl = stash list
 	sa = stash apply
 	ss = stash save
+
+	# submodule
+	smu = submodule update --init --recursive
 
 	# grep with group
 	g = "grep --break --heading --line-number"
