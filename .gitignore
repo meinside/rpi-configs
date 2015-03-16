@@ -75,6 +75,7 @@ srcs
 
 # etc. files/dirs
 .bash_logout
+.fontconfig/
 .gem
 .lesshst
 .profile
