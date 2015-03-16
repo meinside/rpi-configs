@@ -4,13 +4,14 @@
 # 
 # Build and install Phantomjs from the official repository
 # for Raspberry Pi
+# (It took over 12 hours on Raspberry Pi 2 + USB HDD)
 # 
 # http://phantomjs.org/build.html
 #
 # (or, can get prebuilt packages at: http://phantomjs.org/download.html)
 # 
 # created on : 2015.03.11.
-# last update: 2015.03.11.
+# last update: 2015.03.16.
 # 
 # by meinside@gmail.com
 
@@ -19,7 +20,7 @@ RELEASE_BRANCH_VERSION="2.0"	# XXX - edit this for different version
 
 TEMP_DIR="/tmp"
 INSTALLATION_DIR="/opt"
-NUM_JOBS=2
+NUM_JOBS=2	# XXX - optimal for Raspberry Pi 2
 
 # install essential packages
 sudo apt-get -y install build-essential g++ flex bison gperf ruby perl libsqlite3-dev libfontconfig1-dev libicu-dev libfreetype6 libssl-dev libpng12-dev libjpeg8-dev ttf-mscorefonts-installer
