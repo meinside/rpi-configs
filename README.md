@@ -88,27 +88,37 @@ blacklist i2c-bcm2708
 ```
 # (add following)
 
-# for hidden ssid (PSK)
 allow-hotplug wlan0
-auto wlan0
 iface wlan0 inet dhcp
-    wpa-driver wext
-    wpa-scan-ssid 1
-    wpa-ap-scan 1
-    wpa-key-mgmt WPA-PSK
-    wpa-proto RSN WPA
-    wpa-pairwise CCMP TKIP
-    wpa-group CCMP TKIP
-    wpa-ssid [some_ssid]
-    wpa-psk [some_password]
-
-# for typical ssid (PSK)
-#allow-hotplug wlan0
-#auto wlan0
-#iface wlan0 inet dhcp
-#    wpa-ssid [some_ssid]
-#    wpa-psk [some_password]
+wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
+iface default inet dhcp
 ```
+
+and,
+
+``$ sudo vi /etc/wpa_supplicant/wpa_supplicant.conf``
+
+```
+# (add following)
+
+network={
+    ssid="[some_ssid]"
+    psk="[some_passwd]"
+
+    # Protocol type can be: RSN (for WP2) and WPA (for WPA1)
+    proto=RSN
+
+    # Key management type can be: WPA-PSK or WPA-EAP (Pre-Shared or Enterprise)
+    key_mgmt=WPA-PSK
+
+    # Pairwise can be CCMP or TKIP (for WPA2 or WPA1)
+    pairwise=CCMP
+
+    #Authorization option should be OPEN for both WPA1/WPA2 (in less commonly used are SHARED and LEAP)
+    auth_alg=OPEN
+}
+```
+
 
 ``$ sudo ifup wlan0``
 
