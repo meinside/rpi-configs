@@ -83,33 +83,18 @@ blacklist i2c-bcm2708
 
 ### B. WiFi Configuration ###
 
-``$ sudo vi /etc/network/interfaces``
+``$ sudo vi /etc/wpa_supplicant/wpa_supplicant.conf``
 
 ```
-# (add following)
+# (add following on the bottom)
 
-# for hidden ssid (PSK)
-allow-hotplug wlan0
-auto wlan0
-iface wlan0 inet dhcp
-    wpa-driver wext
-    wpa-scan-ssid 1
-    wpa-ap-scan 1
-    wpa-key-mgmt WPA-PSK
-    wpa-proto RSN WPA
-    wpa-pairwise CCMP TKIP
-    wpa-group CCMP TKIP
-    wpa-ssid [some_ssid]
-    wpa-psk [some_password]
-
-# for typical ssid (PSK)
-#allow-hotplug wlan0
-#auto wlan0
-#iface wlan0 inet dhcp
-#    wpa-ssid [some_ssid]
-#    wpa-psk [some_password]
+network={
+  ssid="[SSID]"
+  psk="[PASSWORD]"
+}
 ```
 
+``$ sudo ifdown wlan0``
 ``$ sudo ifup wlan0``
 
 
