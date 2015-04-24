@@ -164,7 +164,7 @@ GEM
     shared-mime-info (0.2.5)
     spreadsheet (1.0.3)
       ruby-ole (>= 1.0)
-    sprockets (3.0.1)
+    sprockets (3.0.2)
       rack (~> 1.0)
     sprockets-rails (2.2.4)
       actionpack (>= 3.0)
