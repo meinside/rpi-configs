@@ -96,7 +96,7 @@ GEM
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     oauth (0.4.7)
-    passenger (5.0.6)
+    passenger (5.0.7)
       rack
       rake (>= 0.8.1)
     pushbullet-ruby (0.0.1)
@@ -164,7 +164,7 @@ GEM
     shared-mime-info (0.2.5)
     spreadsheet (1.0.3)
       ruby-ole (>= 1.0)
-    sprockets (3.0.2)
+    sprockets (3.0.3)
       rack (~> 1.0)
     sprockets-rails (2.2.4)
       actionpack (>= 3.0)
