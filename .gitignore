@@ -78,6 +78,7 @@ srcs
 .fontconfig/
 .gem
 .lesshst
+.lnav/
 .profile
 .qws
 .rnd
