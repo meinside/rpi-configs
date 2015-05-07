@@ -101,7 +101,7 @@ GEM
       rake (>= 0.8.1)
     pushbullet-ruby (0.0.1)
       mimemagic (~> 0.0)
-    rack (1.6.0)
+    rack (1.6.1)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.1)
