@@ -1,6 +1,6 @@
 " meinside's vimrc file,
 " created by meinside@gmail.com,
-" last update: 2015.06.04.
+" last update: 2015.06.10.
 
 
 """"""""""""""""""""""""""""""""""""
@@ -49,35 +49,6 @@ if filereadable(vundle_readme)
 
 	" Go
 	Bundle 'fatih/vim-go'
-	" XXX: gotags is needed! ($ go get -u github.com/jstemmer/gotags)
-	Bundle 'jstemmer/gotags'
-	let g:tagbar_type_go = {
-		\ 'ctagstype' : 'go',
-		\ 'kinds'     : [
-			\ 'p:package',
-			\ 'i:imports:1',
-			\ 'c:constants',
-			\ 'v:variables',
-			\ 't:types',
-			\ 'n:interfaces',
-			\ 'w:fields',
-			\ 'e:embedded',
-			\ 'm:methods',
-			\ 'r:constructor',
-			\ 'f:functions'
-		\ ],
-		\ 'sro' : '.',
-		\ 'kind2scope' : {
-			\ 't' : 'ctype',
-			\ 'n' : 'ntype'
-		\ },
-		\ 'scope2kind' : {
-			\ 'ctype' : 't',
-			\ 'ntype' : 'n'
-		\ },
-		\ 'ctagsbin'  : 'gotags',
-		\ 'ctagsargs' : '-sort -silent'
-	\ }
 
 	" CSS
 	Bundle 'cakebaker/scss-syntax.vim'
