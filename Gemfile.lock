@@ -146,8 +146,6 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.3.0)
     rspec-support (3.3.0)
-    rtmux (0.0.3)
-      thor (~> 0)
     ruby-gmail (0.3.1)
       mail (>= 2.2.1)
       mime (>= 0.1)
@@ -193,6 +191,5 @@ DEPENDENCIES
   rails (~> 4.2.0)
   rserve-client
   rspec
-  rtmux
   ruby-trello
   wirble

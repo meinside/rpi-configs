@@ -1,5 +1,5 @@
 # My Gemfile
-# last update: 2015.02.25.
+# last update: 2015.07.27.
 source 'http://rubygems.org'
 
 ################
@@ -10,7 +10,6 @@ gem 'rspec'
 ################
 # my gems
 gem 'pushbullet-ruby'
-gem 'rtmux'
 gem 'meinside-ruby', github: 'meinside/meinside-ruby'	# my ruby scripts and libraries
 
 ################
