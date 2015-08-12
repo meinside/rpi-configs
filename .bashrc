@@ -1,7 +1,7 @@
 # .bashrc for Raspberry Pi
 #
 # created on 2012.05.31.
-# updated on 2014.09.18.
+# updated on 2015.08.12.
 #
 # ... by meinside@gmail.com
 
@@ -69,10 +69,9 @@ if [[ -z $TMUX ]]; then
 	PATH=$PATH:/usr/local/rvm/bin # Add RVM to PATH for scripting
 	export rvmsudo_secure_path=1
 
-	# for node
-	if [ -d /opt/node/bin ]; then
-		export PATH=$PATH:/opt/node/bin
-		export NODE_PATH=/opt/node/lib/node_modules
+	# for iojs(node)
+	if [ -d /opt/iojs/bin ]; then
+		export PATH=$PATH:/opt/iojs/bin
 	fi
 
 	# for go
