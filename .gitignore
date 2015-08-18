@@ -1,5 +1,5 @@
 # git ignore file of meinside@gmail.com
-# last update: 2015.07.27.
+# last update: 2015.08.18.
 
 # unnecessary binary files
 *.o
@@ -79,6 +79,7 @@ srcs
 .gem
 .lesshst
 .lnav/
+.ngrok2/
 .profile
 .qws
 .rnd
