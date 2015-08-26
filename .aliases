@@ -1,6 +1,7 @@
-# .bash_aliases
+# .aliases
+#
 # created by meinside@gmail.com
-# last update: 2015.07.13.
+# last update: 2015.08.26.
 
 alias ll="ls -alF"
 

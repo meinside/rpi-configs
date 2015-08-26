@@ -1,5 +1,5 @@
 # git ignore file of meinside@gmail.com
-# last update: 2015.08.18.
+# last update: 2015.08.26.
 
 # unnecessary binary files
 *.o
@@ -34,8 +34,8 @@ Network Trash Folder
 Temporary Items
 
 # temp files/dirs
-backups
-tmp
+backups/
+tmp/
 .rpi-firmware
 
 # go files/dirs
@@ -93,5 +93,5 @@ srcs
 mbox
 
 # data dir
-files
+files/
 
