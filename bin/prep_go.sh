@@ -8,7 +8,7 @@
 # (or, can get prebuilt packages at: http://dave.cheney.net/unofficial-arm-tarballs)
 # 
 # created on : 2014.07.01.
-# last update: 2015.08.20.
+# last update: 2015.09.09.
 # 
 # by meinside@gmail.com
 
@@ -20,7 +20,8 @@ REPOSITORY="https://go.googlesource.com/go"
 BOOTSTRAP_BRANCH="release-branch.go1.4"
 
 # XXX - edit for different version of Go (see: https://go.googlesource.com/go/+refs)
-INSTALL_BRANCH="release-branch.go1.5"
+#INSTALL_BRANCH="release-branch.go1.5"	# branch
+INSTALL_BRANCH="go1.5.1"	# tag
 
 function prep {
 	# install essential packages
@@ -32,17 +33,25 @@ function prep {
 function bootstrap {
 	prep
 
-	# clone the repository
-	echo -e "\033[33m>>> cloning repository for boostrap($BOOTSTRAP_BRANCH)...\033[0m"
-	rm -rf "$BOOTSTRAP_DIR"
-	git clone -b "$BOOTSTRAP_BRANCH" "$REPOSITORY" "$BOOTSTRAP_DIR"
+	# if Go (for bootstrap) already exists,
+	if [ -d "$INSTALLATION_DIR/go" ]; then
+		# reuse it
+		ln -sf "$INSTALLATION_DIR/go" "$BOOTSTRAP_DIR"
 
-	# build
-	echo -e "\033[33m>>> building...\033[0m"
-	cd "$BOOTSTRAP_DIR/src"
-	./make.bash
+		echo -e "\033[33m>>> Reusing Go at: $INSTALLATION_DIR/go\033[0m"
+	else
+		# clone the repository
+		echo -e "\033[33m>>> cloning repository for boostrap($BOOTSTRAP_BRANCH)...\033[0m"
+		rm -rf "$BOOTSTRAP_DIR"
+		git clone -b "$BOOTSTRAP_BRANCH" "$REPOSITORY" "$BOOTSTRAP_DIR"
 
-	echo -e "\033[33m>>> Go for bootstrap was installed at: $BOOTSTRAP_DIR\033[0m"
+		# build
+		echo -e "\033[33m>>> building...\033[0m"
+		cd "$BOOTSTRAP_DIR/src"
+		./make.bash
+
+		echo -e "\033[33m>>> Go for bootstrap was installed at: $BOOTSTRAP_DIR\033[0m"
+	fi
 }
 
 # clean Go (for bootstrap)
