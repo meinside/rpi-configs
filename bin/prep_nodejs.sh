@@ -6,15 +6,15 @@
 # from: https://nodejs.org/dist
 # 
 # created on : 2013.07.19.
-# last update: 2015.09.09.
+# last update: 2015.09.18.
 # 
 # by meinside@gmail.com
 
-VERSION="4.0.0"	# XXX - edit this for other versions
+VERSION="4.1.0"	# XXX - edit this for other versions
 
 NODEJS_DIST_BASEURL="https://nodejs.org/dist"
 TEMP_DIR="/tmp"
-FILENAME="node-v$VERSION-linux-armv7l.tar.gz"
+FILENAME="node-v$VERSION-linux-armv7.tar.gz"
 DOWNLOAD_PATH="$NODEJS_DIST_BASEURL/v$VERSION/$FILENAME"
 INSTALLATION_DIR="/opt"
 NODEJS_DIR="$INSTALLATION_DIR/`basename $FILENAME .tar.gz`"
