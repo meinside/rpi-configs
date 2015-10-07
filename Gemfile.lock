@@ -69,7 +69,7 @@ GEM
     builder (3.2.2)
     coderay (1.1.0)
     diff-lcs (1.2.5)
-    domain_name (0.5.24)
+    domain_name (0.5.25)
       unf (>= 0.0.5, < 1.0.0)
     dropbox-sdk (1.6.5)
       json
