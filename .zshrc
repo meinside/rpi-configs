@@ -1,7 +1,7 @@
 # .zshrc
 #
 # created on 2014.06.30.
-# updated on 2015.09.09.
+# updated on 2015.10.13.
 #
 # ... by meinside@gmail.com
 #
@@ -54,7 +54,7 @@ export EDITOR="/usr/bin/vim"
 export SVN_EDITOR="/usr/bin/vim"
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
-export TERM="xterm-color"
+export TERM="xterm-256color"
 export CLICOLOR=true
 export HISTCONTROL=erasedups
 export HISTSIZE=10000

@@ -1,6 +1,6 @@
 " meinside's vimrc file,
 " created by meinside@gmail.com,
-" last update: 2015.06.10.
+" last update: 2015.10.13.
 
 
 """"""""""""""""""""""""""""""""""""
@@ -40,21 +40,18 @@ if filereadable(vundle_readme)
 	" For Ruby
 	Bundle 'vim-ruby/vim-ruby'
 
-	" CoffeeScript
-	Bundle 'kchmck/vim-coffee-script'
-	Bundle 'lukaszkorecki/CoffeeTags'
-
-	" Clojure
-	Bundle 'guns/vim-clojure-static'
-
 	" Go
 	Bundle 'fatih/vim-go'
 
 	" CSS
 	Bundle 'cakebaker/scss-syntax.vim'
 
-	" HAML
-	Bundle 'tpope/vim-haml'
+	" For statusline/tabline configuration
+	Bundle 'itchyny/lightline.vim'
+	set laststatus=2
+	let g:lightline = {
+	      \ 'colorscheme': 'wombat',
+	      \ }
 
 	"
 	""""""""
@@ -104,10 +101,6 @@ nmap <F2> :30vsplit . <CR>
 
 " Don't use Ex mode, use Q for formatting
 map Q gq
-
-" This is an alternative that also works in block mode, but the deleted
-" text is lost and it only works for putting the current register.
-"vnoremap p "_dp
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
