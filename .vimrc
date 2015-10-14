@@ -1,6 +1,6 @@
 " meinside's vimrc file,
 " created by meinside@gmail.com,
-" last update: 2015.10.13.
+" last update: 2015.10.14.
 
 
 """"""""""""""""""""""""""""""""""""
@@ -74,11 +74,11 @@ endif
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
-set nobackup		" do not keep a backup file, use versions instead
-set history=50		" keep 50 lines of command line history
+set nobackup	" do not keep a backup file, use versions instead
+set history=50	" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
-set incsearch		" do incremental searching
+set incsearch	" do incremental searching
 set cindent
 set ai
 set smartindent
@@ -88,6 +88,7 @@ set sw=4
 set sts=4
 set fencs=ucs-bom,utf-8,korea
 set termencoding=utf-8
+set wildmenu   " visual autocomplete for command menu
 
 " for color schemes
 set t_Co=256
