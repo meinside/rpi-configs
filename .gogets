@@ -1,0 +1,20 @@
+# $ go get github.com/meinside/goget
+# $ goget
+#
+# then it will automatically 'go get -u' all packages listed in this file(~/.gogets)
+
+# official
+golang.org/x/tools/cmd/godoc
+
+# useful packages
+github.com/mailgun/godebug
+github.com/motemen/gore
+
+# for development
+github.com/astaxie/beego
+github.com/beego/bee
+
+# for my convenience
+github.com/meinside/gtmx
+github.com/meinside/goget
+
