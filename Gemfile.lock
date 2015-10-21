@@ -165,7 +165,7 @@ GEM
       rest-client (~> 1.8.0)
     rubyzip (1.1.7)
     shared-mime-info (0.2.5)
-    spreadsheet (1.0.7)
+    spreadsheet (1.0.8)
       ruby-ole (>= 1.0)
     sprockets (3.4.0)
       rack (> 1, < 3)
