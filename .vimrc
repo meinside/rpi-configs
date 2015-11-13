@@ -1,53 +1,55 @@
 " meinside's vimrc file,
 " created by meinside@gmail.com,
-" last update: 2015.10.14.
+" last update: 2015.11.13.
 
 
 """"""""""""""""""""""""""""""""""""
-" settings for vundle (https://github.com/gmarik/vundle)
-let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
+" settings for vundle (https://github.com/VundleVim/Vundle.vim)
+let vundle_readme=expand('~/.vim/bundle/Vundle.vim/README.md')
 if filereadable(vundle_readme)
-	set nocompatible               " be iMproved
-	filetype off                   " required!
+	set nocompatible              " be iMproved, required
+	filetype off                  " required
 
-	set rtp+=~/.vim/bundle/vundle/
-	call vundle#rc()
+	" set the runtime path to include Vundle and initialize
+	set rtp+=~/.vim/bundle/Vundle.vim
+	call vundle#begin()
+	" alternatively, pass a path where Vundle should install plugins
+	"call vundle#begin('~/some/path/here')
 
-	" let Vundle manage Vundle
-	" required!
-	Bundle 'gmarik/vundle'
+	" let Vundle manage Vundle, required
+	Plugin 'VundleVim/Vundle.vim'
 
 	""""""""
 	" add bundles here
 
 	" Useful plugins
-	Bundle 'surround.vim'
-	Bundle 'matchit.zip'
-	Bundle 'ragtag.vim'
-	Bundle 'snippetsEmu'
-	Bundle 'fugitive.vim'
-	Bundle 'tpope/vim-endwise'
+	Plugin 'surround.vim'
+	Plugin 'matchit.zip'
+	Plugin 'ragtag.vim'
+	Plugin 'snippetsEmu'
+	Plugin 'fugitive.vim'
+	Plugin 'tpope/vim-endwise'
 
 	" For source file browsing
 	" XXX: ctags and vim-nox is needed!
-	Bundle 'majutsushi/tagbar'
+	Plugin 'majutsushi/tagbar'
 	nmap <F8> :TagbarToggle<CR>
 
 	" For uploading Gist
-	Bundle 'mattn/webapi-vim'
-	Bundle 'mattn/gist-vim'
+	Plugin 'mattn/webapi-vim'
+	Plugin 'mattn/gist-vim'
 
 	" For Ruby
-	Bundle 'vim-ruby/vim-ruby'
+	Plugin 'vim-ruby/vim-ruby'
 
 	" Go
-	Bundle 'fatih/vim-go'
+	Plugin 'fatih/vim-go'
 
 	" CSS
-	Bundle 'cakebaker/scss-syntax.vim'
+	Plugin 'cakebaker/scss-syntax.vim'
 
 	" For statusline/tabline configuration
-	Bundle 'itchyny/lightline.vim'
+	Plugin 'itchyny/lightline.vim'
 	set laststatus=2
 	let g:lightline = {
 	      \ 'colorscheme': 'wombat',
@@ -56,19 +58,22 @@ if filereadable(vundle_readme)
 	"
 	""""""""
 
-	filetype plugin indent on     " required!
-
+	" All of your Plugins must be added before the following line
+	call vundle#end()            " required
+	filetype plugin indent on    " required
+	" To ignore plugin indent changes, instead use:
+	"filetype plugin on
 	"
-	" :BundleList          - list configured bundles
-	" :BundleInstall(!)    - install(update) bundles
-	" :BundleSearch(!) foo - search(or refresh cache first) for foo
-	" :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
+	" Brief help
+	" :PluginList       - lists configured plugins
+	" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+	" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+	" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+	"
 	" see :h vundle for more details or wiki for FAQ
-	" NOTE: comments after Bundle command are not allowed..
-	"
-	""""""""""""""""""""""""""""""""""""
+	" Put your non-Plugin stuff after this line
 else
-	echo "Install vundle: git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle"
+	echo "Install vundle: git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim"
 endif
 
 " allow backspacing over everything in insert mode
