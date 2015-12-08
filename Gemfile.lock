@@ -101,7 +101,7 @@ GEM
     nokogiri (1.6.7)
       mini_portile2 (~> 2.0.0.rc2)
     oauth (0.4.7)
-    passenger (5.0.21)
+    passenger (5.0.22)
       rack
       rake (>= 0.8.1)
     pushbullet-ruby (0.0.2)
