@@ -11,6 +11,7 @@ github.com/mailgun/godebug
 github.com/motemen/gore
 
 # for development
+github.com/hlandau/acme/cmd/acmetool
 github.com/astaxie/beego
 github.com/beego/bee
 
