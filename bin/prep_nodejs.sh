@@ -6,11 +6,11 @@
 # from: https://nodejs.org/dist
 # 
 # created on : 2013.07.19.
-# last update: 2015.12.04.
+# last update: 2015.12.24.
 # 
 # by meinside@gmail.com
 
-VERSION="4.2.3"	# XXX - edit this for other versions
+VERSION="4.2.4"	# XXX - edit this for other versions
 
 NODEJS_DIST_BASEURL="https://nodejs.org/dist"
 TEMP_DIR="/tmp"
