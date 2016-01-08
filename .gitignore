@@ -1,5 +1,5 @@
 # git ignore file of meinside@gmail.com
-# last update: 2015.11.06.
+# last update: 2016.01.08.
 
 # unnecessary binary files
 *.o
@@ -72,6 +72,7 @@ srcs
 # history files
 .*history
 .dbshell
+.psql_history*
 
 # etc. files/dirs
 .bash_logout

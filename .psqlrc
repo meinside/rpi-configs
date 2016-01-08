@@ -1,0 +1,26 @@
+-- .psqlrc, last update: 2016.01.08.
+
+\set QUIET 1
+
+-- Customize prompts
+-- \set PROMPT1 '%[%033[1m%][%/] # '
+-- \set PROMPT1 '%[%033[33;1m%]%x%[%033[0m%]%[%033[1m%]%/%[%033[0m%]%R%# '
+-- \set PROMPT2 '... # '
+\set PROMPT1 '%n@%/\n%R%x%# '
+\set PROMPT2 '%R%x%# '
+
+-- Show how long each query takes to execute
+\timing
+
+-- Use best available output format
+\x auto
+\set VERBOSITY verbose
+\set HISTFILE ~/.psql_history- :DBNAME
+\set HISTCONTROL ignoredups
+\set COMP_KEYWORD_CASE upper
+\pset null NULL
+\pset format wrapped
+--\pset linestyle unicode
+\pset border 1
+
+\unset QUIET
