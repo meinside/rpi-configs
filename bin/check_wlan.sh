@@ -16,13 +16,13 @@ PING_IP=8.8.8.8
 SLEEP_SECONDS=5
 
 # ping
-sudo /bin/ping -c4 ${PING_IP} > /dev/null
+sudo /bin/ping -c 2 -I ${WLAN} ${PING_IP} > /dev/null
 
 # if ping fails,
 if [ $? != 0 ]; then
 	echo "Restaring wlan interface: ${WLAN} ..."
 
-	sudo /sbin/ifdown --force ${WLAN}
+	sudo /sbin/ifdown ${WLAN}
 	sleep ${SLEEP_SECONDS}
 	sudo /sbin/ifup --force ${WLAN}
 fi
