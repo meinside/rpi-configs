@@ -1,7 +1,7 @@
 # .zshrc
 #
 # created on 2014.06.30.
-# updated on 2015.12.10.
+# updated on 2016.02.11.
 #
 # ... by meinside@gmail.com
 #
@@ -96,6 +96,10 @@ if [[ -z $TMUX ]]; then
 	# for go
 	if [ -d /opt/go/bin ]; then
 		export GOROOT=/opt/go
+	elif [ -x "`which go`" ]; then
+		export GOROOT=`go env GOROOT`
+	fi
+	if [ -d $GOROOT ]; then
 		export GOPATH=$HOME/srcs/go
 		export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 	fi
