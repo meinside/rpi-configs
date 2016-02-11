@@ -80,19 +80,6 @@ blacklist i2c-bcm2708
 
 ### B. WiFi Configuration ###
 
-``$ sudo vi /etc/network/interfaces``
-
-```
-# (add following)
-
-allow-hotplug wlan0
-iface wlan0 inet dhcp
-wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
-iface default inet dhcp
-```
-
-and,
-
 ``$ sudo vi /etc/wpa_supplicant/wpa_supplicant.conf``
 
 ```
@@ -113,6 +100,9 @@ network={
 
     #Authorization option should be OPEN for both WPA1/WPA2 (in less commonly used are SHARED and LEAP)
     auth_alg=OPEN
+
+	# Uncomment below line for private network (i.e. no broadcast SSID)
+#	scan_ssid=1
 }
 ```
 
