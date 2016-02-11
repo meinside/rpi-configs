@@ -1,7 +1,7 @@
 # .bashrc for Raspberry Pi
 #
 # created on 2012.05.31.
-# updated on 2015.10.13.
+# updated on 2016.02.11.
 #
 # ... by meinside@gmail.com
 
@@ -78,8 +78,12 @@ if [[ -z $TMUX ]]; then
 	# for go
 	if [ -d /opt/go/bin ]; then
 		export GOROOT=/opt/go
+	elif [ -x "`which go`" ]; then
+		export GOROOT=`go env GOROOT`
+	fi
+	if [ -d $GOROOT ]; then
 		export GOPATH=$HOME/srcs/go
-		export PATH=$PATH:$GOPATH/bin
+		export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 	fi
 
 	# for phantomjs & casperjs
