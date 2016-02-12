@@ -174,6 +174,10 @@ default-character-set = utf8
         <port>80</port>
     </service>
     <service>
+        <type>_ssh._tcp</type>
+        <port>22</port>
+    </service>
+    <service>
         <type>_device-info._tcp</type>
         <port>0</port>
         <txt-record>model=Xserve</txt-record>
