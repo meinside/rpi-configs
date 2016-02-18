@@ -8,7 +8,7 @@
 # (or, can get prebuilt packages at: http://dave.cheney.net/unofficial-arm-tarballs)
 # 
 # created on : 2014.07.01.
-# last update: 2016.01.14.
+# last update: 2016.02.18.
 # 
 # by meinside@gmail.com
 
@@ -20,8 +20,8 @@ REPOSITORY="https://go.googlesource.com/go"
 BOOTSTRAP_BRANCH="release-branch.go1.4"
 
 # XXX - edit for different version of Go (see: https://go.googlesource.com/go/+refs)
-#INSTALL_BRANCH="release-branch.go1.5"	# branch
-INSTALL_BRANCH="go1.5.3"	# tag
+INSTALL_BRANCH="release-branch.go1.6"	# branch
+#INSTALL_BRANCH="go1.5.3"	# tag
 
 function prep {
 	# install essential packages
