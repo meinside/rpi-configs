@@ -1,5 +1,5 @@
 # git ignore file of meinside@gmail.com
-# last update: 2016.03.19.
+# last update: 2016.03.20.
 
 # unnecessary binary files
 *.o
@@ -50,6 +50,7 @@ node_modules
 # ruby files/dirs
 .bundle
 .bundler
+.rvm/
 
 # other src files
 public_html

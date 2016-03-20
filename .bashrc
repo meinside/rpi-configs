@@ -1,7 +1,7 @@
 # .bashrc for Raspberry Pi
 #
 # created on 2012.05.31.
-# updated on 2016.02.11.
+# updated on 2016.03.20.
 #
 # ... by meinside@gmail.com
 
@@ -66,9 +66,8 @@ fi
 if [[ -z $TMUX ]]; then
 
 	# for RVM
-	[[ -s "/etc/profile.d/rvm.sh" ]] && source "/etc/profile.d/rvm.sh"  # This loads RVM into a shell session.
-	PATH=$PATH:/usr/local/rvm/bin # Add RVM to PATH for scripting
-	export rvmsudo_secure_path=1
+	[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+	export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 	# for Node.js
 	if [ -d /opt/node/bin ]; then
