@@ -208,7 +208,7 @@ and reboot.
 
 ##### b. use bluetoothctl #####
 
-After reboot, use bluetoothctl for turning up, scanning, and connecting.
+After reboot, use ``bluetoothctl`` for turning up, scanning, and connecting.
 
 ```
 $ sudo bluetoothctl
