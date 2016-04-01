@@ -1,6 +1,9 @@
 " meinside's vimrc file,
+"
 " created by meinside@gmail.com,
-" last update: 2015.11.13.
+" last update: 2016.04.01.
+"
+" $ sudo update-alternatives --config editor
 
 
 """"""""""""""""""""""""""""""""""""

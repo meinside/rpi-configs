@@ -196,11 +196,31 @@ default-character-set = utf8
 supersede domain-name-servers 8.8.8.8, 8.8.4.4;
 ```
 
-### B. when using bluetooth with dongle ###
+### B. when using bluetooth ###
+
+#### 1. with on-board bluetooth (Raspberry Pi 3)
+
+##### a. install required packages #####
+
+``$ sudo apt-get install pi-bluetooth``
+
+and reboot.
+
+##### b. use bluetoothctl #####
+
+After reboot, use bluetoothctl for turning up, scanning, and connecting.
+
+```
+$ sudo bluetoothctl
+```
+
+Type ``help`` for commands and options.
+
+#### 2. with dongle
 
 * referenced: http://wiki.debian.org/BluetoothUser
 
-#### a. make raspberry pi discoverable by other bluetooth devices ####
+##### a. make raspberry pi discoverable by other bluetooth devices #####
 
 ``$ sudo hciconfig hci0 piscan``
 
@@ -211,15 +231,15 @@ and make raspberry pi hidden from other bluetooth devices again
 
 ``$ sudo hciconfig hci0 noscan``
 
-#### b. display bluetooth device (for checking proper installation) ####
+##### b. display bluetooth device (for checking proper installation) #####
 
 ``$ hcitool dev``
 
-#### c. scan nearby bluetooth devices ####
+##### c. scan nearby bluetooth devices #####
 
 ``$ hcitool scan``
 
-#### d. settings ####
+##### d. settings #####
 
 ``$ sudo vi /etc/default/bluetooth``
 
