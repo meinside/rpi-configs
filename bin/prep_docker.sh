@@ -10,11 +10,11 @@
 # It can be uninstalled with: sudo dpkg -r docker-hypriot
 # 
 # created on : 2015.12.24.
-# last update: 2016.02.18.
+# last update: 2016.04.11.
 # 
 # by meinside@gmail.com
 
-DEB_FILE="http://downloads.hypriot.com/docker-hypriot_1.10.1-1_armhf.deb"	# XXX - edit this for newer package
+DEB_FILE="https://downloads.hypriot.com/docker-hypriot_1.10.3-1_armhf.deb"	# XXX - edit this for newer package
 
 TEMP_DIR="/tmp"
 TEMP_FILE="$TEMP_DIR/`basename $DEB_FILE`"
