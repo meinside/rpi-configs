@@ -1,5 +1,5 @@
 # git ignore file of meinside@gmail.com
-# last update: 2016.03.20.
+# last update: 2016.04.28.
 
 # unnecessary binary files
 *.o
@@ -63,6 +63,7 @@ srcs
 .Xauthority
 
 # private/config files & dirs
+.aptitude/
 .config/
 .custom_aliases
 .gist-vim
