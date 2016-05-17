@@ -12,7 +12,7 @@ TMP_DIR=/tmp/ffmpeg
 
 function prep {
 	# install needed packages
-	sudo apt-get install -y libx264-dev libvorbis-dev
+	sudo apt-get install -y build-essential libx264-dev libvorbis-dev libmp3lame-dev
 
 	clean
 }
@@ -24,7 +24,7 @@ function clean {
 function install {
 	git clone --depth=1 git://source.ffmpeg.org/ffmpeg.git $TMP_DIR
 	cd $TMP_DIR
-	./configure --arch=armel --target-os=linux --enable-gpl --enable-nonfree --enable-libx264 --enable-libvorbis
+	./configure --arch=armel --target-os=linux --enable-gpl --enable-nonfree --enable-libx264 --enable-libvorbis --enable-libmp3lame
 	make -j4
 
 	# install
