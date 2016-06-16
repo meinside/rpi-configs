@@ -3,8 +3,10 @@
 # prep_ffmpeg.sh
 # 
 # for building ffmpeg from source code on Raspberry Pi
+#
+# (pass '--do-not-clean' argument for preserving files after install)
 # 
-# last update: 2016.05.17.
+# last update: 2016.06.16.
 # 
 # by meinside@gmail.com
 
@@ -32,5 +34,12 @@ function install {
 }
 
 prep
+
 install
-clean
+
+# check if '--do-not-clean' argument was given
+if [[ $1 != '--do-not-clean' ]]; then
+	clean
+else
+	echo ">>> ffmpeg files remain in $TMP_DIR"
+fi
