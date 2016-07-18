@@ -1,7 +1,7 @@
 " meinside's vimrc file,
 "
 " created by meinside@gmail.com,
-" last update: 2016.04.01.
+" last update: 2016.07.18.
 "
 " $ sudo update-alternatives --config editor
 
@@ -47,6 +47,8 @@ if filereadable(vundle_readme)
 
 	" Go
 	Plugin 'fatih/vim-go'
+	" https://github.com/fatih/vim-go/blob/master/gosnippets/UltiSnips/go.snippets
+	Plugin 'SirVer/ultisnips'
 
 	" CSS
 	Plugin 'cakebaker/scss-syntax.vim'
