@@ -1,5 +1,5 @@
 # git ignore file of meinside@gmail.com
-# last update: 2016.06.30.
+# last update: 2016.08.25.
 
 # unnecessary binary files
 *.o
@@ -96,6 +96,7 @@ srcs
 .subversion
 .vim
 .viminfo
+.vimrc.lowperf
 .w3m/
 .zcompdump-*
 .zsh-update

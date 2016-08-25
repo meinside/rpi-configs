@@ -29,7 +29,6 @@ if filereadable(vundle_readme)
 	Plugin 'surround.vim'
 	Plugin 'matchit.zip'
 	Plugin 'ragtag.vim'
-	Plugin 'snippetsEmu'
 	Plugin 'fugitive.vim'
 	Plugin 'tpope/vim-endwise'
 
@@ -58,15 +57,20 @@ if filereadable(vundle_readme)
 	      \ 'colorscheme': 'wombat',
 	      \ }
 
-	" For snippets
-	" - Ruby: https://github.com/honza/vim-snippets/blob/master/UltiSnips/ruby.snippets
-    " - Go: https://github.com/honza/vim-snippets/blob/master/UltiSnips/go.snippets
-	Plugin 'SirVer/ultisnips'
-	Plugin 'honza/vim-snippets'
-	let g:UltiSnipsExpandTrigger="<tab>"
-	let g:UltiSnipsJumpForwardTrigger="<tab>"   " <tab> for next placeholder
-	let g:UltiSnipsJumpBackwardTrigger="<s-tab>"    " <shift-tab> for previous placeholder
-	let g:UltiSnipsEditSplit="vertical"
+	" XXX - do not load following plugins on machines with low performance:
+	" (place '~/.vimrc.lowperf' for marking it so)
+	let lowperf=expand('~/.vimrc.lowperf')
+	if !filereadable(lowperf)
+		" For snippets
+		" - Ruby: https://github.com/honza/vim-snippets/blob/master/UltiSnips/ruby.snippets
+		" - Go: https://github.com/honza/vim-snippets/blob/master/UltiSnips/go.snippets
+		Plugin 'SirVer/ultisnips'
+		Plugin 'honza/vim-snippets'
+		let g:UltiSnipsExpandTrigger="<tab>"
+		let g:UltiSnipsJumpForwardTrigger="<tab>"   " <tab> for next placeholder
+		let g:UltiSnipsJumpBackwardTrigger="<s-tab>"    " <shift-tab> for previous placeholder
+		let g:UltiSnipsEditSplit="vertical"
+	endif
 
 	"
 	""""""""
@@ -154,7 +158,6 @@ if has("autocmd")
 	autocmd FileType css,scss set ai sw=2 ts=2 sts=2 et
 
 	" For other programming languages
-	autocmd FileType clj set ai sw=2 ts=2 sts=2 et
 	autocmd FileType go set ai sw=4 ts=4 sts=4 noet
 
 	" When editing a file, always jump to the last known cursor position.
