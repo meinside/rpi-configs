@@ -1,7 +1,7 @@
 " meinside's vimrc file,
 "
 " created by meinside@gmail.com,
-" last update: 2016.07.27
+" last update: 2016.08.25.
 "
 " $ sudo update-alternatives --config editor
 
@@ -47,8 +47,6 @@ if filereadable(vundle_readme)
 
 	" Go
 	Plugin 'fatih/vim-go'
-	" https://github.com/fatih/vim-go/blob/master/gosnippets/UltiSnips/go.snippets
-	Plugin 'SirVer/ultisnips'
 
 	" CSS
 	Plugin 'cakebaker/scss-syntax.vim'
@@ -59,6 +57,16 @@ if filereadable(vundle_readme)
 	let g:lightline = {
 	      \ 'colorscheme': 'wombat',
 	      \ }
+
+	" For snippets
+	" - Ruby: https://github.com/honza/vim-snippets/blob/master/UltiSnips/ruby.snippets
+    " - Go: https://github.com/honza/vim-snippets/blob/master/UltiSnips/go.snippets
+	Plugin 'SirVer/ultisnips'
+	Plugin 'honza/vim-snippets'
+	let g:UltiSnipsExpandTrigger="<tab>"
+	let g:UltiSnipsJumpForwardTrigger="<tab>"   " <tab> for next placeholder
+	let g:UltiSnipsJumpBackwardTrigger="<s-tab>"    " <shift-tab> for previous placeholder
+	let g:UltiSnipsEditSplit="vertical"
 
 	"
 	""""""""
@@ -78,7 +86,7 @@ if filereadable(vundle_readme)
 	" see :h vundle for more details or wiki for FAQ
 	" Put your non-Plugin stuff after this line
 else
-	echo "Install vundle: git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim"
+	echo "Install vundle: $ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim"
 endif
 
 " allow backspacing over everything in insert mode
