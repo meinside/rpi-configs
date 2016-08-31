@@ -65,29 +65,36 @@ function clean_bootstrap {
 function install_go {
 	bootstrap
 
-	# clone the repository
-	echo -e "\033[33m>>> cloning repository...(branch/tag: $INSTALL_BRANCH)\033[0m"
-	SRC_DIR="$TEMP_DIR/go-$INSTALL_BRANCH"
-	rm -rf "$SRC_DIR"
-	git clone -b "$INSTALL_BRANCH" "$REPOSITORY" "$SRC_DIR"
+	# check if BOOTSTRAP_DIR contains cloned repo or is empty
+	if [ "$(ls -A $BOOTSTRAP_DIR)" ]; then
 
-	# build
-	echo -e "\033[33m>>> building go with bootstrap go...\033[0m"
-	cd "$SRC_DIR/src"
-	GOROOT_BOOTSTRAP=$BOOTSTRAP_DIR ./make.bash
+		# clone the repository
+		echo -e "\033[33m>>> cloning repository...(branch/tag: $INSTALL_BRANCH)\033[0m"
+		SRC_DIR="$TEMP_DIR/go-$INSTALL_BRANCH"
+		rm -rf "$SRC_DIR"
+		git clone -b "$INSTALL_BRANCH" "$REPOSITORY" "$SRC_DIR"
 
-	# install
-	echo -e "\033[33m>>> installing...\033[0m"
-	GO_DIR="$INSTALLATION_DIR/go-$INSTALL_BRANCH"
-	cd ../..
-	sudo mv "$SRC_DIR" "$GO_DIR"
-	sudo chown -R "$USER" "$GO_DIR"
-	sudo ln -sfn "$GO_DIR" "$INSTALLATION_DIR/go"
+		# build
+		echo -e "\033[33m>>> building go with bootstrap go...\033[0m"
+		cd "$SRC_DIR/src"
+		GOROOT_BOOTSTRAP=$BOOTSTRAP_DIR ./make.bash
 
-	clean_bootstrap
+		# install
+		echo -e "\033[33m>>> installing...\033[0m"
+		GO_DIR="$INSTALLATION_DIR/go-$INSTALL_BRANCH"
+		cd ../..
+		sudo mv "$SRC_DIR" "$GO_DIR"
+		sudo chown -R "$USER" "$GO_DIR"
+		sudo ln -sfn "$GO_DIR" "$INSTALLATION_DIR/go"
 
-	echo -e "\033[33m>>> Go with branch/tag: $INSTALL_BRANCH was installed at: $GO_DIR\033[0m"
+		clean_bootstrap
+
+		echo -e "\033[33m>>> Go with branch/tag: $INSTALL_BRANCH was installed at: $GO_DIR\033[0m"
+	else
+		echo "$BOOTSTRAP_DIR is Empty, please retry the prep_go command again!"
+	fi
 }
+
 
 # do the actual job
 install_go
