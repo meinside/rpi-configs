@@ -2,7 +2,7 @@
 
 # prep_nodejs.sh
 # 
-# install pre-built Node.js files for Raspberry Pi
+# install pre-built Node.js (LTS) for Raspberry Pi
 # from: https://nodejs.org/dist
 # 
 # created on : 2013.07.19.
@@ -10,7 +10,7 @@
 # 
 # by meinside@gmail.com
 
-VERSION="4.6.1"	# XXX - edit this for other versions
+VERSION="6.9.0"	# XXX - edit this for other versions
 
 NODEJS_DIST_BASEURL="https://nodejs.org/dist"
 TEMP_DIR="/tmp"
