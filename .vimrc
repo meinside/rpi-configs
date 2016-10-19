@@ -1,7 +1,7 @@
 " meinside's vimrc file,
 "
 " created by meinside@gmail.com,
-" last update: 2016.08.25.
+" last update: 2016.10.19.
 "
 " $ sudo update-alternatives --config editor
 
@@ -114,8 +114,12 @@ set breakindent
 set t_Co=256
 colo elflord
 
-" custom key mappings, 2011.04.15,
-nmap <F2> :30vsplit . <CR>
+" file browser (netrw)
+" :Ex, :Sex, :Vex
+let g:netrw_liststyle = 3
+let g:netrw_winsize = 30
+" <F2> for vertical file browser
+nmap <F2> :Vex <CR>
 
 " For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
 " let &guioptions = substitute(&guioptions, "t", "", "g")
