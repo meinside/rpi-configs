@@ -1,7 +1,7 @@
 # .zshrc
 #
 # created on 2014.06.30.
-# updated on 2016.04.28.
+# updated on 2016.11.16.
 #
 # ... by meinside@gmail.com
 #
@@ -69,9 +69,7 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # aliases
-if [ -f ~/.aliases ]; then
-    . ~/.aliases
-fi
+. ~/.aliases
 if [ -f ~/.custom_aliases ]; then
     . ~/.custom_aliases
 fi
@@ -86,12 +84,7 @@ if [[ -z $TMUX ]]; then
 	[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 	export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
-	# for Node.js
-	if [ -d /opt/node/bin ]; then
-		export PATH=$PATH:/opt/node/bin
-	fi
-
-	# for go
+	# for Go
 	if [ -d /opt/go/bin ]; then
 		export GOROOT=/opt/go
 	elif [ -x "`which go`" ]; then
@@ -102,18 +95,15 @@ if [[ -z $TMUX ]]; then
 		export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 	fi
 
+	# for Node.js
+	export PATH=$PATH:/opt/node/bin
+
 	# for phantomjs & casperjs
-	if [ -d /opt/phantomjs/bin ]; then
-		export PATH=$PATH:/opt/phantomjs/bin
-	fi
-	if [ -d /opt/casperjs/bin ]; then
-		export PATH=$PATH:/opt/casperjs/bin
-	fi
+	export PATH=$PATH:/opt/phantomjs/bin
+	export PATH=$PATH:/opt/casperjs/bin
 
 	# additional paths
-	if [ -d "$HOME/bin" ] ; then
-		export PATH="$PATH:$HOME/bin"
-	fi
+	export PATH="$PATH:$HOME/bin"
 
 fi
 
