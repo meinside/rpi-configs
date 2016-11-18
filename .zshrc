@@ -1,7 +1,7 @@
 # .zshrc
 #
 # created on 2014.06.30.
-# updated on 2016.11.16.
+# updated on 2016.11.18.
 #
 # ... by meinside@gmail.com
 #
@@ -94,6 +94,9 @@ if [[ -z $TMUX ]]; then
 		export GOPATH=$HOME/srcs/go
 		export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 	fi
+
+	# for Julia
+	export PATH=$PATH:/opt/julia/bin
 
 	# for Node.js
 	export PATH=$PATH:/opt/node/bin
