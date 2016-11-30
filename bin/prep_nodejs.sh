@@ -17,10 +17,11 @@ YELLOW="\033[0;33m"
 RESET="\033[0m"
 
 VERSION="6.9.1"	# XXX - edit this for other versions
+PLATFORM=`uname -m`	# armv7l, armv6l, ...
 
 NODEJS_DIST_BASEURL="https://nodejs.org/dist"
 TEMP_DIR="/tmp"
-FILENAME="node-v$VERSION-linux-armv7l.tar.gz"
+FILENAME="node-v${VERSION}-linux-${PLATFORM}.tar.gz"
 DOWNLOAD_PATH="$NODEJS_DIST_BASEURL/v$VERSION/$FILENAME"
 INSTALLATION_DIR="/opt"
 NODEJS_DIR="$INSTALLATION_DIR/`basename $FILENAME .tar.gz`"
