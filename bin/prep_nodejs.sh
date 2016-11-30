@@ -37,5 +37,5 @@ sudo tar -xzvf "$TEMP_DIR/$FILENAME" -C "$INSTALLATION_DIR"
 sudo chown -R $USER "$NODEJS_DIR"
 sudo ln -sfn "$NODEJS_DIR" "$INSTALLATION_DIR/node"
 
-echo -e "${YELLOW}>>> nodejs v$VERSION was installed at: $NODEJS_DIR ${RESET}"
+echo -e "${GREEN}>>> nodejs v$VERSION was installed at: $NODEJS_DIR ${RESET}"
 
