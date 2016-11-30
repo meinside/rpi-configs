@@ -6,9 +6,15 @@
 # and setting up several things for Raspberry Pi
 # (https://raw.github.com/meinside/raspiconfigs/master/bin/prep.sh)
 # 
-# last update: 2015.06.09.
+# last update: 2016.11.30.
 # 
 # by meinside@gmail.com
+
+# colors
+RED="\033[0;31m"
+GREEN="\033[0;32m"
+YELLOW="\033[0;33m"
+RESET="\033[0m"
 
 if [ `whoami` == 'meinside' ]; then
 	REPOSITORY="git@github.com:meinside/rpi-configs.git"
@@ -17,14 +23,14 @@ else
 fi
 TMP_DIR="$HOME/configs.tmp"
 
-echo -e "\033[32mThis script will setup several things for your Raspberry Pi\033[0m\n"
+echo -e "${GREEN}>>> This script will setup several things for your Raspberry Pi...${RESET}\n"
 
 # authenticate for sudo if needed
 sudo -l > /dev/null
 
 # clone config files
 if ! which git > /dev/null; then
-	echo -e "\033[33m>>> installing git...\033[0m"
+	echo -e "${YELLOW}>>> installing git...${RESET}"
 	sudo apt-get update
 	sudo apt-get -y install git
 fi
@@ -37,20 +43,20 @@ mv $TMP_DIR/* $HOME/
 rm -rf $TMP_DIR
 
 # upgrade packages
-echo -e "\033[33m>>> upgrading installed packages...\033[0m"
+echo -e "${YELLOW}>>> upgrading installed packages...${RESET}"
 sudo apt-get update
 sudo apt-get -y upgrade
 
 # install other essential packages
-echo -e "\033[33m>>> installing other essential packages...\033[0m"
+echo -e "${YELLOW}>>> installing other essential packages...${RESET}"
 sudo apt-get -y install zsh vim tmux mosh
 
 # cleanup
-echo -e "\033[33m>>> cleaning up...\033[0m"
+echo -e "${YELLOW}>>> cleaning up...${RESET}"
 sudo apt-get -y autoremove
 sudo apt-get -y autoclean
 
 # re-login for loading configs
 echo
-echo -e "\033[31m*** logout, and login again for reloading configs ***\033[0m"
+echo -e "${RED}*** logout, and login again for reloading configs ***${RESET}"
 echo
