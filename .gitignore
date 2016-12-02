@@ -57,6 +57,7 @@ node_modules
 
 # python files/dirs
 .pip/
+.virtualenvs/
 
 # other src files
 public_html

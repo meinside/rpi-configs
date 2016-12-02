@@ -1,7 +1,7 @@
 # .bashrc for Raspberry Pi
 #
 # created on 2012.05.31.
-# updated on 2016.11.18.
+# updated on 2016.12.02.
 #
 # ... by meinside@gmail.com
 
@@ -77,6 +77,10 @@ if [[ -z $TMUX ]]; then
 		export GOPATH=$HOME/srcs/go
 		export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 	fi
+
+	# for python
+	export WORKON_HOME=$HOME/.virtualenvs
+	[[ -s "/usr/local/bin/virtualenvwrapper.sh" ]] && source "/usr/local/bin/virtualenvwrapper.sh"	# virtualenv and virtualenvwrapper
 
 	# for Julia
 	export PATH=$PATH:/opt/julia/bin
