@@ -5,7 +5,7 @@
 # Build and install OpenCV on Raspberry Pi (for Python 2.7)
 #
 # created on : 2016.12.02.
-# last update: 2016.12.05.
+# last update: 2016.12.06.
 # 
 # by meinside@gmail.com
 
@@ -42,6 +42,7 @@ function prep {
 
 	sudo apt-get -y install build-essential cmake pkg-config libjpeg-dev libtiff5-dev libjasper-dev libpng12-dev libavcodec-dev libavformat-dev libswscale-dev libv4l-dev libxvidcore-dev libx264-dev libatlas-base-dev gfortran python2.7-dev
 
+	sudo apt-get -y install python-pip
 	sudo pip install virtualenv virtualenvwrapper
 
 	# XXX - fix permissions
@@ -66,7 +67,7 @@ function build {
 	mkvirtualenv $ENV_NAME
 
 	# change env and install numpy
-	echo -e "${YELLOW}>>> Building in ${ENV_NAME}...${RESET}"
+	echo -e "${YELLOW}>>> Building in virtualenv: ${ENV_NAME}...${RESET}"
 	workon $ENV_NAME
 	pip install numpy
 
@@ -90,13 +91,13 @@ function build {
 
 function check_installation {
 	INSTALLED_VERSION=`python -c "import cv2;print cv2.__version__"`
-	test $INSTALLED_VERSION = $VERSION && echo -e "${GREEN}>>> Successfully installed OpenCV ${VERSION}.${RESET}" || echo -e "${RED}*** Failed to install OpenCV ${VERSION}.${RESET}"
+	test $INSTALLED_VERSION = $VERSION && echo -e "${GREEN}>>> Successfully installed OpenCV ${VERSION} in virtualenv: ${ENV_NAME}.${RESET}" || echo -e "${RED}*** Failed to install OpenCV ${VERSION}.${RESET}"
 }
 
 function clean {
 	echo -e "${YELLOW}>>> Cleaning...${RESET}"
 
-	rm -rf "$SRC_FILEPATH" "$MODULE_FILEPATH" "$SRC_DIRPATH" "$MODULE_DIRPATH"
+	sudo rm -rf "$SRC_FILEPATH" "$MODULE_FILEPATH" "$SRC_DIRPATH" "$MODULE_DIRPATH"
 	sudo rm -rf ~/.cache/pip
 }
 
