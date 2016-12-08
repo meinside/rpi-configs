@@ -8,9 +8,12 @@
 # (or, can get prebuilt packages at: http://dave.cheney.net/unofficial-arm-tarballs)
 # 
 # created on : 2014.07.01.
-# last update: 2016.12.02.
+# last update: 2016.12.08.
 # 
 # by meinside@gmail.com
+
+# XXX - for making newly created files/directories less restrictive
+umask 0022
 
 # colors
 RED="\033[0;31m"

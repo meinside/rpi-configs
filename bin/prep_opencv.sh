@@ -5,9 +5,12 @@
 # Build and install OpenCV on Raspberry Pi (for Python 2.7)
 #
 # created on : 2016.12.02.
-# last update: 2016.12.06.
+# last update: 2016.12.08.
 # 
 # by meinside@gmail.com
+
+# XXX - for making newly created files/directories less restrictive
+umask 0022
 
 # colors
 RED="\033[0;31m"

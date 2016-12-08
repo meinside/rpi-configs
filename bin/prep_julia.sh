@@ -5,9 +5,12 @@
 # Build and install Julia for Raspberry Pi
 #
 # created on : 2016.11.16.
-# last update: 2016.11.18.
+# last update: 2016.12.08.
 # 
 # by meinside@gmail.com
+
+# XXX - for making newly created files/directories less restrictive
+umask 0022
 
 # colors
 RED="\033[0;31m"

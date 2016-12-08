@@ -5,9 +5,12 @@
 # for setting up environment for ruby on Raspberry Pi
 # (https://raw.github.com/meinside/raspiconfigs/master/bin/prep_ruby.sh)
 # 
-# last update: 2016.11.30.
+# last update: 2016.12.08.
 # 
 # by meinside@gmail.com
+
+# XXX - for making newly created files/directories less restrictive
+umask 0022
 
 # colors
 RED="\033[0;31m"

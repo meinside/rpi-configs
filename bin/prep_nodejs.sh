@@ -6,9 +6,12 @@
 # from: https://nodejs.org/dist
 # 
 # created on : 2013.07.19.
-# last update: 2016.12.07.
+# last update: 2016.12.08.
 # 
 # by meinside@gmail.com
+
+# XXX - for making newly created files/directories less restrictive
+umask 0022
 
 # colors
 RED="\033[0;31m"

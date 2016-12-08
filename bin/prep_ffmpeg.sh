@@ -6,9 +6,12 @@
 #
 # (pass '--do-not-clean' argument for preserving files after install)
 # 
-# last update: 2016.06.16.
+# last update: 2016.12.08.
 # 
 # by meinside@gmail.com
+
+# XXX - for making newly created files/directories less restrictive
+umask 0022
 
 TMP_DIR=/tmp/ffmpeg
 

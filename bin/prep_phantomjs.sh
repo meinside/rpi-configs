@@ -4,16 +4,18 @@
 # 
 # Build and install Phantomjs from the official repository
 # for Raspberry Pi
-# (It took over 12 hours on Raspberry Pi 2 + USB HDD)
 # 
 # http://phantomjs.org/build.html
 #
 # (or, can get prebuilt packages at: http://phantomjs.org/download.html)
 # 
 # created on : 2015.03.11.
-# last update: 2016.11.30.
+# last update: 2016.12.08.
 # 
 # by meinside@gmail.com
+
+# XXX - for making newly created files/directories less restrictive
+umask 0022
 
 # colors
 RED="\033[0;31m"
