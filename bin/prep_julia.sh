@@ -5,7 +5,7 @@
 # Build and install Julia for Raspberry Pi
 #
 # created on : 2016.11.16.
-# last update: 2016.12.08.
+# last update: 2016.12.13.
 # 
 # by meinside@gmail.com
 
@@ -27,27 +27,11 @@ JULIA_SRC_DIR="$TEMP_DIR/julia"
 JULIA_INSTALL_DIR="$OPT_DIR/julia-$BRANCH"
 JULIA_SYM_DIR="$OPT_DIR/julia"
 
-CMAKE_SRC="https://cmake.org/files/v3.7/cmake-3.7.0.tar.gz"
-CMAKE_TGZ=`basename "${CMAKE_SRC}"`
-CMAKE_DIR_NAME=`basename "${CMAKE_TGZ}" .tar.gz`
-
 function prep {
 	# install essential packages
 	echo -e "${YELLOW}>>> Installing essential packages...${RESET}"
 
-	# XXX - cmake of Raspbian Jessie is outdated,
-	#sudo apt-get install -y libblas3gf liblapack3gf libarpack2 libfftw3-dev libgmp3-dev libmpfr-dev libblas-dev liblapack-dev cmake gcc-4.8 g++-4.8 gfortran libgfortran3 m4 libedit-dev
-	sudo apt-get install -y libblas3gf liblapack3gf libarpack2 libfftw3-dev libgmp3-dev libmpfr-dev libblas-dev liblapack-dev gcc-4.8 g++-4.8 gfortran libgfortran3 m4 libedit-dev
-
-	# XXX - so build cmake manually:
-	echo -e "${YELLOW}>>> Building ${CMAKE_DIR_NAME}...${RESET}"
-	wget "$CMAKE_SRC" -P "$TEMP_DIR"
-	cd "$TEMP_DIR"
-	tar -xzvf "$CMAKE_TGZ"
-	cd "$CMAKE_DIR_NAME"
-	./bootstrap
-	make
-	sudo make install
+	sudo apt-get install -y libblas3gf liblapack3gf libarpack2 libfftw3-dev libgmp3-dev libmpfr-dev libblas-dev liblapack-dev cmake gcc-4.8 g++-4.8 gfortran libgfortran3 m4 libedit-dev
 }
 
 # install Julia
@@ -80,13 +64,6 @@ function install_julia {
 }
 
 function clean {
-	# uninstall cmake
-	echo -e "${YELLOW}>>> Cleaning ${CMAKE_DIR_NAME}...${RESET}"
-	cd "${TEMP_DIR}/${CMAKE_DIR_NAME}"
-	sudo make uninstall
-	cd ..
-	sudo rm -rf "${TEMP_DIR}/${CMAKE_DIR_NAME}"
-
 	# clean julia src
 	echo -e "${YELLOW}>>> Cleaning julia...${RESET}"
 	sudo rm -rf "$JULIA_SRC_DIR"
