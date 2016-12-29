@@ -1,7 +1,7 @@
 " meinside's vimrc file,
 "
 " created by meinside@gmail.com,
-" last update: 2016.10.19.
+" last update: 2016.12.29.
 "
 " $ sudo update-alternatives --config editor
 
@@ -54,7 +54,7 @@ if filereadable(vundle_readme)
 	      \ }
 
 	" XXX - do not load following plugins on machines with low performance:
-	" (place '~/.vimrc.lowperf' for marking it so)
+	" (touch '~/.vimrc.lowperf' for it)
 	let lowperf=expand('~/.vimrc.lowperf')
 	if !filereadable(lowperf)
 		" For snippets
@@ -150,15 +150,15 @@ if has("autocmd")
 	" For all text files set 'textwidth' to 78 characters.
 	autocmd FileType text setlocal textwidth=78
 
-	" For ruby
-	autocmd FileType ruby,eruby,yaml set ai sw=2 ts=2 sts=2 et
-
-	" For html/javascript/coffee/css
-	autocmd FileType htm,html,erb,haml,js,coffee set ai sw=2 ts=2 sts=2 et
+	" For html/javascript/css
+	autocmd FileType htm,html,js,json set ai sw=2 ts=2 sts=2 et
 	autocmd FileType css,scss set ai sw=2 ts=2 sts=2 et
 
-	" For other programming languages
-	autocmd FileType go set ai sw=4 ts=4 sts=4 noet
+	" For programming languages
+	autocmd FileType go set ai sw=4 ts=4 sts=4 noet	" Golang
+	autocmd FileType ruby,eruby,yaml set ai sw=2 ts=2 sts=2 et	" Ruby
+	autocmd FileType python set ai sw=2 ts=2 sts=2 et	" Python
+	autocmd FileType clj,cljs set ai sw=2 ts=2 sts=2 et " Clojure and ClojureScript
 
 	" When editing a file, always jump to the last known cursor position.
 	" Don't do it when the position is invalid or when inside an event handler
