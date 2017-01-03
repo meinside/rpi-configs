@@ -1,7 +1,7 @@
 # .bashrc for Raspberry Pi
 #
 # created on 2012.05.31.
-# updated on 2016.12.05.
+# updated on 2017.01.03.
 #
 # ... by meinside@gmail.com
 
@@ -78,15 +78,11 @@ if [[ -z $TMUX ]]; then
 		export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 	fi
 
-	# for Julia
-	export PATH=$PATH:/opt/julia/bin
+	# for Erlang and Elixir
+	export PATH=$PATH:/opt/erlang/bin:/opt/elixir/bin
 
 	# for Node.js
 	export PATH=$PATH:/opt/node/bin
-
-	# for phantomjs & casperjs
-	export PATH=$PATH:/opt/phantomjs/bin
-	export PATH=$PATH:/opt/casperjs/bin
 
 	# additional paths
 	PATH="$PATH:$HOME/bin"

@@ -1,5 +1,5 @@
 # git ignore file of meinside@gmail.com
-# last update: 2016.12.28.
+# last update: 2017.01.03.
 
 # unnecessary binary files
 *.o
@@ -87,6 +87,7 @@ srcs
 
 # etc. files/dirs
 .bash_logout
+.erlang.cookie
 .fontconfig/
 .gem
 .httpie/
