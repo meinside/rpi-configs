@@ -1,7 +1,7 @@
 " meinside's vimrc file,
 "
 " created by meinside@gmail.com,
-" last update: 2016.12.29.
+" last update: 2017.02.14.
 "
 " $ sudo update-alternatives --config editor
 
@@ -9,85 +9,101 @@
 """"""""""""""""""""""""""""""""""""
 " settings for vundle (https://github.com/VundleVim/Vundle.vim)
 let vundle_readme=expand('~/.vim/bundle/Vundle.vim/README.md')
-if filereadable(vundle_readme)
-	set nocompatible              " be iMproved, required
-	filetype off                  " required
+let vundle_fresh=0
+if !filereadable(vundle_readme)
+	echo "Installing Vundle..."
+	echo ""
 
-	" set the runtime path to include Vundle and initialize
-	set rtp+=~/.vim/bundle/Vundle.vim
-	call vundle#begin()
-	" alternatively, pass a path where Vundle should install plugins
-	"call vundle#begin('~/some/path/here')
+	silent execute "!git clone https://github.com/gmarik/vundle ~/.vim/bundle/Vundle.vim"
 
-	" let Vundle manage Vundle, required
-	Plugin 'VundleVim/Vundle.vim'
-
-	""""""""
-	" add bundles here
-
-	" Useful plugins
-	Plugin 'surround.vim'
-	Plugin 'matchit.zip'
-	Plugin 'ragtag.vim' " TAG + <ctrl-x> + @, !, #, $, /, <space>, <cr>, ...
-
-	" For source file browsing
-	" XXX: ctags and vim-nox is needed! ($ sudo apt-get install vim-nox ctags)
-	Plugin 'majutsushi/tagbar'
-	nmap <F8> :TagbarToggle<CR>
-
-	" For uploading Gist
-	Plugin 'mattn/webapi-vim'
-	Plugin 'mattn/gist-vim'
-
-	" For Ruby
-	Plugin 'vim-ruby/vim-ruby'
-	Plugin 'tpope/vim-endwise'
-
-	" Go
-	Plugin 'fatih/vim-go'
-
-	" For statusline/tabline configuration
-	Plugin 'itchyny/lightline.vim'
-	set laststatus=2
-	let g:lightline = {
-	      \ 'colorscheme': 'wombat',
-	      \ }
-
-	" XXX - do not load following plugins on machines with low performance:
-	" (touch '~/.vimrc.lowperf' for it)
-	let lowperf=expand('~/.vimrc.lowperf')
-	if !filereadable(lowperf)
-		" For snippets
-		" - Ruby: https://github.com/honza/vim-snippets/blob/master/UltiSnips/ruby.snippets
-		" - Go: https://github.com/honza/vim-snippets/blob/master/UltiSnips/go.snippets
-		Plugin 'SirVer/ultisnips'
-		Plugin 'honza/vim-snippets'
-		let g:UltiSnipsExpandTrigger="<tab>"
-		let g:UltiSnipsJumpForwardTrigger="<tab>"   " <tab> for next placeholder
-		let g:UltiSnipsJumpBackwardTrigger="<s-tab>"    " <shift-tab> for previous placeholder
-		let g:UltiSnipsEditSplit="vertical"
-	endif
-
-	"
-	""""""""
-
-	" All of your Plugins must be added before the following line
-	call vundle#end()            " required
-	filetype plugin indent on    " required
-	" To ignore plugin indent changes, instead use:
-	"filetype plugin on
-	"
-	" Brief help
-	" :PluginList       - lists configured plugins
-	" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-	" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-	" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-	"
-	" see :h vundle for more details or wiki for FAQ
-	" Put your non-Plugin stuff after this line
-else
-	echo "Install vundle: $ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim"
+	let vundle_fresh=1
 endif
+
+set nocompatible	" be iMproved, required
+filetype off		" required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+""""""""
+" add bundles here
+
+" Useful plugins
+Plugin 'surround.vim'
+Plugin 'matchit.zip'
+Plugin 'ragtag.vim' " TAG + <ctrl-x> + @, !, #, $, /, <space>, <cr>, ...
+
+" For source file browsing
+" XXX: ctags and vim-nox is needed! ($ sudo apt-get install vim-nox ctags)
+Plugin 'majutsushi/tagbar'
+nmap <F8> :TagbarToggle<CR>
+
+" For uploading Gist
+Plugin 'mattn/webapi-vim'
+Plugin 'mattn/gist-vim'
+
+" For Ruby
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'tpope/vim-endwise'
+
+" Go
+Plugin 'fatih/vim-go'
+
+" For statusline/tabline configuration
+Plugin 'itchyny/lightline.vim'
+set laststatus=2
+let g:lightline = {
+	  \ 'colorscheme': 'wombat',
+	  \ }
+
+" XXX - do not load following plugins on machines with low performance:
+" (touch '~/.vimrc.lowperf' for it)
+let lowperf=expand('~/.vimrc.lowperf')
+if !filereadable(lowperf)
+	" For snippets
+	" - Ruby: https://github.com/honza/vim-snippets/blob/master/UltiSnips/ruby.snippets
+	" - Go: https://github.com/honza/vim-snippets/blob/master/UltiSnips/go.snippets
+	Plugin 'SirVer/ultisnips'
+	Plugin 'honza/vim-snippets'
+	let g:UltiSnipsExpandTrigger="<tab>"
+	let g:UltiSnipsJumpForwardTrigger="<tab>"   " <tab> for next placeholder
+	let g:UltiSnipsJumpBackwardTrigger="<s-tab>"    " <shift-tab> for previous placeholder
+	let g:UltiSnipsEditSplit="vertical"
+endif
+
+"
+""""""""
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
+" install bundles
+if vundle_fresh == 1
+	echo "Installing bundles..."
+	echo ""
+    :BundleInstall
+endif
+
+"
+""""""""""""""""""""""""""""""""""""
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
