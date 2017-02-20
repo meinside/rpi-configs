@@ -1,90 +1,111 @@
-# Config/Profile files for Raspberry Pi #
+# dot/config files for Raspberry Pi
 by Sungjin Han <meinside@gmail.com>
 
-## Description ##
+## Description
 
-My personal config/profile files for Raspberry Pi server, currently running on Raspbian.
+My personal dot/config files for Raspberry Pi server, currently running on Raspbian.
 
-* * *
+---
 
-## 0. For My Comfort ##
+## 0. Easy install
 
-### A. use prep script ###
+### A. use prep script
 
 ```
 $ cd ~
 $ wget -O - "https://raw.github.com/meinside/rpi-configs/master/bin/prep.sh" | bash
 ```
 
-## 1. Useful Configurations ##
+then this repository will be cloned to the user's home directory.
 
-### A. Setting up watchdog ###
+## 1. Useful Configurations
 
-``$ sudo modprobe bcm2708_wdog``
+### A. Setting up watchdog
 
-``$ sudo vi /etc/modules``
+```bash
+$ sudo modprobe bcm2708_wdog
+$ sudo vi /etc/modules
+```
+
+then add following line:
 
 ```
-# Add following line:
 bcm2708_wdog
 ```
 
-``$ sudo apt-get install watchdog``
+Install watchdog and edit conf:
 
-``$ sudo chkconfig watchdog on``
+```bash
+$ sudo apt-get install watchdog
+$ sudo vi /etc/watchdog.conf
+```
 
-``$ sudo /etc/init.d/watchdog start``
-
-``$ sudo vi /etc/watchdog.conf``
+uncomment following line:
 
 ```
-# Uncomment line:
-
 watchdog-device = /dev/watchdog
 ```
 
-### B. Setting up i2c ###
+and restart the service:
 
-``$ sudo modprobe i2c_dev``
+```bash
+$ sudo systemctl restart watchdog
+```
 
-``$ sudo vi /etc/modules``
+### B. Setting up i2c
+
+```bash
+$ sudo modprobe i2c_dev
+$ sudo vi /etc/modules
+```
+
+uncomment following line:
 
 ```
-# Add following line:
-
 i2c-dev
 ```
 
-``$ sudo vi /etc/modprobe.d/raspi-blacklist.conf ``
+edit blacklist:
+
+```bash
+$ sudo vi /etc/modprobe.d/raspi-blacklist.conf
+```
+
+and comment out following lines if exist:
 
 ```
-# Comment out following lines:
-
 blacklist spi-bcm2708
 blacklist i2c-bcm2708
 ```
 
-``$ sudo apt-get install i2c-tools``
+Then do the following:
 
-``$ sudo usermod -a -G i2c USERNAME``
+```bash
+$ sudo apt-get install i2c-tools
+$ sudo usermod -a -G i2c USERNAME
+```
 
-## 2. Additional Configurations ##
+## 2. Additional Configurations
 
-### A. Install RVM for multi-users ###
+### A. (Ruby) Install RVM for multi-users
 
-``$ curl -L get.rvm.io | sudo bash -s stable``
+```bash
+$ curl -L get.rvm.io | sudo bash -s stable
+$ sudo /usr/sbin/usermod -a -G rvm USERNAME
+$ sudo chown root.rvm /etc/profile.d/rvm.sh
+```
 
-``$ sudo /usr/sbin/usermod -a -G rvm USERNAME``
+### B. WiFi Configuration
 
-``$ sudo chown root.rvm /etc/profile.d/rvm.sh``
+Open conf:
 
-### B. WiFi Configuration ###
+```bash
+$ sudo vi /etc/wpa_supplicant/wpa_supplicant.conf
+```
 
-``$ sudo vi /etc/wpa_supplicant/wpa_supplicant.conf``
+add following lines:
 
 ```
-# (add following)
-
 network={
     ssid="[some_ssid]"
     psk="[some_passwd]"
@@ -101,22 +122,28 @@ network={
     #Authorization option should be OPEN for both WPA1/WPA2 (in less commonly used are SHARED and LEAP)
     auth_alg=OPEN
 
-	# Uncomment below line for private network (i.e. no broadcast SSID)
-#	scan_ssid=1
+    # Uncomment below line for private network (i.e. no broadcast SSID)
+    #scan_ssid=1
 }
 ```
 
+and turn up the WLAN:
 
-``$ sudo ifup wlan0``
+```bash
+$ sudo ifup wlan0
+```
 
+### C. UTF-8 configuration for MySQL
 
-### C. UTF-8 configuration for MySQL ###
+Open conf:
 
-``$ sudo vi /etc/mysql/my.cnf``
+```bash
+$ sudo vi /etc/mysql/my.cnf
+```
+
+and add following lines:
 
 ```
-# (add following)
-
 [mysql]
 default-character-set = utf8
  
@@ -134,33 +161,37 @@ collation-server = utf8_general_ci
 default-character-set = utf8
 ```
 
-
-### D. Rails: Passenger configurations ###
+### D. Rails: Passenger configurations
 
 * see: https://github.com/meinside/rails-on-raspberrypi#install-passenger-module
 
+### E. AFP & Zero-conf DNS configuration
 
-### E. AFP & Zero-conf DNS configuration ###
+#### a. install netatalk and avahi-daemon
 
-#### a. install netatalk and avahi-daemon ####
+```bash
+$ sudo apt-get install netatalk
+$ sudo apt-get install avahi-daemon
+```
 
-``$ sudo apt-get install netatalk``
+#### b. install dnssd module for apache2
 
-``$ sudo apt-get install avahi-daemon``
-
-#### b. install dnssd module for apache2 ####
-
-``$ sudo apt-get install libapache2-mod-dnssd``
-
-``$ sudo a2enmod mod-dnssd``
+```bash
+$ sudo apt-get install libapache2-mod-dnssd
+$ sudo a2enmod mod-dnssd
+```
 
 #### c. add an avahi-daemon service ####
 
-``$ sudo vi /etc/avahi/services/SERVICE_NAME.service``
+Create a service file:
+
+```bash
+$ sudo vi /etc/avahi/services/SERVICE_NAME.service
+```
+
+and add following lines:
 
 ```
-# (create a new file with following content)
-
 <?xml version="1.0" standalone='no'?><!--*-nxml-*-->
 <!DOCTYPE service-group SYSTEM "avahi-service.dtd">
 <service-group>
@@ -185,32 +216,41 @@ default-character-set = utf8
 </service-group>
 ```
 
-## 3. Etc. Tips ##
+## 3. Etc. Tips
 
-### A. set static dns server even when using DHCP ###
+### A. set static dns server even when using DHCP
 
-``$ sudo vi /etc/dhcp/dhclient.conf``
+Open conf:
+
+```bash
+$ sudo vi /etc/dhcp/dhclient.conf
+```
+
+and add following line:
 
 ```
-# add following:
 supersede domain-name-servers 8.8.8.8, 8.8.4.4;
 ```
 
-### B. when using bluetooth ###
+### B. when using bluetooth
 
 #### 1. with on-board bluetooth (Raspberry Pi 3)
 
-##### a. install required packages #####
+##### a. install required packages
 
-``$ sudo apt-get install pi-bluetooth``
+Install pi-bluetooth:
+
+```bash
+$ sudo apt-get install pi-bluetooth
+```
 
 and reboot.
 
-##### b. use bluetoothctl #####
+##### b. use bluetoothctl
 
 After reboot, use ``bluetoothctl`` for turning up, scanning, and connecting.
 
-```
+```bash
 $ sudo bluetoothctl
 ```
 
@@ -220,35 +260,47 @@ Type ``help`` for commands and options.
 
 * referenced: http://wiki.debian.org/BluetoothUser
 
-##### a. make raspberry pi discoverable by other bluetooth devices #####
+##### a. make raspberry pi discoverable by other bluetooth devices
 
-``$ sudo hciconfig hci0 piscan``
+```bash
+$ sudo hciconfig hci0 piscan
+$ sudo bluetooth-agent 0000
+```
 
-``$ sudo bluetooth-agent 0000``
+Do as the screen says, and make Raspberry Pi hidden from other bluetooth devices again:
 
-do something here,
-and make raspberry pi hidden from other bluetooth devices again
+```bash
+$ sudo hciconfig hci0 noscan
+```
 
-``$ sudo hciconfig hci0 noscan``
+##### b. display bluetooth device (for checking proper installation)
 
-##### b. display bluetooth device (for checking proper installation) #####
+```bash
+$ hcitool dev
+```
 
-``$ hcitool dev``
+##### c. scan nearby bluetooth devices
 
-##### c. scan nearby bluetooth devices #####
+```bash
+$ hcitool scan
+```
 
-``$ hcitool scan``
+##### d. settings
 
-##### d. settings #####
+Open conf:
 
-``$ sudo vi /etc/default/bluetooth``
+```bash
+$ sudo vi /etc/default/bluetooth
+```
+
+and add/alter following lines:
 
 ```
 # edit
 #HID2HCI_ENABLED=0
 HID2HCI_ENABLED=1
 
-# add static device informations
+# add static device information
 device 01:23:45:AB:CD:EF {
     name "Bluetooth Device Name";
     auth enable;
@@ -256,35 +308,52 @@ device 01:23:45:AB:CD:EF {
 }
 ```
 
-### C. use logrotate.d ###
+### C. use logrotate.d
 
-``$ sudo vi /etc/logrotate.d/some_file``
+Create a file:
 
-```
-    /some_where/*.log {
-      compress
-      copytruncate
-      daily
-      delaycompress
-      missingok
-      rotate 7
-      size=5M
-    }
+```bash
+$ sudo vi /etc/logrotate.d/some_file
 ```
 
-### D. mount external hdd on boot time ###
-
-``$ sudo vi /etc/fstab``
+and add following lines:
 
 ```
-# add following (uid and gid can be retrieved with command 'id')
+  /some_where/*.log {
+    compress
+    copytruncate
+    daily
+    delaycompress
+    missingok
+    rotate 7
+    size=5M
+  }
+```
+
+### D. mount external hdd on boot time
+
+Open fstab:
+
+```bash
+$ sudo vi /etc/fstab
+```
+
+and add following lines:
+
+```
 /dev/some_hdd1  /some/where/to/mount1  ext4  defaults   0 0
 /dev/some_hdd2  /some/where/to/mount2  vfat  rw,noatime,uid=7777,gid=7778,user   0 0
 ```
 
-### E. run scripts periodically ###
+**uid** and **gid** can be retrieved with command 'id'.
 
-``$ crontab -e``
+### E. run scripts periodically
+
+```bash
+$ crontab -e
+```
+
+and add following lines:
 
 ```
 # every 5 minutes
@@ -293,11 +362,14 @@ device 01:23:45:AB:CD:EF {
 0 1 * * * bash -l -c /some/ruby_script_under_rvm.rb
 ```
 
-### F. Problem: 'smsc95xx 1-1.1:1.0: eth0: kevent 2 may have been dropped' ###
+## 999. Troubleshooting
 
-* append 'smsc95xx.turbo_mode=N' to /boot/cmdline.txt
+### Error message: 'smsc95xx 1-1.1:1.0: eth0: kevent 2 may have been dropped'
 
-* add(edit) following in /etc/sysctl.conf
+Append ``smsc95xx.turbo_mode=N`` to ``/boot/cmdline.txt`` file, and
+
+add/alter following lines in ``/etc/sysctl.conf``:
+
 ```
 #vm.vfs_cache_pressure = 100
 vm.vfs_cache_pressure = 300
