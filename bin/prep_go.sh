@@ -6,9 +6,11 @@
 # for Raspberry Pi
 #
 # (or, can get prebuilt packages at: http://dave.cheney.net/unofficial-arm-tarballs)
+#
+# *** Note: this process needs much memory, so assign as little memory to GPU as possible.
 # 
 # created on : 2014.07.01.
-# last update: 2017.02.17.
+# last update: 2017.03.16.
 # 
 # by meinside@gmail.com
 
