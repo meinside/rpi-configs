@@ -6,7 +6,7 @@
 #
 # (pass '--do-not-clean' argument for preserving files after install)
 # 
-# last update: 2016.12.08.
+# last update: 2017.03.20.
 # 
 # by meinside@gmail.com
 
@@ -27,7 +27,7 @@ function clean {
 }
 
 function install {
-	git clone --depth=1 git://source.ffmpeg.org/ffmpeg.git $TMP_DIR
+	git clone --depth=1 https://github.com/FFmpeg/FFmpeg.git $TMP_DIR
 	cd $TMP_DIR
 	./configure --arch=armel --target-os=linux --enable-gpl --enable-nonfree --enable-libx264 --enable-libvorbis --enable-libmp3lame
 	make -j4
