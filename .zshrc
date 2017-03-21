@@ -1,7 +1,7 @@
 # .zshrc
 #
 # created on 2014.06.30.
-# updated on 2017.01.12.
+# updated on 2017.03.21.
 #
 # ... by meinside@gmail.com
 #
@@ -47,7 +47,7 @@ plugins=(colored-man-pages encode64 urltools)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-umask 027
+#umask 027
 export DISPLAY=:0.0
 export EDITOR="/usr/bin/vim"
 export SVN_EDITOR="/usr/bin/vim"
