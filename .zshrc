@@ -109,7 +109,11 @@ if [[ -z $TMUX ]]; then
 
 fi
 
-# for python
+# for python and virtualenv
+#
+# $ sudo apt-get install python-setuptools
+# $ sudo easy_install pip
+# $ sudo pip install virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
 [[ -s "/usr/local/bin/virtualenvwrapper.sh" ]] && source "/usr/local/bin/virtualenvwrapper.sh"	# virtualenv and virtualenvwrapper
 
