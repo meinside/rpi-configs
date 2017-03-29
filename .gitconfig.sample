@@ -1,7 +1,7 @@
 # sample .gitconfig file of mine
 # (copy as .gitconfig and customize it)
 #
-# last update: 2015.04.15.
+# last update: 2017.03.29.
 
 [alias]
 	# commands
@@ -14,6 +14,7 @@
 	type = cat-file -t
 	dump = cat-file -p
 	cp = cherry-pick
+	fetchall = fetch --all --tags --prune
 
 	# log
 	l = log
