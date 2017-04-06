@@ -1,7 +1,7 @@
 # sample .gitconfig file of mine
 # (copy as .gitconfig and customize it)
 #
-# last update: 2017.03.29.
+# last update: 2017.04.06.
 
 [alias]
 	# commands
@@ -30,6 +30,7 @@
 	sl = stash list
 	sa = stash apply
 	ss = stash save
+	stashall = stash save --include-untracked
 
 	# submodule
 	su = submodule update
@@ -37,6 +38,8 @@
 
 	# grep with group
 	g = "grep --break --heading --line-number"
+[status]
+	showUntrackedFiles = all
 [grep]
 	extendRegexp = true
 	lineNumber = true
