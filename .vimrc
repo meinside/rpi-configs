@@ -1,10 +1,14 @@
 " meinside's vimrc file,
 "
 " created by meinside@gmail.com,
-" last update: 2017.02.14.
+" last update: 2017.04.13.
 "
 " $ sudo update-alternatives --config editor
-
+"
+" XXX - for nvim:
+" $ sudo pip install --upgrade neovim
+" $ mkdir -p ~/.config/nvim
+" $ ln -sf ~/.vimrc ~/.config/nvim/init.vim
 
 """"""""""""""""""""""""""""""""""""
 " settings for vundle (https://github.com/VundleVim/Vundle.vim)
@@ -39,6 +43,13 @@ Plugin 'surround.vim'
 Plugin 'matchit.zip'
 Plugin 'ragtag.vim' " TAG + <ctrl-x> + @, !, #, $, /, <space>, <cr>, ...
 
+" For autocompletion
+if has('nvim')
+	" python3 needed ($ sudo pip3 install --upgrade neovim)
+	Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+	let g:deoplete#enable_at_startup = 1
+endif
+
 " For source file browsing
 " XXX: ctags and vim-nox is needed! ($ sudo apt-get install vim-nox ctags)
 Plugin 'majutsushi/tagbar'
@@ -52,7 +63,7 @@ Plugin 'mattn/gist-vim'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-endwise'
 
-" Go
+" For Go
 Plugin 'fatih/vim-go'
 
 " For statusline/tabline configuration
@@ -75,6 +86,18 @@ if !filereadable(lowperf)
 	let g:UltiSnipsJumpForwardTrigger="<tab>"   " <tab> for next placeholder
 	let g:UltiSnipsJumpBackwardTrigger="<s-tab>"    " <shift-tab> for previous placeholder
 	let g:UltiSnipsEditSplit="vertical"
+
+	" For Go
+	if has('nvim')
+		" For autocompletion
+		Plugin 'zchee/deoplete-go', { 'do': 'make'}
+	endif
+
+	" For Python
+	if has('nvim')
+		" For autocompletion
+		Plugin 'zchee/deoplete-jedi'
+	endif
 endif
 
 "
