@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
-# prep_julia.sh
+# install_julia.sh
 # 
 # Build and install Julia for Raspberry Pi
 #
 # created on : 2016.11.16.
-# last update: 2016.12.13.
+# last update: 2017.04.14.
 # 
 # by meinside@gmail.com
 

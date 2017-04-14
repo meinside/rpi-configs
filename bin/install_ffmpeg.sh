@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
-# prep_ffmpeg.sh
+# install_ffmpeg.sh
 # 
 # for building ffmpeg from source code on Raspberry Pi
 #
 # (pass '--do-not-clean' argument for preserving files after install)
 # 
-# last update: 2017.03.20.
+# last update: 2017.04.14.
 # 
 # by meinside@gmail.com
 

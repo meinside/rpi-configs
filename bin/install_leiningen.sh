@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
-# prep_leiningen.sh
+# install_leiningen.sh
 # 
 # for downloading and setting up 'lein'
 # 
-# last update: 2016.12.28.
+# last update: 2017.04.14.
 # 
 # by meinside@gmail.com
 

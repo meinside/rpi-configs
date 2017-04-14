@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
-# prep_opencv.sh
+# install_opencv.sh
 # 
 # Build and install OpenCV on Raspberry Pi (for Python 2.7)
 #
 # created on : 2016.12.02.
-# last update: 2016.12.08.
+# last update: 2017.04.14.
 # 
 # by meinside@gmail.com
 

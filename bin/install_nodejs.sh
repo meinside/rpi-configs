@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
-# prep_nodejs.sh
+# install_nodejs.sh
 # 
 # install pre-built Node.js (LTS) for Raspberry Pi
 # from: https://nodejs.org/dist
 # 
 # created on : 2013.07.19.
-# last update: 2017.04.05.
+# last update: 2017.04.14.
 # 
 # by meinside@gmail.com
 

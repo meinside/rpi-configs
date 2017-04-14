@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
-# prep_elixir.sh
+# install_elixir.sh
 # 
 # Build and install Elixir (and Erlang)
 # for Raspberry Pi
 #
 # created on : 2017.01.03.
-# last update: 2017.01.03.
+# last update: 2017.04.14.
 # 
 # by meinside@gmail.com
 

@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
-# prep_nvim.sh
+# install_nvim.sh
 # 
 # for building neovim from source code on Raspberry Pi
 #
-# last update: 2017.04.13.
+# last update: 2017.04.14.
 # 
 # by meinside@gmail.com
 

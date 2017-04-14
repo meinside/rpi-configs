@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# prep_go.sh
+# install_go.sh
 # 
 # Build and install Golang from the official repository
 # for Raspberry Pi
@@ -12,7 +12,7 @@
 # - or create a (temporary) swap partition.
 # 
 # created on : 2014.07.01.
-# last update: 2017.04.10.
+# last update: 2017.04.13.
 # 
 # by meinside@gmail.com
 
