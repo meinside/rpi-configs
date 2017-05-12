@@ -1,5 +1,5 @@
 # git ignore file of meinside@gmail.com
-# last update: 2017.04.13.
+# last update: 2017.05.12.
 
 # unnecessary binary files
 *.o
@@ -41,6 +41,10 @@ tmp/
 # go files/dirs
 .gogets
 .gore/
+
+# haskell files/dirs
+.ghc/
+.stack/
 
 # julia files/dirs
 .julia/
