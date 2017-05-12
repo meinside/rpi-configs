@@ -1,7 +1,7 @@
 " meinside's vimrc file,
 "
 " created by meinside@gmail.com,
-" last update: 2017.04.13.
+" last update: 2017.05.12.
 "
 " $ sudo update-alternatives --config editor
 "
@@ -65,6 +65,9 @@ Plugin 'tpope/vim-endwise'
 
 " For Go
 Plugin 'fatih/vim-go'
+
+"For Haskell
+Plugin 'neovimhaskell/haskell-vim'
 
 " For statusline/tabline configuration
 Plugin 'itchyny/lightline.vim'
