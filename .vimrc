@@ -1,7 +1,7 @@
 " meinside's vimrc file,
 "
 " created by meinside@gmail.com,
-" last update: 2017.05.12.
+" last update: 2017.05.22.
 "
 " $ sudo update-alternatives --config editor
 "
@@ -66,8 +66,11 @@ Plugin 'tpope/vim-endwise'
 " For Go
 Plugin 'fatih/vim-go'
 
-"For Haskell
-Plugin 'neovimhaskell/haskell-vim'
+" For Haskell
+if has('nvim')
+	Plugin 'neovimhaskell/haskell-vim'
+endif
+Plugin 'itchyny/vim-haskell-indent'
 
 " For statusline/tabline configuration
 Plugin 'itchyny/lightline.vim'
@@ -200,7 +203,7 @@ if has("autocmd")
 	autocmd FileType go set ai sw=4 ts=4 sts=4 noet	" Golang
 	autocmd FileType ruby,eruby,yaml set ai sw=2 ts=2 sts=2 et	" Ruby
 	autocmd FileType python set ai sw=2 ts=2 sts=2 et	" Python
-	autocmd FileType clj,cljs set ai sw=2 ts=2 sts=2 et " Clojure and ClojureScript
+	autocmd FileType haskell set ai sw=2 ts=2 sts=2 et " Haskell
 
 	" When editing a file, always jump to the last known cursor position.
 	" Don't do it when the position is invalid or when inside an event handler
