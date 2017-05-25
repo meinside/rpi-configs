@@ -8,11 +8,11 @@
 # (or, can get prebuilt packages at: http://dave.cheney.net/unofficial-arm-tarballs)
 #
 # *** Note: this process needs much memory, so
-# - assign as little memory to GPU as possible,
+# - assign GPU memory as little as possible,
 # - or create a (temporary) swap partition.
 # 
 # created on : 2014.07.01.
-# last update: 2017.04.13.
+# last update: 2017.05.25.
 # 
 # by meinside@gmail.com
 
@@ -34,7 +34,7 @@ BOOTSTRAP_BRANCH="release-branch.go1.4"
 
 # XXX - edit for different version of Go (see: https://go.googlesource.com/go/+refs)
 #INSTALL_BRANCH="release-branch.go1.6"	# branch
-INSTALL_BRANCH="go1.8.1"	# tag
+INSTALL_BRANCH="go1.8.3"	# tag
 
 function prep {
 	# install essential packages
