@@ -1,7 +1,7 @@
 " meinside's vimrc file,
 "
 " created by meinside@gmail.com,
-" last update: 2017.05.22.
+" last update: 2017.07.14.
 "
 " $ sudo update-alternatives --config editor
 "
@@ -42,6 +42,8 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'surround.vim'
 Plugin 'matchit.zip'
 Plugin 'ragtag.vim' " TAG + <ctrl-x> + @, !, #, $, /, <space>, <cr>, ...
+Plugin 'vim-airline/vim-airline'
+let g:airline#extensions#ale#enabled = 1
 
 " For autocompletion
 if has('nvim')
@@ -72,13 +74,6 @@ if has('nvim')
 endif
 Plugin 'itchyny/vim-haskell-indent'
 
-" For statusline/tabline configuration
-Plugin 'itchyny/lightline.vim'
-set laststatus=2
-let g:lightline = {
-	  \ 'colorscheme': 'wombat',
-	  \ }
-
 " XXX - do not load following plugins on machines with low performance:
 " (touch '~/.vimrc.lowperf' for it)
 let lowperf=expand('~/.vimrc.lowperf')
@@ -98,6 +93,17 @@ if !filereadable(lowperf)
 		" For autocompletion
 		Plugin 'zchee/deoplete-go', { 'do': 'make'}
 	endif
+	let g:go_fmt_command = "goimports"     " auto import dependencies
+	let g:go_highlight_build_constraints = 1
+	let g:go_highlight_extra_types = 1
+	let g:go_highlight_fields = 1
+	let g:go_highlight_functions = 1
+	let g:go_highlight_methods = 1
+	let g:go_highlight_operators = 1
+	let g:go_highlight_structs = 1
+	let g:go_highlight_types = 1
+	let g:go_auto_sameids = 1
+	let g:go_auto_type_info = 1
 
 	" For Python
 	if has('nvim')
@@ -128,7 +134,7 @@ filetype plugin indent on    " required
 if vundle_fresh == 1
 	echo "Installing bundles..."
 	echo ""
-    :BundleInstall
+	:BundleInstall
 endif
 
 "
@@ -190,28 +196,28 @@ if has("autocmd")
 
 	" Put these in an autocmd group, so that we can delete them easily.
 	augroup vimrcEx
-	au!
+		au!
 
-	" For all text files set 'textwidth' to 78 characters.
-	autocmd FileType text setlocal textwidth=78
+		" For all text files set 'textwidth' to 78 characters.
+		autocmd FileType text setlocal textwidth=78
 
-	" For html/javascript/css
-	autocmd FileType htm,html,js,json set ai sw=2 ts=2 sts=2 et
-	autocmd FileType css,scss set ai sw=2 ts=2 sts=2 et
+		" For html/javascript/css
+		autocmd FileType htm,html,js,json set ai sw=2 ts=2 sts=2 et
+		autocmd FileType css,scss set ai sw=2 ts=2 sts=2 et
 
-	" For programming languages
-	autocmd FileType go set ai sw=4 ts=4 sts=4 noet	" Golang
-	autocmd FileType ruby,eruby,yaml set ai sw=2 ts=2 sts=2 et	" Ruby
-	autocmd FileType python set ai sw=2 ts=2 sts=2 et	" Python
-	autocmd FileType haskell set ai sw=2 ts=2 sts=2 et " Haskell
+		" For programming languages
+		autocmd FileType go set ai sw=4 ts=4 sts=4 noet	" Golang
+		autocmd FileType ruby,eruby,yaml set ai sw=2 ts=2 sts=2 et	" Ruby
+		autocmd FileType python set ai sw=2 ts=2 sts=2 et	" Python
+		autocmd FileType haskell set ai sw=2 ts=2 sts=2 et " Haskell
 
-	" When editing a file, always jump to the last known cursor position.
-	" Don't do it when the position is invalid or when inside an event handler
-	" (happens when dropping a file on gvim).
-	autocmd BufReadPost *
-		\ if line("'\"") > 0 && line("'\"") <= line("$") |
-		\   exe "normal g`\"" |
-		\ endif
+		" When editing a file, always jump to the last known cursor position.
+		" Don't do it when the position is invalid or when inside an event handler
+		" (happens when dropping a file on gvim).
+		autocmd BufReadPost *
+					\ if line("'\"") > 0 && line("'\"") <= line("$") |
+					\   exe "normal g`\"" |
+					\ endif
 
 	augroup END
 
