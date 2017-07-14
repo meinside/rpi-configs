@@ -39,9 +39,10 @@ Plugin 'VundleVim/Vundle.vim'
 " add bundles here
 
 " Useful plugins
-Plugin 'surround.vim'
 Plugin 'matchit.zip'
 Plugin 'ragtag.vim' " TAG + <ctrl-x> + @, !, #, $, /, <space>, <cr>, ...
+Plugin 'surround.vim'
+Plugin 'tpope/vim-fugitive'
 Plugin 'vim-airline/vim-airline'
 let g:airline#extensions#ale#enabled = 1
 
@@ -78,6 +79,10 @@ Plugin 'itchyny/vim-haskell-indent'
 " (touch '~/.vimrc.lowperf' for it)
 let lowperf=expand('~/.vimrc.lowperf')
 if !filereadable(lowperf)
+	" For gitgutter
+	Plugin 'airblade/vim-gitgutter'        " [c, ]c for prev/next hunk
+	let g:gitgutter_highlight_lines = 1
+
 	" For snippets
 	" - Ruby: https://github.com/honza/vim-snippets/blob/master/UltiSnips/ruby.snippets
 	" - Go: https://github.com/honza/vim-snippets/blob/master/UltiSnips/go.snippets
