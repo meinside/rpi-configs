@@ -1,7 +1,7 @@
-" meinside's vimrc file,
+" meinside's .vimrc file,
 "
 " created by meinside@gmail.com,
-" last update: 2017.07.14.
+" last update: 2017.07.17.
 "
 " $ sudo update-alternatives --config editor
 "
@@ -17,9 +17,7 @@ let vundle_fresh=0
 if !filereadable(vundle_readme)
 	echo "Installing Vundle..."
 	echo ""
-
 	silent execute "!git clone https://github.com/gmarik/vundle ~/.vim/bundle/Vundle.vim"
-
 	let vundle_fresh=1
 endif
 
@@ -36,7 +34,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 """"""""
-" add bundles here
+" vundle packages
 
 " Useful plugins
 Plugin 'matchit.zip'
@@ -48,13 +46,11 @@ let g:airline#extensions#ale#enabled = 1
 
 " For autocompletion
 if has('nvim')
-	" python3 needed ($ sudo pip3 install --upgrade neovim)
-	Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+	Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }	" XXX - python3 needed ($ sudo pip3 install --upgrade neovim)
 	let g:deoplete#enable_at_startup = 1
 endif
 
-" For source file browsing
-" XXX: ctags and vim-nox is needed! ($ sudo apt-get install vim-nox ctags)
+" For source file browsing, XXX: ctags and vim-nox is needed! ($ sudo apt-get install vim-nox ctags)
 Plugin 'majutsushi/tagbar'
 nmap <F8> :TagbarToggle<CR>
 
@@ -95,8 +91,7 @@ if !filereadable(lowperf)
 
 	" For Go
 	if has('nvim')
-		" For autocompletion
-		Plugin 'zchee/deoplete-go', { 'do': 'make'}
+		Plugin 'zchee/deoplete-go', { 'do': 'make'}	" For autocompletion
 	endif
 	let g:go_fmt_command = "goimports"     " auto import dependencies
 	let g:go_highlight_build_constraints = 1
@@ -112,8 +107,7 @@ if !filereadable(lowperf)
 
 	" For Python
 	if has('nvim')
-		" For autocompletion
-		Plugin 'zchee/deoplete-jedi'
+		Plugin 'zchee/deoplete-jedi'	" For autocompletion
 	endif
 endif
 
@@ -177,9 +171,6 @@ let g:netrw_winsize = 30
 " <F2> for vertical file browser
 nmap <F2> :Vex <CR>
 
-" For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
-" let &guioptions = substitute(&guioptions, "t", "", "g")
-
 " Don't use Ex mode, use Q for formatting
 map Q gq
 
@@ -192,13 +183,6 @@ endif
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
-
-	" Enable file type detection.
-	" Use the default filetype settings, so that mail gets 'tw' set to 72,
-	" 'cindent' is on in C files, etc.
-	" Also load indent files, to automatically do language-dependent indenting.
-	filetype plugin indent on
-
 	" Put these in an autocmd group, so that we can delete them easily.
 	augroup vimrcEx
 		au!
@@ -223,11 +207,8 @@ if has("autocmd")
 					\ if line("'\"") > 0 && line("'\"") <= line("$") |
 					\   exe "normal g`\"" |
 					\ endif
-
 	augroup END
-
 else
-
 	set autoindent		" always set autoindenting on
-
 endif " has("autocmd")
+
