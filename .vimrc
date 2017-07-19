@@ -1,11 +1,11 @@
 " meinside's .vimrc file,
-"
 " created by meinside@gmail.com,
-" last update: 2017.07.17.
+" last update: 2017.07.19.
 "
+" XXX - change default text editor:
 " $ sudo update-alternatives --config editor
 "
-" XXX - for nvim:
+" XXX - setup for nvim:
 " $ sudo pip install --upgrade neovim
 " $ mkdir -p ~/.config/nvim
 " $ ln -sf ~/.vimrc ~/.config/nvim/init.vim
@@ -17,7 +17,7 @@ let vundle_fresh=0
 if !filereadable(vundle_readme)
 	echo "Installing Vundle..."
 	echo ""
-	silent execute "!git clone https://github.com/gmarik/vundle ~/.vim/bundle/Vundle.vim"
+	silent execute "!git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim"
 	let vundle_fresh=1
 endif
 
