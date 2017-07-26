@@ -19,7 +19,7 @@ YELLOW="\033[0;33m"
 RESET="\033[0m"
 
 # prebuilt stack binary
-STACK_BIN="https://github.com/commercialhaskell/stack/releases/download/v1.3.2/stack-1.3.2-linux-arm.tar.gz"
+STACK_BIN="https://github.com/commercialhaskell/stack/releases/download/v1.5.0/stack-1.5.0-linux-arm.tar.gz"
 
 TMP_DIR="/tmp"
 LOCAL_BIN_DIR="/usr/local/bin"
