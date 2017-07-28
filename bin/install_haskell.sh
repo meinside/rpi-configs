@@ -5,7 +5,7 @@
 # for installing haskell stack
 # (referenced: http://allocinit.io/haskell/haskell-on-raspberry-pi-3/)
 # 
-# last update: 2017.05.12.
+# last update: 2017.07.26.
 # 
 # by meinside@gmail.com
 
