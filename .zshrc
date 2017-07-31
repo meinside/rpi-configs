@@ -1,7 +1,7 @@
 # .zshrc
 #
 # created on 2014.06.30.
-# updated on 2017.03.21.
+# updated on 2017.07.31.
 #
 # ... by meinside@gmail.com
 #
@@ -24,7 +24,7 @@ DISABLE_UPDATE_PROMPT="true"
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="risto"
+ZSH_THEME="avit"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
