@@ -4,7 +4,7 @@
 # 
 # for building neovim from source code on Raspberry Pi
 #
-# last update: 2017.07.19.
+# last update: 2017.08.04.
 # 
 # by meinside@gmail.com
 
@@ -17,7 +17,7 @@ NVIM_VERSION="v0.2.0"
 
 function prep {
 	# install needed packages
-	sudo apt-get install -y libtool libtool-bin autoconf automake cmake g++ pkg-config unzip python-dev
+	sudo apt-get install -y libtool libtool-bin autoconf automake cmake g++ pkg-config unzip python-dev python-pip
 	sudo pip install --upgrade neovim
 
 	# symlink .vimrc file
