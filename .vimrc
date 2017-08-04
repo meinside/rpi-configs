@@ -1,6 +1,6 @@
 " meinside's .vimrc file,
 " created by meinside@gmail.com,
-" last update: 2017.07.19.
+" last update: 2017.08.04.
 "
 " XXX - change default text editor:
 " $ sudo update-alternatives --config editor
@@ -79,7 +79,7 @@ if !filereadable(lowperf)
 	Plugin 'airblade/vim-gitgutter'        " [c, ]c for prev/next hunk
 	let g:gitgutter_highlight_lines = 1
 
-	" For snippets
+	" For snippets ($ sudo apt-get install vim-nox)
 	" - Ruby: https://github.com/honza/vim-snippets/blob/master/UltiSnips/ruby.snippets
 	" - Go: https://github.com/honza/vim-snippets/blob/master/UltiSnips/go.snippets
 	Plugin 'SirVer/ultisnips'
