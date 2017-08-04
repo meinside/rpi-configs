@@ -17,8 +17,8 @@ NVIM_VERSION="v0.2.0"
 
 function prep {
 	# install needed packages
-	sudo apt-get install -y libtool libtool-bin autoconf automake cmake g++ pkg-config unzip python-dev python-pip
-	sudo pip install --upgrade neovim
+	sudo apt-get install -y libtool libtool-bin autoconf automake cmake g++ pkg-config unzip python-dev python3-pip
+	sudo pip3 install --upgrade neovim
 
 	# symlink .vimrc file
 	mkdir -p ~/.config/nvim

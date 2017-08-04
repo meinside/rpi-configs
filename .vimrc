@@ -6,7 +6,8 @@
 " $ sudo update-alternatives --config editor
 "
 " XXX - setup for nvim:
-" $ sudo pip install --upgrade neovim
+" $ sudo apt-get install python3-pip
+" $ sudo pip3 install --upgrade neovim
 " $ mkdir -p ~/.config/nvim
 " $ ln -sf ~/.vimrc ~/.config/nvim/init.vim
 

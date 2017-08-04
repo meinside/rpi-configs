@@ -1,7 +1,7 @@
 # .zshrc
 #
 # created on 2014.06.30.
-# updated on 2017.07.31.
+# updated on 2017.08.04.
 #
 # ... by meinside@gmail.com
 #
@@ -111,8 +111,7 @@ fi
 
 # for python and virtualenv
 #
-# $ sudo apt-get install python-setuptools
-# $ sudo easy_install pip
+# $ sudo apt-get install python-pip
 # $ sudo pip install virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
 [[ -s "/usr/local/bin/virtualenvwrapper.sh" ]] && source "/usr/local/bin/virtualenvwrapper.sh"	# virtualenv and virtualenvwrapper
