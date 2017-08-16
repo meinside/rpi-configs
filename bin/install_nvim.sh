@@ -4,7 +4,7 @@
 # 
 # for building neovim from source code on Raspberry Pi
 #
-# last update: 2017.08.04.
+# last update: 2017.08.16.
 # 
 # by meinside@gmail.com
 
@@ -45,7 +45,5 @@ function install {
 	sudo make install
 }
 
-prep
-install
-clean
+prep && install && clean
 

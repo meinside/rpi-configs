@@ -6,7 +6,7 @@
 #
 # (pass '--do-not-clean' argument for preserving files after install)
 # 
-# last update: 2017.04.14.
+# last update: 2017.08.16.
 # 
 # by meinside@gmail.com
 
@@ -36,9 +36,7 @@ function install {
 	sudo make install
 }
 
-prep
-
-install
+prep && install
 
 # check if '--do-not-clean' argument was given
 if [[ $1 != '--do-not-clean' ]]; then

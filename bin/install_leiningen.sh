@@ -4,7 +4,7 @@
 # 
 # for downloading and setting up 'lein'
 # 
-# last update: 2017.04.14.
+# last update: 2017.08.16.
 # 
 # by meinside@gmail.com
 
@@ -33,7 +33,5 @@ function install {
 	echo -e "${GREEN}>>> ${LEIN_BIN} was installed.${RESET}"
 }
 
-prep
-
-install
+prep && install
 

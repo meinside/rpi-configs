@@ -5,7 +5,7 @@
 # Build and install OpenCV on Raspberry Pi (for Python 2.7)
 #
 # created on : 2016.12.02.
-# last update: 2017.04.14.
+# last update: 2017.08.16.
 # 
 # by meinside@gmail.com
 
@@ -104,11 +104,5 @@ function clean {
 	sudo rm -rf ~/.cache/pip
 }
 
-prep
-
-build
-
-check_installation
-
-clean
+prep && build && check_installation && clean
 

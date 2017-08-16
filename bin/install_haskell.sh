@@ -5,7 +5,7 @@
 # for installing haskell stack
 # (referenced: http://allocinit.io/haskell/haskell-on-raspberry-pi-3/)
 # 
-# last update: 2017.07.26.
+# last update: 2017.08.16.
 # 
 # by meinside@gmail.com
 
@@ -49,7 +49,5 @@ function install {
 	echo -e "${GREEN}>>> ghc and ghci were installed.${RESET}"
 }
 
-prep
-download_stack
-install
+prep && download_stack && install
 
