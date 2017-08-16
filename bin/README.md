@@ -26,6 +26,10 @@ A script for installing [stack](https://docs.haskellstack.org/en/stable/README/)
 
 A script for installing [leiningen](https://leiningen.org/) which is needed for [Clojure](https://clojure.org/).
 
+## install_nginx.sh
+
+A script for installing [Nginx](https://www.nginx.com/).
+
 ## install_nodejs.sh
 
 A script for installing [Node.js](https://nodejs.org/en/).
