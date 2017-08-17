@@ -4,7 +4,7 @@
 # 
 # for building neovim from source code on Raspberry Pi
 #
-# last update: 2017.08.16.
+# last update: 2017.08.17.
 # 
 # by meinside@gmail.com
 
@@ -29,7 +29,7 @@ function prep {
 }
 
 function clean {
-	rm -rf $TMP_DIR
+	sudo rm -rf $TMP_DIR
 }
 
 function install {
