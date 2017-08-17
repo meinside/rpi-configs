@@ -5,7 +5,7 @@
 # Build and install Nginx on Raspberry Pi
 #
 # created on : 2017.08.16.
-# last update: 2017.08.16.
+# last update: 2017.08.17.
 # 
 # by meinside@gmail.com
 
@@ -46,7 +46,12 @@ NGINX_CONF_FILE="/etc/nginx/conf/nginx.conf"
 NGINX_SERVICE_FILE="/lib/systemd/system/nginx.service"
 
 function prep {
-	# TODO - install needed packages
+	# install needed packages (gcc 4.9 is needed for some compiler options)
+	sudo apt-get -y install gcc-4.9 g++-4.9 \
+		&& sudo update-alternatives --remove-all gcc \
+		&& sudo update-alternatives --remove-all g++ \
+		&& sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.9 100 \
+		&& sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.9 100
 
 	echo -e "${YELLOW}>>> Preparing for essential libraries...${RESET}"
 
