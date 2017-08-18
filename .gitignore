@@ -1,5 +1,5 @@
 # git ignore file of meinside@gmail.com
-# last update: 2017.05.12.
+# last update: 2017.08.18.
 
 # unnecessary binary files
 *.o
@@ -89,6 +89,7 @@ srcs
 .nvimlog
 .oracle_jre_usage/
 .psql_history*
+.wget-hsts
 
 # etc. files/dirs
 .bash_logout
