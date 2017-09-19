@@ -1,6 +1,6 @@
 " meinside's .vimrc file,
 " created by meinside@gmail.com,
-" last update: 2017.08.29.
+" last update: 2017.09.19.
 "
 " XXX - change default text editor:
 " $ sudo update-alternatives --config editor
@@ -76,6 +76,20 @@ Plugin 'itchyny/vim-haskell-indent'
 " (touch '~/.vimrc.lowperf' for it)
 let lowperf=expand('~/.vimrc.lowperf')
 if !filereadable(lowperf)
+
+	" For syntax checking
+	Plugin 'vim-syntastic/syntastic'
+	set statusline+=%#warningmsg#
+	set statusline+=%{SyntasticStatuslineFlag()}
+	set statusline+=%*
+	let g:syntastic_always_populate_loc_list = 1
+	let g:syntastic_auto_loc_list = 1
+	let g:syntastic_check_on_open = 1
+	let g:syntastic_check_on_wq = 0
+	" > Haskell: $ stack install hlint ghc-mod -j1
+	" > Go:
+	let g:syntastic_go_checkers = ['govet', 'errcheck', 'go']
+
 	" For gitgutter
 	Plugin 'airblade/vim-gitgutter'        " [c, ]c for prev/next hunk
 	let g:gitgutter_highlight_lines = 1
