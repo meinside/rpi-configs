@@ -3,7 +3,7 @@ by Sungjin Han <meinside@gmail.com>
 
 ## Description
 
-My personal dot/config files for Raspberry Pi server, currently running on Raspbian.
+My personal dot/config files for Raspberry Pi server, currently running on **Raspbian Stretch**.
 
 ---
 
@@ -87,53 +87,81 @@ $ sudo usermod -a -G i2c USERNAME
 
 ## 2. Additional Configurations
 
-### A. (Ruby) Install RVM for multi-users
+### A. WiFi Configuration
 
-```bash
-$ curl -L get.rvm.io | sudo bash -s stable
-$ sudo /usr/sbin/usermod -a -G rvm USERNAME
-$ sudo chown root.rvm /etc/profile.d/rvm.sh
+#### a. Add a file on the sdcard and reboot
+
+Create a file named `wpa_supplicant.conf` with following content:
+
+```
+country=JP
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+
+network={
+        ssid="YOUR-SSID"
+        psk=YOUR-PSK
+
+        # Protocol type can be: RSN (for WP2) and WPA (for WPA1)
+        proto=RSN
+
+        # Key management type can be: WPA-PSK or WPA-EAP (Pre-Shared or Enterprise)
+        key_mgmt=WPA-PSK
+
+        # Pairwise can be CCMP or TKIP (for WPA2 or WPA1)
+        pairwise=CCMP
+
+        # Authorization option should be OPEN for both WPA1/WPA2 (in less commonly used are SHARED and LEAP)
+        auth_alg=OPEN
+
+        # SSID scan technique (0 for broadcast, 1 for hidden)
+        scan_ssid=1
+
+        # Priority
+        priority=1
+}
 ```
 
-### B. WiFi Configuration
+Replace `YOUR-SSID` and `YOUR-PSK` to yours.
 
-Open conf:
+`YOUR-PSK` can be generated like this:
+
+```bash
+$ wpa_passphrase [SSID] [PASSWORD]
+```
+
+For example,
+
+```bash
+$ wpa_passphrase my_ssid 0123456789abc
+```
+
+Now put the file on the root of your **Raspberry-Pi-ready** sdcard and boot with it.
+
+#### b. Edit conf file
+
+Do the same on file: `/etc/wpa_supplicant/wpa_supplicant.conf`.
 
 ```bash
 $ sudo vi /etc/wpa_supplicant/wpa_supplicant.conf
 ```
 
-add following lines:
-
-```
-network={
-    ssid="[some_ssid]"
-    psk="[some_passwd]"
-
-    # Protocol type can be: RSN (for WP2) and WPA (for WPA1)
-    proto=RSN
-
-    # Key management type can be: WPA-PSK or WPA-EAP (Pre-Shared or Enterprise)
-    key_mgmt=WPA-PSK
-
-    # Pairwise can be CCMP or TKIP (for WPA2 or WPA1)
-    pairwise=CCMP
-
-    #Authorization option should be OPEN for both WPA1/WPA2 (in less commonly used are SHARED and LEAP)
-    auth_alg=OPEN
-
-    # Uncomment below line for private network (i.e. no broadcast SSID)
-    #scan_ssid=1
-}
-```
-
-and turn up the WLAN:
+After that, turn the WLAN device off and on:
 
 ```bash
+$ sudo ifdown wlan0
 $ sudo ifup wlan0
 ```
 
-### C. UTF-8 configuration for MySQL
+Your WLAN device's name may be different from 'wlan0'.
+
+You can list yours with following command:
+
+```bash
+$ ls /sys/class/net | grep wl
+```
+
+### B. UTF-8 configuration for MySQL
 
 Open conf:
 
@@ -161,11 +189,7 @@ collation-server = utf8_general_ci
 default-character-set = utf8
 ```
 
-### D. Rails: Passenger configurations
-
-* see: https://github.com/meinside/rails-on-raspberrypi#install-passenger-module
-
-### E. AFP & Zero-conf DNS configuration
+### C. AFP & Zero-conf DNS configuration
 
 #### a. install netatalk and avahi-daemon
 
@@ -174,14 +198,7 @@ $ sudo apt-get install netatalk
 $ sudo apt-get install avahi-daemon
 ```
 
-#### b. install dnssd module for apache2
-
-```bash
-$ sudo apt-get install libapache2-mod-dnssd
-$ sudo a2enmod mod-dnssd
-```
-
-#### c. add an avahi-daemon service ####
+#### b. add an avahi-daemon service ####
 
 Create a service file:
 
@@ -234,7 +251,7 @@ supersede domain-name-servers 8.8.8.8, 8.8.4.4;
 
 ### B. when using bluetooth
 
-#### 1. with on-board bluetooth (Raspberry Pi 3)
+#### 1. with on-board bluetooth module
 
 ##### a. install required packages
 
@@ -376,3 +393,4 @@ vm.vfs_cache_pressure = 300
 #vm.min_free_kbytes=8192
 vm.min_free_kbytes=32768
 ```
+
