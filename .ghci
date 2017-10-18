@@ -1,0 +1,8 @@
+-- ~/.ghci
+--
+-- last update: 2017.10.18.
+
+:set -XOverloadedStrings
+:set -Wall
+:set prompt "λ> "
+:set -fdefer-type-errors
