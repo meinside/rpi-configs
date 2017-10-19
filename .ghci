@@ -1,8 +1,23 @@
 -- ~/.ghci
 --
--- last update: 2017.10.18.
+-- My ghci configuration file
+--
+-- created on : 2017.10.18.
+-- last update: 2017.10.19.
 
-:set -XOverloadedStrings
+-- warning/error options
 :set -Wall
-:set prompt "λ> "
 :set -fdefer-type-errors
+
+-- customized prompt
+:set prompt "\ESC[33m\STXλ > \ESC[m\STX"
+
+-- show types of evaluated expressions
+:set +t
+
+-- enable multiline expressions
+:set +m
+
+-- enable overloaded strings
+:set -XOverloadedStrings
+
