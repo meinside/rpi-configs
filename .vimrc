@@ -79,21 +79,17 @@ let lowperf=expand('~/.vimrc.lowperf')
 if !filereadable(lowperf)
 
 	" For syntax checking
-	Plugin 'w0rp/ale'
-	"let g:ale_fixers = {
-	"\     'go': ['govet', 'errcheck', 'go'],
-	"\}
-	let g:ale_fix_on_save = 1
-	let g:ale_completion_enabled = 1
-	let g:ale_echo_msg_error_str = 'E'
-	let g:ale_echo_msg_warning_str = 'W'
-	let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-	let g:ale_lint_on_text_changed = 'never'
-	let g:ale_set_loclist = 0
-	let g:ale_set_quickfix = 1
-	let g:ale_open_list = 1
-	nmap <silent> <C-k> <Plug>(ale_previous_wrap)  " ctrl+k for previous error
-	nmap <silent> <C-j> <Plug>(ale_next_wrap)      " ctrl+j for next error
+	Plugin 'vim-syntastic/syntastic'
+	set statusline+=%#warningmsg#
+	set statusline+=%{SyntasticStatuslineFlag()}
+	set statusline+=%*
+	let g:syntastic_always_populate_loc_list = 1
+	let g:syntastic_auto_loc_list = 1
+	let g:syntastic_check_on_open = 1
+	let g:syntastic_check_on_wq = 0
+	" > Haskell: $ stack install hlint ghc-mod -j1
+	" > Go:
+	let g:syntastic_go_checkers = ['govet', 'errcheck', 'go']
 
 	" For gitgutter
 	Plugin 'airblade/vim-gitgutter'        " [c, ]c for prev/next hunk
