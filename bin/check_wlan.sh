@@ -13,7 +13,7 @@
 # */5 * * * * /path/to/check_wlan.sh
 
 PING_IP=8.8.8.8
-SLEEP_SECONDS=10
+SLEEP_SECONDS=5
 
 while read -r interface; do
 	echo "Checking wlan interface: ${interface}"
@@ -25,9 +25,9 @@ while read -r interface; do
 	if [ $? != 0 ]; then
 		echo "Restaring wlan interface: ${interface} ..."
 
-		sudo /sbin/ifconfig ${interface} down
+		sudo /sbin/ifdown ${interface}
 		sleep ${SLEEP_SECONDS}
-		sudo /sbin/ifconfig ${interface} up
+		sudo /sbin/ifup --force ${interface}
 	fi
 done <<< `ls /sys/class/net | grep wl`
 
