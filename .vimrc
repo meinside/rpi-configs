@@ -1,5 +1,6 @@
 " meinside's .vimrc file,
 " created by meinside@gmail.com,
+"
 " last update: 2017.10.24.
 "
 " XXX - change default text editor:
@@ -85,11 +86,11 @@ if !filereadable(lowperf)
 	set statusline+=%*
 	let g:syntastic_always_populate_loc_list = 1
 	let g:syntastic_auto_loc_list = 1
-	let g:syntastic_check_on_open = 1
+	let g:syntastic_check_on_open = 0
 	let g:syntastic_check_on_wq = 0
 	" > Haskell: $ stack install hlint ghc-mod -j1
 	" > Go:
-	let g:syntastic_go_checkers = ['govet', 'errcheck', 'go']
+	let g:syntastic_go_checkers = ['golint']	" ['go', 'golint']
 
 	" For gitgutter
 	Plugin 'airblade/vim-gitgutter'        " [c, ]c for prev/next hunk
