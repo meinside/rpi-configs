@@ -1,6 +1,6 @@
 " meinside's .vimrc file,
 " created by meinside@gmail.com,
-" last update: 2017.10.20.
+" last update: 2017.10.24.
 "
 " XXX - change default text editor:
 " $ sudo update-alternatives --config editor
@@ -178,7 +178,9 @@ set breakindent
 
 " for color schemes
 set t_Co=256
-set termguicolors
+if exists('$TMUX')
+	set termguicolors	" not working in terminals
+endif
 colo elflord
 
 " file browser (netrw)
