@@ -1,7 +1,7 @@
 " meinside's .vimrc file,
 " created by meinside@gmail.com,
 "
-" last update: 2017.10.24.
+" last update: 2017.10.25.
 "
 " XXX - change default text editor:
 " $ sudo update-alternatives --config editor
@@ -88,23 +88,12 @@ if !filereadable(lowperf)
 	let g:syntastic_auto_loc_list = 1
 	let g:syntastic_check_on_open = 0
 	let g:syntastic_check_on_wq = 0
-	" > Haskell: $ stack install hlint ghc-mod -j1
-	" > Go:
-	let g:syntastic_go_checkers = ['golint']	" ['go', 'golint']
 
 	" For gitgutter
 	Plugin 'airblade/vim-gitgutter'        " [c, ]c for prev/next hunk
 	let g:gitgutter_highlight_lines = 1
-
-	" For snippets ($ sudo apt-get install vim-nox)
-	" - Ruby: https://github.com/honza/vim-snippets/blob/master/UltiSnips/ruby.snippets
-	" - Go: https://github.com/honza/vim-snippets/blob/master/UltiSnips/go.snippets
-	Plugin 'SirVer/ultisnips'
-	Plugin 'honza/vim-snippets'
-	let g:UltiSnipsExpandTrigger="<tab>"
-	let g:UltiSnipsJumpForwardTrigger="<tab>"   " <tab> for next placeholder
-	let g:UltiSnipsJumpBackwardTrigger="<s-tab>"    " <shift-tab> for previous placeholder
-	let g:UltiSnipsEditSplit="vertical"
+	let g:gitgutter_realtime = 0
+	let g:gitgutter_eager = 0
 
 	" For Go
 	if has('nvim')
@@ -121,6 +110,7 @@ if !filereadable(lowperf)
 	let g:go_highlight_types = 1
 	let g:go_auto_sameids = 1
 	let g:go_auto_type_info = 1
+	let g:syntastic_go_checkers = ['go']	" XXX: 'golint' is too slow, use :GoLint manually.
 
 	" For Python
 	if has('nvim')

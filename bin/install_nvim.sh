@@ -4,7 +4,7 @@
 # 
 # for building neovim from source code on Raspberry Pi
 #
-# last update: 2017.08.17.
+# last update: 2017.10.25.
 # 
 # by meinside@gmail.com
 
@@ -39,6 +39,8 @@ function install {
 	git checkout $NVIM_VERSION
 
 	# configure and build
+	rm -rf build
+	make clean
 	make CMAKE_BUILD_TYPE=Release
 
 	# install
