@@ -39,36 +39,42 @@ INSTALL_BRANCH="go1.9.2"	# tag
 function prep {
 	# install essential packages
 	echo -e "${YELLOW}>>> Installing essential packages...${RESET}"
+
 	sudo apt-get install -y git gcc libc6-dev
+}
+
+function clone_bootstrap_repo {
+	# clone the repository
+	echo -e "${YELLOW}>>> Cloning repository for boostrap($BOOTSTRAP_BRANCH)...${RESET}"
+
+	rm -rf "$BOOTSTRAP_DIR" && \
+		git clone -b "$BOOTSTRAP_BRANCH" "$REPOSITORY" "$BOOTSTRAP_DIR"
+}
+
+function build_bootstrap {
+	# build
+	echo -e "${YELLOW}>>> Building...${RESET}"
+
+	cd "$BOOTSTRAP_DIR/src" && ./make.bash
+
+	if [ -x "$BOOTSTRAP_DIR/bin/go" ]; then
+		echo -e "${YELLOW}>>> Go for bootstrap was installed at: $BOOTSTRAP_DIR${RESET}"
+	else
+		echo -e "${RED}>>> Failed to build Go for bootstrap at: $BOOTSTRAP_DIR${RESET}"
+		exit 1
+	fi
 }
 
 # build Go (for bootstrap)
 function bootstrap {
-	prep
-
 	# if Go (for bootstrap) already exists,
 	if [ -d "$INSTALLATION_DIR/go" ]; then
 		# reuse it
-		ln -sf "$INSTALLATION_DIR/go" "$BOOTSTRAP_DIR"
-
 		echo -e "${YELLOW}>>> Reusing Go at: $INSTALLATION_DIR/go${RESET}"
+
+		ln -sf "$INSTALLATION_DIR/go" "$BOOTSTRAP_DIR"
 	else
-		# clone the repository
-		echo -e "${YELLOW}>>> Cloning repository for boostrap($BOOTSTRAP_BRANCH)...${RESET}"
-		rm -rf "$BOOTSTRAP_DIR"
-		git clone -b "$BOOTSTRAP_BRANCH" "$REPOSITORY" "$BOOTSTRAP_DIR"
-
-		# build
-		echo -e "${YELLOW}>>> Building...${RESET}"
-		cd "$BOOTSTRAP_DIR/src"
-		./make.bash
-
-		if [ -x "$BOOTSTRAP_DIR/bin/go" ]; then
-			echo -e "${YELLOW}>>> Go for bootstrap was installed at: $BOOTSTRAP_DIR${RESET}"
-		else
-			echo -e "${RED}>>> Failed to build Go for bootstrap at: $BOOTSTRAP_DIR${RESET}"
-			exit 1
-		fi
+		clone_bootstrap_repo && build_bootstrap
 	fi
 }
 
@@ -79,34 +85,42 @@ function clean_bootstrap {
 	rm -rf "$BOOTSTRAP_DIR"
 }
 
-# install Go
-function install_go {
-	bootstrap
+function clone_repo {
+	echo -e "${YELLOW}>>> Cloning repository...(branch/tag: $INSTALL_BRANCH)${RESET}"
+
+	SRC_DIR="$TEMP_DIR/go-$INSTALL_BRANCH"
 
 	# clone the repository
-	echo -e "${YELLOW}>>> Cloning repository...(branch/tag: $INSTALL_BRANCH)${RESET}"
-	SRC_DIR="$TEMP_DIR/go-$INSTALL_BRANCH"
-	rm -rf "$SRC_DIR"
-	git clone -b "$INSTALL_BRANCH" "$REPOSITORY" "$SRC_DIR"
+	rm -rf "$SRC_DIR" && \
+		git clone -b "$INSTALL_BRANCH" "$REPOSITORY" "$SRC_DIR"
+}
+
+function build {
+	echo -e "${YELLOW}>>> Building Go with bootstrap Go...${RESET}"
 
 	# build
-	echo -e "${YELLOW}>>> Building Go with bootstrap Go...${RESET}"
-	cd "$SRC_DIR/src"
-	GOROOT_BOOTSTRAP=$BOOTSTRAP_DIR ./make.bash
+	cd "$SRC_DIR/src" && \
+		GOROOT_BOOTSTRAP=$BOOTSTRAP_DIR ./make.bash
+}
+
+function install {
+	echo -e "${YELLOW}>>> Installing...${RESET}"
+
+	GO_DIR="$INSTALLATION_DIR/go-$INSTALL_BRANCH"
 
 	# install
-	echo -e "${YELLOW}>>> Installing...${RESET}"
-	GO_DIR="$INSTALLATION_DIR/go-$INSTALL_BRANCH"
-	cd ../..
-	sudo mv "$SRC_DIR" "$GO_DIR"
-	sudo chown -R "$USER" "$GO_DIR"
-	sudo ln -sfn "$GO_DIR" "$INSTALLATION_DIR/go"
+	cd ../.. && \
+		sudo mv "$SRC_DIR" "$GO_DIR" && \
+		sudo chown -R "$USER" "$GO_DIR" && \
+		sudo ln -sfn "$GO_DIR" "$INSTALLATION_DIR/go"
+}
 
-	clean_bootstrap
-
-	echo -e "${GREEN}>>> Go with branch/tag: $INSTALL_BRANCH was installed at: $GO_DIR${RESET}"
+# install Go
+function install_go {
+	clone_repo && build && install && \
+		echo -e "${GREEN}>>> Go with branch/tag: $INSTALL_BRANCH was installed at: $GO_DIR${RESET}"
 }
 
 # do the actual job
-install_go
+prep && bootstrap && install_go && clean_bootstrap
 
