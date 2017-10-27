@@ -1,7 +1,7 @@
 " meinside's .vimrc file,
 " created by meinside@gmail.com,
 "
-" last update: 2017.10.25.
+" last update: 2017.10.27.
 "
 " XXX - change default text editor:
 " $ sudo update-alternatives --config editor
@@ -111,6 +111,7 @@ if !filereadable(lowperf)
 	let g:go_auto_sameids = 1
 	let g:go_auto_type_info = 1
 	let g:syntastic_go_checkers = ['go']	" XXX: 'golint' is too slow, use :GoLint manually.
+	let g:syntastic_aggregate_errors = 1
 
 	" For Python
 	if has('nvim')
