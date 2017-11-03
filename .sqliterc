@@ -1,0 +1,9 @@
+-- SQLite CLI settings
+--
+-- last update: 2017.11.03.
+
+.headers on
+.mode column
+.nullvalue ¤
+.prompt "sqlite > "
+.timer on
