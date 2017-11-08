@@ -4,7 +4,7 @@
 # 
 # for building neovim from source code on Raspberry Pi
 #
-# last update: 2017.10.25.
+# last update: 2017.11.08.
 # 
 # by meinside@gmail.com
 
@@ -13,7 +13,7 @@ umask 0022
 
 TMP_DIR=/tmp/nvim
 
-NVIM_VERSION="v0.2.0"
+NVIM_VERSION="v0.2.1"
 
 function prep {
 	# install needed packages
