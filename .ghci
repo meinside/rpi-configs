@@ -3,14 +3,14 @@
 -- My ghci configuration file
 --
 -- created on : 2017.10.18.
--- last update: 2017.10.19.
+-- last update: 2017.11.15.
 
 -- warning/error options
 :set -Wall
 :set -fdefer-type-errors
 
 -- customized prompt
-:set prompt "\ESC[33m\STXλ > \ESC[m\STX"
+:set prompt "\ESC[1;34m%s\n\ESC[0;33mλ > \ESC[m"
 
 -- show types of evaluated expressions
 :set +t
