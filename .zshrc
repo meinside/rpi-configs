@@ -1,7 +1,7 @@
 # .zshrc
 #
 # created on 2014.06.30.
-# updated on 2018.02.23.
+# updated on 2018.02.27.
 #
 # ... by meinside@gmail.com
 #
@@ -108,6 +108,9 @@ if [[ -z $TMUX ]]; then
 	export PATH="$PATH:$HOME/bin"
 
 fi
+
+# for Haskell
+alias ghci="stack exec ghci --"
 
 # for python and virtualenv
 #

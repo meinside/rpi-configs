@@ -1,7 +1,7 @@
 # .bashrc for Raspberry Pi
 #
 # created on 2012.05.31.
-# updated on 2017.08.04.
+# updated on 2018.02.27.
 #
 # ... by meinside@gmail.com
 
@@ -91,6 +91,9 @@ if [[ -z $TMUX ]]; then
 	PATH="$PATH:$HOME/bin"
 
 fi
+
+# for Haskell
+alias ghci="stack exec ghci --"
 
 # for python and virtualenv
 #
