@@ -1,7 +1,7 @@
 " meinside's .vimrc file,
 " created by meinside@gmail.com,
 "
-" last update: 2017.10.27.
+" last update: 2018.02.28.
 "
 " XXX - change default text editor:
 " $ sudo update-alternatives --config editor
@@ -9,70 +9,80 @@
 " XXX - setup for nvim:
 " $ sudo apt-get install python3-pip
 " $ sudo pip3 install --upgrade neovim
-" $ mkdir -p ~/.config/nvim
-" $ ln -sf ~/.vimrc ~/.config/nvim/init.vim
 
 """"""""""""""""""""""""""""""""""""
-" settings for vundle (https://github.com/VundleVim/Vundle.vim)
-let vundle_readme=expand('~/.vim/bundle/Vundle.vim/README.md')
-let vundle_fresh=0
-if !filereadable(vundle_readme)
-	echo "Installing Vundle..."
-	echo ""
-	silent execute "!git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim"
-	let vundle_fresh=1
+" settings for nvim
+"
+"
+" for nvim, symbolic link '~/.vimrc' to '~/.config/nvim/init.vim'
+if !filereadable(expand('~/.config/nvim/init.vim'))
+    silent !mkdir -p ~/.config/nvim
+    silent !ln -sf ~/.vimrc ~/.config/nvim/init.vim
 endif
 
-set nocompatible	" be iMproved, required
-filetype off		" required
+""""""""""""""""""""""""""""""""""""
+" settings for vim-plug (https://github.com/junegunn/vim-plug)
+if has('nvim')
+    " for nvim
+    if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
+        silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
+                    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+    endif
+else
+    " for vim
+    if empty(glob('~/.vim/autoload/plug.vim'))
+        silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+                    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+    endif
+endif
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+" Specify a directory for plugins
+if has('nvim')
+    call plug#begin('~/.local/share/nvim/plugged')
+else
+    call plug#begin('~/.vim/plugged')
+endif
 
 """"""""
-" vundle packages
+" plugins
 
 " Useful plugins
-Plugin 'matchit.zip'
-Plugin 'ragtag.vim' " TAG + <ctrl-x> + @, !, #, $, /, <space>, <cr>, ...
-Plugin 'surround.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'vim-airline/vim-airline'
+Plug 'tmhedberg/matchit'
+Plug 'tpope/vim-ragtag' " TAG + <ctrl-x> + @, !, #, $, /, <space>, <cr>, ...
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-fugitive'
+Plug 'vim-airline/vim-airline'
 let g:airline#extensions#ale#enabled = 1
-Plugin 'docunext/closetag.vim'
+Plug 'docunext/closetag.vim'
 
 " For autocompletion
 if has('nvim')
-	Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }	" XXX - python3 needed ($ sudo pip3 install --upgrade neovim)
+	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }	" XXX - python3 needed ($ sudo pip3 install --upgrade neovim)
 	let g:deoplete#enable_at_startup = 1
 endif
 
 " For source file browsing, XXX: ctags and vim-nox is needed! ($ sudo apt-get install vim-nox ctags)
-Plugin 'majutsushi/tagbar'
+Plug 'majutsushi/tagbar'
 nmap <F8> :TagbarToggle<CR>
 
 " For uploading Gist
-Plugin 'mattn/webapi-vim'
-Plugin 'mattn/gist-vim'
+Plug 'mattn/webapi-vim'
+Plug 'mattn/gist-vim'
 
 " For Ruby
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'tpope/vim-endwise'
+Plug 'vim-ruby/vim-ruby', {'for': 'ruby'}
+Plug 'tpope/vim-endwise', {'for': 'ruby'}
 
 " For Go
-Plugin 'fatih/vim-go'
+Plug 'fatih/vim-go', {'for': 'go', 'do': ':GoInstallBinaries'}
 
 " For Haskell
 if has('nvim')
-	Plugin 'neovimhaskell/haskell-vim'
+	Plug 'neovimhaskell/haskell-vim', {'for': 'haskell'}
 endif
-Plugin 'itchyny/vim-haskell-indent'
+Plug 'itchyny/vim-haskell-indent', {'for': 'haskell'}
 
 " XXX - do not load following plugins on machines with low performance:
 " (touch '~/.vimrc.lowperf' for it)
@@ -80,9 +90,11 @@ let lowperf=expand('~/.vimrc.lowperf')
 if !filereadable(lowperf)
 
 	" For syntax checking
-	Plugin 'vim-syntastic/syntastic'
+	Plug 'vim-syntastic/syntastic'
 	set statusline+=%#warningmsg#
-	set statusline+=%{SyntasticStatuslineFlag()}
+	if exists('*SyntasticStatuslineFlag')
+		set statusline+=%{SyntasticStatuslineFlag()}
+	endif
 	set statusline+=%*
 	let g:syntastic_always_populate_loc_list = 1
 	let g:syntastic_auto_loc_list = 1
@@ -90,14 +102,14 @@ if !filereadable(lowperf)
 	let g:syntastic_check_on_wq = 0
 
 	" For gitgutter
-	Plugin 'airblade/vim-gitgutter'        " [c, ]c for prev/next hunk
+	Plug 'airblade/vim-gitgutter'        " [c, ]c for prev/next hunk
 	let g:gitgutter_highlight_lines = 1
 	let g:gitgutter_realtime = 0
 	let g:gitgutter_eager = 0
 
 	" For Go
 	if has('nvim')
-		Plugin 'zchee/deoplete-go', { 'do': 'make'}	" For autocompletion
+		Plug 'zchee/deoplete-go', {'for': 'go', 'do': 'make'}	" For autocompletion
 	endif
 	let g:go_fmt_command = "goimports"     " auto import dependencies
 	let g:go_highlight_build_constraints = 1
@@ -115,35 +127,15 @@ if !filereadable(lowperf)
 
 	" For Python
 	if has('nvim')
-		Plugin 'zchee/deoplete-jedi'	" For autocompletion
+		Plug 'zchee/deoplete-jedi', {'for': 'python'}	" For autocompletion
 	endif
 endif
 
 "
 """"""""
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
-
-" install bundles
-if vundle_fresh == 1
-	echo "Installing bundles..."
-	echo ""
-	:BundleInstall
-endif
-
+" Initialize plugin system
+call plug#end()
 "
 """"""""""""""""""""""""""""""""""""
 
