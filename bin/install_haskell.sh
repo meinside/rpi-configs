@@ -27,7 +27,7 @@ LOCAL_BIN_DIR="/usr/local/bin"
 
 function prep {
 	# install needed packages
-	sudo apt-get install -y g++ gcc libc6-dev libffi-dev libgmp-dev make xz-utils zlib1g-dev git gnupg llvm-3.7
+	sudo apt-get install -y g++ gcc libc6-dev libffi-dev libgmp-dev make xz-utils zlib1g-dev git gnupg llvm-3.9
 }
 
 # download stack binary
