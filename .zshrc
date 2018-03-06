@@ -1,7 +1,7 @@
 # .zshrc
 #
 # created on 2014.06.30.
-# updated on 2018.02.27.
+# updated on 2018.03.05.
 #
 # ... by meinside@gmail.com
 #
@@ -106,6 +106,9 @@ if [[ -z $TMUX ]]; then
 
 	# additional paths
 	export PATH="$PATH:$HOME/bin"
+	if [ -d "$HOME/.local/bin" ] ; then
+		export PATH="$PATH:$HOME/.local/bin"
+	fi
 
 fi
 

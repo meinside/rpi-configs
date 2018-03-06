@@ -1,7 +1,7 @@
 # .bashrc for Raspberry Pi
 #
 # created on 2012.05.31.
-# updated on 2018.02.27.
+# updated on 2018.03.05.
 #
 # ... by meinside@gmail.com
 
@@ -89,6 +89,9 @@ if [[ -z $TMUX ]]; then
 
 	# additional paths
 	PATH="$PATH:$HOME/bin"
+	if [ -d "$HOME/.local/bin" ] ; then
+		export PATH="$PATH:$HOME/.local/bin"
+	fi
 
 fi
 
