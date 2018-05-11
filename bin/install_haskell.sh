@@ -5,7 +5,7 @@
 # for installing haskell stack
 # (referenced: http://allocinit.io/haskell/haskell-on-raspberry-pi-3/)
 # 
-# last update: 2018.03.05.
+# last update: 2018.05.11.
 # 
 # by meinside@gmail.com
 
@@ -19,7 +19,7 @@ YELLOW="\033[0;33m"
 RESET="\033[0m"
 
 # prebuilt stack binary (https://github.com/commercialhaskell/stack/releases)
-STACK_VERSION="1.6.5"	# XXX - change this version
+STACK_VERSION="1.7.1"	# XXX - change this version
 STACK_BIN="https://github.com/commercialhaskell/stack/releases/download/v${STACK_VERSION}/stack-${STACK_VERSION}-linux-arm.tar.gz"
 
 TMP_DIR="/tmp"
