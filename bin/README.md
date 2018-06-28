@@ -6,9 +6,9 @@ These are my helper scripts that make my life in Raspberry Pi a lot easier:
 
 A script that checks for WiFi connectivity (with `ping`) and restart the interface when needed.
 
-## install_elixir.sh
+## install_dart.sh
 
-A script for building and installing [Elixir language](https://elixir-lang.org/).
+A script for installing [Dart](https://www.dartlang.org/).
 
 ## install_ffmpeg.sh
 
@@ -21,10 +21,6 @@ A script for building and installing [Golang](https://golang.org/).
 ## install_haskell.sh
 
 A script for installing [stack](https://docs.haskellstack.org/en/stable/README/) and [Haskell](https://www.haskell.org/).
-
-## install_leiningen.sh
-
-A script for installing [leiningen](https://leiningen.org/) which is needed for [Clojure](https://clojure.org/).
 
 ## install_nginx.sh
 
