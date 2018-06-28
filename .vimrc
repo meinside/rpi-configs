@@ -1,7 +1,7 @@
 " meinside's .vimrc file,
 " created by meinside@gmail.com,
 "
-" last update: 2018.02.28.
+" last update: 2018.06.28.
 "
 " XXX - change default text editor:
 " $ sudo update-alternatives --config editor
@@ -74,6 +74,9 @@ Plug 'mattn/gist-vim'
 " For Ruby
 Plug 'vim-ruby/vim-ruby', {'for': 'ruby'}
 Plug 'tpope/vim-endwise', {'for': 'ruby'}
+
+" For Dart
+Plug 'dart-lang/dart-vim-plugin'
 
 " For Go
 Plug 'fatih/vim-go', {'for': 'go', 'do': ':GoInstallBinaries'}
