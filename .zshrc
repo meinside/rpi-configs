@@ -1,7 +1,7 @@
 # .zshrc
 #
 # created on 2014.06.30.
-# updated on 2018.06.28.
+# updated on 2018.06.29.
 #
 # ... by meinside@gmail.com
 #
@@ -97,6 +97,7 @@ if [[ -z $TMUX ]]; then
 
 	# for Dart
 	export PATH=$PATH:/opt/dart-sdk/bin
+	export PATH=$PATH:$HOME/.pub-cache/bin
 
 	# for Node.js
 	export PATH=$PATH:/opt/node/bin

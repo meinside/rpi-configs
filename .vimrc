@@ -1,7 +1,7 @@
 " meinside's .vimrc file,
 " created by meinside@gmail.com,
 "
-" last update: 2018.06.28.
+" last update: 2018.06.29.
 "
 " XXX - change default text editor:
 " $ sudo update-alternatives --config editor
@@ -76,7 +76,9 @@ Plug 'vim-ruby/vim-ruby', {'for': 'ruby'}
 Plug 'tpope/vim-endwise', {'for': 'ruby'}
 
 " For Dart
-Plug 'dart-lang/dart-vim-plugin'
+Plug 'dart-lang/dart-vim-plugin', {'for': 'dart'}
+let dart_html_in_string=v:true
+let g:syntastic_dart_checkers = ['dartanalyzer']
 
 " For Go
 Plug 'fatih/vim-go', {'for': 'go', 'do': ':GoInstallBinaries'}
@@ -205,6 +207,7 @@ if has("autocmd")
 		autocmd FileType ruby,eruby,yaml set ai sw=2 ts=2 sts=2 et	" Ruby
 		autocmd FileType python set ai sw=2 ts=2 sts=2 et	" Python
 		autocmd FileType haskell set ai sw=2 ts=2 sts=2 et " Haskell
+		autocmd FileType dart set ai sw=2 ts=2 sts=2 et	" Dart
 
 		" When editing a file, always jump to the last known cursor position.
 		" Don't do it when the position is invalid or when inside an event handler

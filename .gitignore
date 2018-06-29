@@ -1,5 +1,5 @@
 # git ignore file of meinside@gmail.com
-# last update: 2017.08.18.
+# last update: 2018.06.29.
 
 # unnecessary binary files
 *.o
@@ -37,6 +37,10 @@ Temporary Items
 backups/
 tmp/
 .rpi-firmware
+
+# dart files/dirs
+.dartServer/
+.pub-cache/
 
 # go files/dirs
 .gogets
