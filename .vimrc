@@ -1,7 +1,7 @@
 " meinside's .vimrc file,
 " created by meinside@gmail.com,
 "
-" last update: 2018.06.29.
+" last update: 2018.07.02.
 "
 " XXX - change default text editor:
 " $ sudo update-alternatives --config editor
@@ -49,6 +49,7 @@ endif
 " plugins
 
 " Useful plugins
+Plug 'jiangmiao/auto-pairs'
 Plug 'tmhedberg/matchit'
 Plug 'tpope/vim-ragtag' " TAG + <ctrl-x> + @, !, #, $, /, <space>, <cr>, ...
 Plug 'tpope/vim-surround'
