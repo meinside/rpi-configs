@@ -6,7 +6,7 @@
 # from: https://www.dartlang.org/tools/sdk/archive
 # 
 # created on : 2018.06.28.
-# last update: 2018.06.28.
+# last update: 2018.07.12.
 # 
 # by meinside@gmail.com
 
@@ -19,12 +19,16 @@ GREEN="\033[0;32m"
 YELLOW="\033[0;33m"
 RESET="\033[0m"
 
-VERSION="1.24.3"	# XXX - edit this for other versions
+# XXX - edit these for installing other versions
+#CHANNEL="stable"
+#VERSION="1.24.3"
+CHANNEL="dev"
+VERSION="2.0.0-dev.68.0"
 
 OS="linux"
 PLATFORM="arm"	# arm, arm64, ...
 
-DART_DIST_BASEURL="https://storage.googleapis.com/dart-archive/channels/stable/release"
+DART_DIST_BASEURL="https://storage.googleapis.com/dart-archive/channels/${CHANNEL}/release"
 FILENAME="dartsdk-${OS}-${PLATFORM}-release.zip"
 DOWNLOAD_URL="${DART_DIST_BASEURL}/${VERSION}/sdk/${FILENAME}"
 INSTALLATION_DIR="/opt"
