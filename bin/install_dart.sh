@@ -6,7 +6,7 @@
 # from: https://www.dartlang.org/tools/sdk/archive
 # 
 # created on : 2018.06.28.
-# last update: 2018.07.19.
+# last update: 2018.07.23.
 # 
 # by meinside@gmail.com
 
@@ -23,7 +23,7 @@ RESET="\033[0m"
 #CHANNEL="stable"
 #VERSION="1.24.3"
 CHANNEL="dev"
-VERSION="2.0.0-dev.69.0"
+VERSION="2.0.0-dev.69.1"
 
 OS="linux"
 PLATFORM="arm"	# arm, arm64, ...
