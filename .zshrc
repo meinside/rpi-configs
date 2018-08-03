@@ -1,7 +1,7 @@
 # .zshrc
 #
 # created on 2014.06.30.
-# updated on 2018.06.29.
+# updated on 2018.08.03.
 #
 # ... by meinside@gmail.com
 #
@@ -103,10 +103,7 @@ if [[ -z $TMUX ]]; then
 	export PATH=$PATH:/opt/node/bin
 
 	# additional paths
-	export PATH="$PATH:$HOME/bin"
-	if [ -d "$HOME/.local/bin" ] ; then
-		export PATH="$PATH:$HOME/.local/bin"
-	fi
+	export PATH="$PATH:$HOME/bin:$HOME/.local/bin"
 
 fi
 
