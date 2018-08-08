@@ -6,7 +6,7 @@
 # from: https://www.dartlang.org/tools/sdk/archive
 # 
 # created on : 2018.06.28.
-# last update: 2018.08.01.
+# last update: 2018.08.08.
 # 
 # by meinside@gmail.com
 
@@ -20,10 +20,8 @@ YELLOW="\033[0;33m"
 RESET="\033[0m"
 
 # XXX - edit these for installing other versions
-#CHANNEL="stable"
-#VERSION="1.24.3"
-CHANNEL="dev"
-VERSION="2.0.0-dev.69.5"
+CHANNEL="stable"
+VERSION="2.0.0"
 
 OS="linux"
 PLATFORM="arm"	# arm, arm64, ...
