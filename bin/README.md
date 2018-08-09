@@ -42,3 +42,7 @@ A script for installing [OpenCV](http://opencv.org/) library.
 
 A script for installing [rvm](https://rvm.io/) and [Ruby](https://www.ruby-lang.org/en/).
 
+## install_tensorflow.sh
+
+A script for installing [Tensorflow](https://www.tensorflow.org/install/install_raspbian) on Raspbian.
+
