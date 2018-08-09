@@ -1,5 +1,5 @@
 # git ignore file of meinside@gmail.com
-# last update: 2018.07.12.
+# last update: 2018.08.09.
 
 # unnecessary binary files
 *.o
@@ -102,6 +102,7 @@ srcs
 .fontconfig/
 .gem
 .httpie/
+.keras/
 .lein/
 .lesshst
 .lnav/
