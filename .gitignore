@@ -1,5 +1,5 @@
 # git ignore file of meinside@gmail.com
-# last update: 2018.08.09.
+# last update: 2018.08.24.
 
 # unnecessary binary files
 *.o
@@ -120,6 +120,7 @@ srcs
 .zcompdump-*
 .zsh-update
 mbox
+pprof/
 
 # data dir
 files/
