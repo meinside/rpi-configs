@@ -1,7 +1,7 @@
 # sample .gitconfig file of mine
 # (copy as .gitconfig and customize it)
 #
-# last update: 2017.04.06.
+# last update: 2018.08.27.
 
 [alias]
 	# commands
@@ -58,4 +58,15 @@
 	email = meinside@gmail.com
 [github]
 	user = meinside
+
+# gitflow
+[gitflow "branch"]
+    master = master
+    develop = develop
+[gitflow "prefix"]
+    feature = feature/
+    release = release/
+    hotfix = hotfix/
+    support = support/
+    versiontag = v
 
