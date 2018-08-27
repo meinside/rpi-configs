@@ -52,7 +52,7 @@
 [merge]
 	tool = vimdiff
 [branch]
-#   autosetuprebase = always    # or `git pull --rebase`
+#	autosetuprebase = always    # or `git pull --rebase`
 [user]
 	name = Sungjin Han
 	email = meinside@gmail.com
@@ -61,12 +61,13 @@
 
 # gitflow
 [gitflow "branch"]
-    master = master
-    develop = develop
+	master = master
+	develop = develop
 [gitflow "prefix"]
-    feature = feature/
-    release = release/
-    hotfix = hotfix/
-    support = support/
-    versiontag = v
+	feature = feature/
+	release = release/
+	hotfix = hotfix/
+	bugfix = bugfix/
+	support = support/
+	versiontag = v
 
