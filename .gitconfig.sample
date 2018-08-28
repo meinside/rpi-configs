@@ -1,7 +1,7 @@
 # sample .gitconfig file of mine
 # (copy as .gitconfig and customize it)
 #
-# last update: 2018.08.27.
+# last update: 2018.08.28.
 
 [alias]
 	# commands
@@ -70,4 +70,10 @@
 	bugfix = bugfix/
 	support = support/
 	versiontag = v
+
+# force ssh for my own repositories
+[url "ssh://git@github.com/meinside/"]
+	insteadOf = https://github.com/meinside/
+[url "ssh://git@bitbucket.org/meinside/"]
+	insteadOf = https://bitbucket.org/meinside/
 
