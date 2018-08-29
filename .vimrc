@@ -1,7 +1,7 @@
 " meinside's .vimrc file,
 " created by meinside@gmail.com,
 "
-" last update: 2018.08.09.
+" last update: 2018.08.29.
 "
 " XXX - change default text editor:
 " $ sudo update-alternatives --config editor
@@ -62,6 +62,10 @@ Plug 'docunext/closetag.vim'
 if has('nvim')
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }	" XXX - python3 needed ($ pip3 install --upgrade --user neovim)
 	let g:deoplete#enable_at_startup = 1
+	let g:deoplete#enable_smart_case = 1
+
+	" To close preview window after selection
+	autocmd CompleteDone * pclose
 endif
 
 " For source file browsing, XXX: ctags and vim-nox is needed! ($ sudo apt-get install vim-nox ctags)
@@ -78,8 +82,9 @@ Plug 'tpope/vim-endwise', {'for': 'ruby'}
 
 " For Dart
 Plug 'dart-lang/dart-vim-plugin', {'for': 'dart'}
-let dart_html_in_string=v:true
-let g:syntastic_dart_checkers = ['dartanalyzer']
+let dart_html_in_string = v:true
+let dart_format_on_save = 1
+let g:syntastic_dart_checkers = ['dartanalyzer']	" too slow, but 'dart_language_server' is not supported yet...
 
 " For Go
 Plug 'fatih/vim-go', {'for': 'go', 'do': ':GoInstallBinaries'}
@@ -116,6 +121,8 @@ if !filereadable(lowperf)
 	" For Go
 	if has('nvim')
 		Plug 'zchee/deoplete-go', {'for': 'go', 'do': 'make'}	" For autocompletion
+		let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+		"let g:deoplete#sources#go#source_importer = 1   " XXX too slow yet...
 	endif
 	let g:go_fmt_command = "goimports"     " auto import dependencies
 	let g:go_highlight_build_constraints = 1
@@ -134,6 +141,7 @@ if !filereadable(lowperf)
 	" For Python
 	if has('nvim')
 		Plug 'zchee/deoplete-jedi', {'for': 'python'}	" For autocompletion
+		let g:deoplete#sources#jedi#show_docstring = 1
 	endif
 endif
 
