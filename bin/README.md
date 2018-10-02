@@ -6,6 +6,10 @@ These are my helper scripts that make my life in Raspberry Pi a lot easier:
 
 A script that checks for WiFi connectivity (with `ping`) and restart the interface when needed.
 
+## gen_selfsigned_certs.sh
+
+A script for generating self-signed certificates for development.
+
 ## install_dart.sh
 
 A script for installing [Dart](https://www.dartlang.org/).
