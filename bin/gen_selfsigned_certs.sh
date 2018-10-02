@@ -8,7 +8,7 @@
 
 EXPIRE_IN=3650	# valid for 10 years
 
-NUM_BITS=4096
+NUM_BITS=2048
 C="US"
 ST="New York"
 L="Brooklyn"
@@ -43,7 +43,8 @@ if [ $num_args -gt 0 ]; then
 	openssl genrsa -out server-key.pem $NUM_BITS && \
 	openssl req -subj "/CN=$hostname" -sha256 -new -key server-key.pem -out server.csr && \
 	echo "subjectAltName = DNS:$hostname,$ip_addrs" > extfile.cnf && \
-	echo "extendedKeyUsage = serverAuth" >> extfile.cnf && \
+	echo "keyUsage = keyEncipherment, dataEncipherment" >> extfile.cnf && \
+	echo "extendedKeyUsage = serverAuth, clientAuth" >> extfile.cnf && \
 	openssl x509 -req -days $EXPIRE_IN -sha256 -in server.csr -CA ca.pem -CAkey ca-key.pem -CAcreateserial -out server-cert.pem -extfile extfile.cnf
 
 	echo "Generating client certificates..."
@@ -51,7 +52,8 @@ if [ $num_args -gt 0 ]; then
 	# and client certificates,
 	openssl genrsa -out key.pem $NUM_BITS && \
 	openssl req -subj '/CN=client' -new -key key.pem -out client.csr && \
-	echo "extendedKeyUsage = clientAuth" > extfile.cnf && \
+	echo "keyUsage = keyEncipherment, dataEncipherment" > extfile.cnf && \
+	echo "extendedKeyUsage = clientAuth" >> extfile.cnf && \
 	openssl x509 -req -days $EXPIRE_IN -sha256 -in client.csr -CA ca.pem -CAkey ca-key.pem -CAcreateserial -out cert.pem -extfile extfile.cnf
 
 	echo "Cleaning up..."
