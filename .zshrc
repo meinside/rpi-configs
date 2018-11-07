@@ -1,7 +1,7 @@
 # .zshrc
 #
 # created on 2014.06.30.
-# updated on 2018.09.03.
+# updated on 2018.11.07.
 #
 # ... by meinside@gmail.com
 #
@@ -42,7 +42,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(colored-man-pages encode64 urltools)
+plugins=(git docker colored-man-pages encode64 urltools)
 
 source $ZSH/oh-my-zsh.sh
 
