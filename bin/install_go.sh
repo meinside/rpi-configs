@@ -12,7 +12,7 @@
 # - or create a (temporary) swap partition.
 # 
 # created on : 2014.07.01.
-# last update: 2018.11.05.
+# last update: 2018.11.08.
 # 
 # by meinside@gmail.com
 
@@ -101,6 +101,9 @@ function build {
 	# build
 	cd "$SRC_DIR/src" && \
 		GOROOT_BOOTSTRAP=$BOOTSTRAP_DIR ./make.bash
+	
+	# delete unneeded files
+	rm -rf "$SRC_DIR/.git" "$SRC_DIR/pkg/bootstrap" "$SRC_DIR/pkg/obj"
 }
 
 function install {
