@@ -1,5 +1,5 @@
 # git ignore file of meinside@gmail.com
-# last update: 2018.08.24.
+# last update: 2018.11.08.
 
 # unnecessary binary files
 *.o
@@ -82,6 +82,7 @@ srcs
 .aptitude/
 .config/
 .custom_aliases
+.docker/
 .gist-vim
 .gitconfig
 .gtmx.json
