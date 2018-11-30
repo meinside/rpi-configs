@@ -14,6 +14,10 @@ A script for generating self-signed certificates for development.
 
 A script for installing [Dart](https://www.dartlang.org/).
 
+## install_elinks.sh
+
+A script for installing [elinks](http://elinks.or.cz/).
+
 ## install_ffmpeg.sh
 
 A script for building and installing latest [ffmpeg](https://www.ffmpeg.org/).
