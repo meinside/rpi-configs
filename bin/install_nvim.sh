@@ -17,12 +17,12 @@ NVIM_VERSION="v0.3.2"
 
 function prep {
 	# install needed packages
-	sudo apt-get install -y libtool libtool-bin autoconf automake cmake g++ pkg-config unzip python-dev python3-pip gettext
-	sudo pip3 install --upgrade pynvim
+	sudo apt-get install -y libtool libtool-bin autoconf automake cmake g++ pkg-config unzip python-dev python3-pip gettext && \
+		pip install --upgrade --user pynvim
 
 	# symlink .vimrc file
-	mkdir -p ~/.config/nvim
-	ln -sf ~/.vimrc ~/.config/nvim/init.vim
+	mkdir -p ~/.config/nvim && \
+		ln -sf ~/.vimrc ~/.config/nvim/init.vim
 
 	# clean tmp directory
 	clean
@@ -33,15 +33,14 @@ function clean {
 }
 
 function install {
-	git clone https://github.com/neovim/neovim.git $TMP_DIR
-
-	cd $TMP_DIR
-	git checkout $NVIM_VERSION
+	git clone https://github.com/neovim/neovim.git $TMP_DIR && \
+		cd $TMP_DIR && \
+		git checkout $NVIM_VERSION
 
 	# configure and build
-	rm -rf build
-	make clean
-	make CMAKE_BUILD_TYPE=RelWithDebInfo
+	rm -rf build && \
+		make clean && \
+		make CMAKE_BUILD_TYPE=RelWithDebInfo
 
 	# install
 	sudo make install
