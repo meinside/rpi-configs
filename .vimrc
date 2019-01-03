@@ -8,7 +8,7 @@
 "
 " XXX - setup for nvim:
 " $ sudo apt-get install python3-pip
-" $ pip install --upgrade --user pynvim
+" $ pip3 install --upgrade --user pynvim
 
 """"""""""""""""""""""""""""""""""""
 " settings for nvim

@@ -18,7 +18,7 @@ NVIM_VERSION="v0.3.2"
 function prep {
 	# install needed packages
 	sudo apt-get install -y libtool libtool-bin autoconf automake cmake g++ pkg-config unzip python-dev python3-pip gettext && \
-		pip install --upgrade --user pynvim
+		pip3 install --upgrade --user pynvim
 
 	# symlink .vimrc file
 	mkdir -p ~/.config/nvim && \
