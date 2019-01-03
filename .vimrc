@@ -1,14 +1,14 @@
 " meinside's .vimrc file,
 " created by meinside@gmail.com,
 "
-" last update: 2018.08.29.
+" last update: 2019.01.03.
 "
 " XXX - change default text editor:
 " $ sudo update-alternatives --config editor
 "
 " XXX - setup for nvim:
 " $ sudo apt-get install python3-pip
-" $ pip3 install --upgrade --user neovim
+" $ pip install --upgrade --user pynvim
 
 """"""""""""""""""""""""""""""""""""
 " settings for nvim
@@ -60,7 +60,7 @@ Plug 'docunext/closetag.vim'
 
 " For autocompletion
 if has('nvim')
-	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }	" XXX - python3 needed ($ pip3 install --upgrade --user neovim)
+	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 	let g:deoplete#enable_at_startup = 1
 	let g:deoplete#enable_smart_case = 1
 
