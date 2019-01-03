@@ -1,7 +1,7 @@
 # .bashrc for Raspberry Pi
 #
 # created on 2012.05.31.
-# updated on 2018.08.03.
+# updated on 2019.01.03.
 #
 # ... by meinside@gmail.com
 
@@ -14,7 +14,7 @@ export EDITOR="/usr/bin/vim"
 export SVN_EDITOR="/usr/bin/vim"
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
-export TERM="xterm-256color"
+export TERM="screen-256color"
 export CLICOLOR=true
 
 HISTCONTROL=ignoreboth
@@ -26,7 +26,7 @@ shopt -s checkwinsize
 source ~/.bash/colors
 source ~/.bash/git-prompt
 case ${TERM} in
-	xterm*|rxvt*|Eterm|aterm|kterm|gnome*|screen)
+	xterm*|rxvt*|Eterm|aterm|kterm|gnome*|screen*)
 		if [ `whoami` = "root" ]; then
 			PS1="\[$bldred\]\u@\h\[$txtrst\]:\[$bldblu\]\w\[$txtgrn\]\$git_branch\[$txtylw\]\$git_dirty\[$txtrst\]\$ "
 		else
