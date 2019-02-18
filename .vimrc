@@ -92,6 +92,7 @@ Plug 'fatih/vim-go', {'for': 'go', 'do': ':GoInstallBinaries'}
 " For Rust
 Plug 'rust-lang/rust.vim', {'for': 'rust'}
 let g:rustfmt_autosave = 1	" $ rustup component add rustfmt
+let g:syntastic_rust_checkers = ['rustc']	" default is 'cargo'
 
 " XXX - do not load following plugins on machines with low performance:
 " (touch '~/.vimrc.lowperf' for it)
