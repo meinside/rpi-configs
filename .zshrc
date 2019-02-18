@@ -1,7 +1,7 @@
 # .zshrc
 #
 # created on 2014.06.30.
-# updated on 2019.01.03.
+# updated on 2019.02.18.
 #
 # ... by meinside@gmail.com
 #
@@ -102,13 +102,13 @@ if [[ -z $TMUX ]]; then
 	# for Node.js
 	export PATH=$PATH:/opt/node/bin
 
+	# for Rust
+	export PATH=$PATH:$HOME/.cargo/bin
+
 	# additional paths
 	export PATH="$PATH:$HOME/bin:$HOME/.local/bin"
 
 fi
-
-# for Haskell
-alias ghci="stack exec ghci --"
 
 # for python and virtualenv
 #

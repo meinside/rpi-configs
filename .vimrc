@@ -1,7 +1,7 @@
 " meinside's .vimrc file,
 " created by meinside@gmail.com,
 "
-" last update: 2019.01.03.
+" last update: 2019.02.18.
 "
 " XXX - change default text editor:
 " $ sudo update-alternatives --config editor
@@ -89,11 +89,9 @@ let g:syntastic_dart_checkers = ['dartanalyzer']	" too slow, but 'dart_language_
 " For Go
 Plug 'fatih/vim-go', {'for': 'go', 'do': ':GoInstallBinaries'}
 
-" For Haskell
-if has('nvim')
-	Plug 'neovimhaskell/haskell-vim', {'for': 'haskell'}
-endif
-Plug 'itchyny/vim-haskell-indent', {'for': 'haskell'}
+" For Rust
+Plug 'rust-lang/rust.vim', {'for': 'rust'}
+let g:rustfmt_autosave = 1	" $ rustup component add rustfmt
 
 " XXX - do not load following plugins on machines with low performance:
 " (touch '~/.vimrc.lowperf' for it)
@@ -215,7 +213,6 @@ if has("autocmd")
 		autocmd FileType go set ai sw=4 ts=4 sts=4 noet	" Golang
 		autocmd FileType ruby,eruby,yaml set ai sw=2 ts=2 sts=2 et	" Ruby
 		autocmd FileType python set ai sw=2 ts=2 sts=2 et	" Python
-		autocmd FileType haskell set ai sw=2 ts=2 sts=2 et " Haskell
 		autocmd FileType dart set ai sw=2 ts=2 sts=2 et	" Dart
 
 		" When editing a file, always jump to the last known cursor position.

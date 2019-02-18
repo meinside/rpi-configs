@@ -1,5 +1,5 @@
 # git ignore file of meinside@gmail.com
-# last update: 2018.11.30.
+# last update: 2019.02.18.
 
 # unnecessary binary files
 *.o
@@ -47,10 +47,6 @@ tmp/
 .gogets
 .gore/
 
-# haskell files/dirs
-.ghc/
-.stack/
-
 # julia files/dirs
 .julia/
 
@@ -63,6 +59,11 @@ node_modules
 .bundle
 .bundler
 .rvm/
+
+# rust files/dirs
+.cargo/
+.multirust
+.rustup/
 
 # python files/dirs
 .pip/
