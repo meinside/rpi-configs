@@ -12,7 +12,7 @@
 # - or create a (temporary) swap partition.
 # 
 # created on : 2014.07.01.
-# last update: 2019.01.24.
+# last update: 2019.02.26.
 # 
 # by meinside@gmail.com
 
@@ -34,7 +34,7 @@ BOOTSTRAP_BRANCH="release-branch.go1.4"
 
 # XXX - edit for different version of Go (see: https://go.googlesource.com/go/+refs)
 #INSTALL_BRANCH="release-branch.go1.6"	# branch
-INSTALL_BRANCH="go1.11.5"	# tag
+INSTALL_BRANCH="go1.12"	# tag
 
 function prep {
 	# install essential packages
