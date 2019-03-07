@@ -4,8 +4,17 @@
 # 
 # Build and install Nginx on Raspberry Pi
 #
+# * for issuing and renewing SSL certificates:
+#   (https://webcodr.io/2018/02/nginx-reverse-proxy-on-raspberry-pi-with-lets-encrypt/)
+#   $ sudo apt-get -y install certbot
+#   $ sudo certbot certonly --authenticator standalone -d example.com --pre-hook "systemctl stop nginx" --post-hook "systemctl start nginx"
+#
+# * for auto-renewing SSL certificates:
+#   $ sudo crontab -e
+#   0 0 1 * * certbot renew --pre-hook "systemctl stop nginx" --post-hook "systemctl start nginx"
+#
 # created on : 2017.08.16.
-# last update: 2017.08.18.
+# last update: 2019.03.07.
 # 
 # by meinside@gmail.com
 
@@ -22,10 +31,10 @@ RESET="\033[0m"
 TEMP_DIR="/tmp"
 
 # versions
-NGINX_VERSION="1.13.4"
-OPENSSL_VERSION="1.1.0f"
+NGINX_VERSION="1.15.9"
+OPENSSL_VERSION="1.1.1b"
 ZLIB_VERSION="1.2.11"
-PCRE_VERSION="8.41"
+PCRE_VERSION="8.42"
 
 # source files
 NGINX_SRC_URL="https://github.com/nginx/nginx/archive/release-${NGINX_VERSION}.tar.gz"
@@ -43,6 +52,7 @@ PCRE_SRC_DIR="${TEMP_DIR}/pcre-${PCRE_VERSION}"
 NGINX_BIN="/usr/local/sbin/nginx"
 
 NGINX_CONF_FILE="/etc/nginx/conf/nginx.conf"
+NGINX_SITES_DIR="/etc/nginx/sites-enabled"
 NGINX_SERVICE_FILE="/lib/systemd/system/nginx.service"
 
 function prep {
@@ -108,132 +118,36 @@ function build {
 }
 
 function configure {
-	# overwrite default config file
-	echo -e "${RED}>>> Overwriting config file: ${NGINX_CONF_FILE}...${RESET}"
-	sudo bash -c "cat > $NGINX_CONF_FILE" <<EOF
+	# create sample sites
+	sudo mkdir -p "$NGINX_SITES_DIR"
+	echo -e "${YELLOW}>>> Creating sample site files in $NGINX_SITES_DIR/ ...${RESET}"
+	sudo bash -c "cat > $NGINX_SITES_DIR/example.com" <<EOF
+# reverse-proxy (http://localhost:80 => https://example.com:443)
+server {
+    listen 80;
+    listen 443 ssl;
+    server_name example.com;
 
-user  www-data;
-worker_processes  auto;
-
-error_log  /var/log/nginx/error.log warn;
-#error_log  logs/error.log  notice;
-#error_log  logs/error.log  info;
-
-pid        /var/run/nginx.pid;
-
-
-events {
-    worker_connections  1024;
-}
-
-
-http {
-    include       mime.types;
-    default_type  application/octet-stream;
-
-    log_format  main  '\$remote_addr - \$remote_user [\$time_local] "\$request" '
-                      '\$status \$body_bytes_sent "\$http_referer" '
-                      '"\$http_user_agent" "\$http_x_forwarded_for"';
-
-    access_log  /var/log/nginx/access.log  main;
-
-    sendfile        on;
-    #tcp_nopush     on;
-
-    keepalive_timeout  65;
-
-	#gzip  on;
-
-    ssl_protocols TLSv1 TLSv1.1 TLSv1.2; # XXX - never use SSLv3 due to POODLE vulnerability
+    ssl_certificate /etc/letsencrypt/live/example.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/example.com/privkey.pem;
+    ssl_session_timeout 1d;
+    ssl_session_cache shared:SSL:50m;
+    ssl_session_tickets off;
+    ssl_protocols TLSv1.1 TLSv1.2;
+    ssl_ciphers 'ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-DSS-AES128-GCM-SHA256:kEDH+AESGCM:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:DHE-DSS-AES128-SHA256:DHE-RSA-AES256-SHA256:DHE-DSS-AES256-SHA:DHE-RSA-AES256-SHA:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!3DES:!MD5:!PSK';
     ssl_prefer_server_ciphers on;
+    ssl_stapling on;
+    ssl_stapling_verify on;
+    ssl_trusted_certificate /etc/letsencrypt/live/example.com/chain.pem;
 
-    include /etc/nginx/conf.d/*.conf;
-    include /etc/nginx/sites-enabled/*;
-
-    server {
-        listen       80;
-        server_name  localhost;
-
-        #charset koi8-r;
-
-        #access_log  logs/host.access.log  main;
-
-        location / {
-            root   html;
-            index  index.html index.htm;
-        }
-
-        #error_page  404              /404.html;
-
-        # redirect server error pages to the static page /50x.html
-        #
-        error_page   500 502 503 504  /50x.html;
-        location = /50x.html {
-            root   html;
-        }
-
-        # proxy the PHP scripts to Apache listening on 127.0.0.1:80
-        #
-        #location ~ \.php\$ {
-        #    proxy_pass   http://127.0.0.1;
-        #}
-
-        # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
-        #
-        #location ~ \.php\$ {
-        #    root           html;
-        #    fastcgi_pass   127.0.0.1:9000;
-        #    fastcgi_index  index.php;
-        #    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;
-        #    include        fastcgi_params;
-        #}
-
-        # deny access to .htaccess files, if Apache's document root
-        # concurs with nginx's one
-        #
-        #location ~ /\.ht {
-        #    deny  all;
-        #}
+    location / {
+        proxy_pass http://127.0.0.1:8080;
     }
-
-
-    # another virtual host using mix of IP-, name-, and port-based configuration
-    #
-    #server {
-    #    listen       8000;
-    #    listen       somename:8080;
-    #    server_name  somename  alias  another.alias;
-
-    #    location / {
-    #        root   html;
-    #        index  index.html index.htm;
-    #    }
-    #}
-
-
-    # HTTPS server
-    #
-    #server {
-    #    listen       443 ssl;
-    #    server_name  localhost;
-
-    #    ssl_certificate      cert.pem;
-    #    ssl_certificate_key  cert.key;
-
-    #    ssl_session_cache    shared:SSL:1m;
-    #    ssl_session_timeout  5m;
-
-    #    ssl_ciphers  HIGH:!aNULL:!MD5;
-    #    ssl_prefer_server_ciphers  on;
-
-    #    location / {
-    #        root   html;
-    #        index  index.html index.htm;
-    #    }
-    #}
-
 }
 EOF
+
+	# edit default conf to include enabled sites
+	sudo sed -i '/http {/a \ \ \ \ include /etc/nginx/sites-enabled/*.*;' $NGINX_CONF_FILE
 
 	# create systemd service file
 	if [ ! -e $NGINX_SERVICE_FILE ]; then
