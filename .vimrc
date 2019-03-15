@@ -1,7 +1,7 @@
 " meinside's .vimrc file,
 " created by meinside@gmail.com,
 "
-" last update: 2019.02.18.
+" last update: 2019.03.15.
 "
 " XXX - change default text editor:
 " $ sudo update-alternatives --config editor
@@ -84,15 +84,14 @@ Plug 'tpope/vim-endwise', {'for': 'ruby'}
 Plug 'dart-lang/dart-vim-plugin', {'for': 'dart'}
 let dart_html_in_string = v:true
 let dart_format_on_save = 1
-let g:syntastic_dart_checkers = ['dartanalyzer']	" too slow, but 'dart_language_server' is not supported yet...
 
 " For Go
 Plug 'fatih/vim-go', {'for': 'go', 'do': ':GoInstallBinaries'}
 
 " For Rust
+" $ rustup component add rustfmt rls rust-analysis rust-src
 Plug 'rust-lang/rust.vim', {'for': 'rust'}
-let g:rustfmt_autosave = 1	" $ rustup component add rustfmt
-let g:syntastic_rust_checkers = ['rustc']	" default is 'cargo'
+let g:rustfmt_autosave = 1
 
 " XXX - do not load following plugins on machines with low performance:
 " (touch '~/.vimrc.lowperf' for it)
@@ -111,11 +110,27 @@ if !filereadable(lowperf)
 	let g:syntastic_check_on_open = 0
 	let g:syntastic_check_on_wq = 0
 
+	" For LanguageServer
+	if has('nvim')
+		Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': './install.sh'}
+		let g:LanguageClient_serverCommands = {}
+		nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+		nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+		nnoremap <silent> <F3> :call LanguageClient#textDocument_rename()<CR>
+	endif
+
 	" For gitgutter
 	Plug 'airblade/vim-gitgutter'        " [c, ]c for prev/next hunk
 	let g:gitgutter_highlight_lines = 1
 	let g:gitgutter_realtime = 0
 	let g:gitgutter_eager = 0
+
+	" For Dart
+	let g:syntastic_dart_checkers = ['dartanalyzer']	" too slow, but 'dart_language_server' is not supported yet...
+"	if has('nvim')
+"		" $ pub global activate dart_language_server
+"		let g:LanguageClient_serverCommands.dart = ['dart_language_server']
+"	endif
 
 	" For Go
 	if has('nvim')
@@ -136,6 +151,12 @@ if !filereadable(lowperf)
 	let g:go_auto_type_info = 1
 	let g:syntastic_go_checkers = ['go']	" XXX: 'golint' is too slow, use :GoLint manually.
 	let g:syntastic_aggregate_errors = 1
+
+	" For Rust
+	if has('nvim')
+		let g:LanguageClient_serverCommands.rust = ['~/.cargo/bin/rustup', 'run', 'stable', 'rls']
+	endif
+	"let g:syntastic_rust_checkers = ['rustc']	" default = 'cargo' (cargo check)
 
 	" For Python
 	if has('nvim')
