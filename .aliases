@@ -1,11 +1,12 @@
 # .aliases
 #
 # created by meinside@gmail.com
-# last update: 2015.08.26.
+# last update: 2019.03.22.
 
 alias ll="ls -alF"
 
 alias ngrep="sudo ngrep -q -W byline"
 alias ctags='ctags -R --totals=yes'
 
+# $ ruby -rwebrick -e's=WEBrick::HTTPServer.new(Port:8080,DocumentRoot:Dir.pwd);trap("INT"){s.shutdown};s.start'
 alias httpserver="ruby -rwebrick -e's=WEBrick::HTTPServer.new(Port:8080,DocumentRoot:Dir.pwd);trap(\"INT\"){s.shutdown};s.start'"
