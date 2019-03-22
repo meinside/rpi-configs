@@ -14,7 +14,7 @@
 #   0 0 1 * * certbot renew --pre-hook "systemctl stop nginx" --post-hook "systemctl start nginx"
 #
 # created on : 2017.08.16.
-# last update: 2019.03.07.
+# last update: 2019.03.22.
 # 
 # by meinside@gmail.com
 
@@ -142,12 +142,15 @@ server {
 
     location / {
         proxy_pass http://127.0.0.1:8080;
+        limit_req zone=lr_zone burst=5 nodelay;
     }
 }
 EOF
 
 	# edit default conf to include enabled sites
 	sudo sed -i '/http {/a \ \ \ \ include /etc/nginx/sites-enabled/*.*;' $NGINX_CONF_FILE
+	# and limit requests
+	sudo sed -i '/http {/a \ \ \ \ limit_req_zone $binary_remote_addr zone=lr_zone:10m rate=30r/s;' $NGINX_CONF_FILE
 
 	# create systemd service file
 	if [ ! -e $NGINX_SERVICE_FILE ]; then
