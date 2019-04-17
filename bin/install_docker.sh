@@ -25,6 +25,7 @@ curl -sSL https://get.docker.com | bash && \
 	echo -e "${YELLOW}>>> Run: $ sudo systemctl enable docker && sudo systemctl start docker${RESET}"
 
 # docker-compose
+sudo apt-get install -y python-pip libffi-dev libssl-dev
 pip install docker-compose --user && \
 	echo -e "${GREEN}>>> Successfully installed docker-compose${RESET}"
 
