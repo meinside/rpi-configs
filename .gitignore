@@ -1,5 +1,5 @@
 # git ignore file of meinside@gmail.com
-# last update: 2019.04.19.
+# last update: 2019.04.24.
 
 # unnecessary binary files
 *.o
@@ -46,9 +46,6 @@ tmp/
 # go files/dirs
 .gogets
 .gore/
-
-# julia files/dirs
-.julia/
 
 # node files/dirs
 .npm
@@ -102,7 +99,6 @@ srcs
 
 # etc. files/dirs
 .bash_logout
-.erlang.cookie
 .fontconfig/
 .gem
 .httpie/
