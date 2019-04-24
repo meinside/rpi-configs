@@ -14,6 +14,10 @@ A script for generating self-signed certificates for development.
 
 A script for installing [Dart](https://www.dartlang.org/).
 
+## install_docker.sh
+
+A script for installing [Docker](https://www.docker.com/).
+
 ## install_elinks.sh
 
 A script for installing [elinks](http://elinks.or.cz/).
@@ -26,9 +30,9 @@ A script for building and installing latest [ffmpeg](https://www.ffmpeg.org/).
 
 A script for building and installing [Golang](https://golang.org/).
 
-## install_haskell.sh
+## install_leiningen.sh
 
-A script for installing [stack](https://docs.haskellstack.org/en/stable/README/) and [Haskell](https://www.haskell.org/).
+A script for installing [leiningen](https://leiningen.org/) which is needed for [Clojure](https://clojure.org/).
 
 ## install_nginx.sh
 
@@ -50,7 +54,11 @@ A script for installing [OpenCV](http://opencv.org/) library.
 
 A script for installing [rvm](https://rvm.io/) and [Ruby](https://www.ruby-lang.org/en/).
 
+## install_rust.sh
+
+A script for installing [Rust](https://rustup.rs/).
+
 ## install_tensorflow.sh
 
-A script for installing [Tensorflow](https://www.tensorflow.org/install/install_raspbian) on Raspbian.
+A script for installing [Tensorflow](https://www.tensorflow.org/install) on Raspbian.
 

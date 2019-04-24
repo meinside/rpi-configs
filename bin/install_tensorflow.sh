@@ -3,10 +3,10 @@
 # install_tensorflow.sh
 # 
 # install Tensorflow for Raspberry Pi
-# (https://www.tensorflow.org/install/install_raspbian)
+# (https://www.tensorflow.org/install)
 # 
 # created on : 2018.08.09.
-# last update: 2018.08.09.
+# last update: 2019.04.24.
 # 
 # by meinside@gmail.com
 
