@@ -1,7 +1,7 @@
 # .zshrc
 #
 # created on 2014.06.30.
-# updated on 2019.02.18.
+# updated on 2019.04.24.
 #
 # ... by meinside@gmail.com
 #
@@ -94,6 +94,9 @@ if [[ -z $TMUX ]]; then
 		export GOPATH=$HOME/srcs/go
 		export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 	fi
+
+	# for Lein (Clojure)
+	export LEIN_JVM_OPTS=""
 
 	# for Dart
 	export PATH=$PATH:/opt/dart-sdk/bin
