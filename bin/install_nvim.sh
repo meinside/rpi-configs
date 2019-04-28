@@ -4,9 +4,18 @@
 # 
 # for building neovim from source code on Raspberry Pi
 #
-# last update: 2019.01.14.
+# last update: 2019.04.28.
 # 
 # by meinside@gmail.com
+
+# * Update alternatives with:
+#
+# $ sudo update-alternatives --install /usr/bin/vi vi /usr/local/bin/nvim 60
+# $ sudo update-alternatives --config vi
+# $ sudo update-alternatives --install /usr/bin/vim vim /usr/local/bin/nvim 60
+# $ sudo update-alternatives --config vim
+# $ sudo update-alternatives --install /usr/bin/editor editor /usr/local/bin/nvim 60
+# $ sudo update-alternatives --config editor
 
 # XXX - for making newly created files/directories less restrictive
 umask 0022
