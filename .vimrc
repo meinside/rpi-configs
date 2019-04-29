@@ -1,7 +1,7 @@
 " meinside's .vimrc file,
 " created by meinside@gmail.com,
 "
-" last update: 2019.03.15.
+" last update: 2019.04.29.
 "
 " XXX - change default text editor:
 " $ sudo update-alternatives --config editor
@@ -134,9 +134,11 @@ if !filereadable(lowperf)
 
 	" For Go
 	if has('nvim')
-		Plug 'zchee/deoplete-go', {'for': 'go', 'do': 'make'}	" For autocompletion
+		Plug 'deoplete-plugins/deoplete-go', {'for': 'go', 'do': 'make'}	" For autocompletion (<C-X><C-O>)
 		let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
 		"let g:deoplete#sources#go#source_importer = 1   " XXX too slow yet...
+
+		let g:LanguageClient_serverCommands.go = ['gopls']
 	endif
 	let g:go_fmt_command = "goimports"     " auto import dependencies
 	let g:go_highlight_build_constraints = 1
