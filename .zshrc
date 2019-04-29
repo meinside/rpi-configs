@@ -1,7 +1,7 @@
 # .zshrc
 #
 # created on 2014.06.30.
-# updated on 2019.04.24.
+# updated on 2019.04.29.
 #
 # ... by meinside@gmail.com
 #
@@ -19,6 +19,9 @@ export ZSH=$HOME/.oh-my-zsh
 # If you would like oh-my-zsh to automatically update itself
 # without prompting you
 DISABLE_UPDATE_PROMPT="true"
+
+# Uncomment following line if you want to disable autosetting terminal title.
+DISABLE_AUTO_TITLE="true"
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
