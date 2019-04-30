@@ -1,7 +1,7 @@
 " meinside's .vimrc file,
 " created by meinside@gmail.com,
 "
-" last update: 2019.04.29.
+" last update: 2019.04.30.
 "
 " XXX - change default text editor:
 " $ sudo update-alternatives --config editor
@@ -57,6 +57,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 let g:airline#extensions#ale#enabled = 1
 Plug 'docunext/closetag.vim'
+Plug 'luochen1990/rainbow'     " rainbow-colored parentheses
+let g:rainbow_active = 1
 
 " For autocompletion
 if has('nvim')
@@ -76,9 +78,8 @@ nmap <F8> :TagbarToggle<CR>
 Plug 'mattn/webapi-vim'
 Plug 'mattn/gist-vim'
 
-" For Ruby
-Plug 'vim-ruby/vim-ruby', {'for': 'ruby'}
-Plug 'tpope/vim-endwise', {'for': 'ruby'}
+" For Clojure
+Plug 'gun/vim-clojure-static', {'for': 'clojure'}
 
 " For Dart
 Plug 'dart-lang/dart-vim-plugin', {'for': 'dart'}
@@ -87,6 +88,10 @@ let dart_format_on_save = 1
 
 " For Go
 Plug 'fatih/vim-go', {'for': 'go', 'do': ':GoInstallBinaries'}
+
+" For Ruby
+Plug 'vim-ruby/vim-ruby', {'for': 'ruby'}
+Plug 'tpope/vim-endwise', {'for': 'ruby'}
 
 " For Rust
 " $ rustup component add rustfmt rls rust-analysis rust-src
