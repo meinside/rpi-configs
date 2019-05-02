@@ -1,7 +1,7 @@
 # .bashrc for Raspberry Pi
 #
 # created on 2012.05.31.
-# updated on 2019.04.24.
+# updated on 2019.05.03.
 #
 # ... by meinside@gmail.com
 
@@ -65,7 +65,6 @@ if [[ -z $TMUX ]]; then
 
 	# for RVM
 	[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-	export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 	# for Go
 	if [ -d /opt/go/bin ]; then
