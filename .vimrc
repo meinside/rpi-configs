@@ -1,7 +1,7 @@
 " meinside's .vimrc file,
 " created by meinside@gmail.com,
 "
-" last update: 2019.04.30.
+" last update: 2019.05.04.
 "
 " XXX - change default text editor:
 " $ sudo update-alternatives --config editor
@@ -79,7 +79,7 @@ Plug 'mattn/webapi-vim'
 Plug 'mattn/gist-vim'
 
 " For Clojure
-Plug 'gun/vim-clojure-static', {'for': 'clojure'}
+Plug 'guns/vim-clojure-static', {'for': 'clojure'}
 
 " For Dart
 Plug 'dart-lang/dart-vim-plugin', {'for': 'dart'}
