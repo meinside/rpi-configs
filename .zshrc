@@ -1,7 +1,7 @@
 # .zshrc
 #
 # created on 2014.06.30.
-# updated on 2019.05.03.
+# updated on 2019.05.24.
 #
 # ... by meinside@gmail.com
 #
@@ -122,3 +122,7 @@ fi
 export WORKON_HOME=$HOME/.virtualenvs
 [[ -s "/usr/local/bin/virtualenvwrapper.sh" ]] && source "/usr/local/bin/virtualenvwrapper.sh"	# virtualenv and virtualenvwrapper
 
+# for zsh-syntax-highlighting
+if [ -d /usr/share/zsh-syntax-highlighting/  ]; then
+	source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
