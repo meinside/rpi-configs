@@ -1,7 +1,7 @@
 " meinside's .vimrc file,
 " created by meinside@gmail.com,
 "
-" last update: 2019.05.04.
+" last update: 2019.05.28.
 "
 " XXX - change default text editor:
 " $ sudo update-alternatives --config editor
@@ -139,10 +139,7 @@ if !filereadable(lowperf)
 
 	" For Go
 	if has('nvim')
-		Plug 'deoplete-plugins/deoplete-go', {'for': 'go', 'do': 'make'}	" For autocompletion (<C-X><C-O>)
-		let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
-		"let g:deoplete#sources#go#source_importer = 1   " XXX too slow yet...
-
+		" For autocompletion: <C-X><C-O>
 		let g:LanguageClient_serverCommands.go = ['gopls']
 	endif
 	let g:go_fmt_command = "goimports"     " auto import dependencies
@@ -159,17 +156,17 @@ if !filereadable(lowperf)
 	let g:syntastic_go_checkers = ['go']	" XXX: 'golint' is too slow, use :GoLint manually.
 	let g:syntastic_aggregate_errors = 1
 
-	" For Rust
-	if has('nvim')
-		let g:LanguageClient_serverCommands.rust = ['~/.cargo/bin/rustup', 'run', 'stable', 'rls']
-	endif
-	"let g:syntastic_rust_checkers = ['rustc']	" default = 'cargo' (cargo check)
-
 	" For Python
 	if has('nvim')
 		Plug 'zchee/deoplete-jedi', {'for': 'python'}	" For autocompletion
 		let g:deoplete#sources#jedi#show_docstring = 1
 	endif
+
+	" For Rust
+	if has('nvim')
+		let g:LanguageClient_serverCommands.rust = ['~/.cargo/bin/rustup', 'run', 'stable', 'rls']
+	endif
+	"let g:syntastic_rust_checkers = ['rustc']	" default = 'cargo' (cargo check)
 endif
 
 "
