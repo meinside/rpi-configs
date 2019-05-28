@@ -4,9 +4,11 @@
 # 
 # Install Rust and its toolchain from rustup.rs
 # for Raspberry Pi
+#
+# * Add `export PATH=$PATH:$HOME/.cargo/bin` to the rc file.
 # 
 # created on : 2019.02.18.
-# last update: 2019.02.18.
+# last update: 2019.05.28.
 # 
 # by meinside@gmail.com
 

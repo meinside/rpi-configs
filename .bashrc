@@ -1,7 +1,7 @@
 # .bashrc for Raspberry Pi
 #
 # created on 2012.05.31.
-# updated on 2019.05.03.
+# updated on 2019.05.28.
 #
 # ... by meinside@gmail.com
 
@@ -80,15 +80,8 @@ if [[ -z $TMUX ]]; then
 	# for Lein (Clojure)
 	export LEIN_JVM_OPTS=""
 
-	# for Dart
-	export PATH=$PATH:/opt/dart-sdk/bin
-	export PATH=$PATH:$HOME/.pub-cache/bin
-
 	# for Node.js
 	export PATH=$PATH:/opt/node/bin
-
-	# for Rust
-	export PATH=$PATH:$HOME/.cargo/bin
 
 	# additional paths
 	export PATH="$PATH:$HOME/bin:$HOME/.local/bin"

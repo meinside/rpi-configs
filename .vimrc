@@ -81,22 +81,12 @@ Plug 'mattn/gist-vim'
 " For Clojure
 Plug 'guns/vim-clojure-static', {'for': 'clojure'}
 
-" For Dart
-Plug 'dart-lang/dart-vim-plugin', {'for': 'dart'}
-let dart_html_in_string = v:true
-let dart_format_on_save = 1
-
 " For Go
 Plug 'fatih/vim-go', {'for': 'go', 'do': ':GoInstallBinaries'}
 
 " For Ruby
 Plug 'vim-ruby/vim-ruby', {'for': 'ruby'}
 Plug 'tpope/vim-endwise', {'for': 'ruby'}
-
-" For Rust
-" $ rustup component add rustfmt rls rust-analysis rust-src
-Plug 'rust-lang/rust.vim', {'for': 'rust'}
-let g:rustfmt_autosave = 1
 
 " XXX - do not load following plugins on machines with low performance:
 " (touch '~/.vimrc.lowperf' for it)
@@ -130,13 +120,6 @@ if !filereadable(lowperf)
 	let g:gitgutter_realtime = 0
 	let g:gitgutter_eager = 0
 
-	" For Dart
-	let g:syntastic_dart_checkers = ['dartanalyzer']	" too slow, but 'dart_language_server' is not supported yet...
-"	if has('nvim')
-"		" $ pub global activate dart_language_server
-"		let g:LanguageClient_serverCommands.dart = ['dart_language_server']
-"	endif
-
 	" For Go
 	if has('nvim')
 		" For autocompletion: <C-X><C-O>
@@ -161,12 +144,6 @@ if !filereadable(lowperf)
 		Plug 'zchee/deoplete-jedi', {'for': 'python'}	" For autocompletion
 		let g:deoplete#sources#jedi#show_docstring = 1
 	endif
-
-	" For Rust
-	if has('nvim')
-		let g:LanguageClient_serverCommands.rust = ['~/.cargo/bin/rustup', 'run', 'stable', 'rls']
-	endif
-	"let g:syntastic_rust_checkers = ['rustc']	" default = 'cargo' (cargo check)
 endif
 
 "
@@ -239,7 +216,6 @@ if has("autocmd")
 		autocmd FileType go set ai sw=4 ts=4 sts=4 noet	" Golang
 		autocmd FileType ruby,eruby,yaml set ai sw=2 ts=2 sts=2 et	" Ruby
 		autocmd FileType python set ai sw=2 ts=2 sts=2 et	" Python
-		autocmd FileType dart set ai sw=2 ts=2 sts=2 et	" Dart
 
 		" When editing a file, always jump to the last known cursor position.
 		" Don't do it when the position is invalid or when inside an event handler

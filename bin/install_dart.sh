@@ -4,9 +4,11 @@
 # 
 # install pre-built Dart SDK for Raspberry Pi
 # from: https://www.dartlang.org/tools/sdk/archive
+#
+# * Add `export PATH=$PATH:/opt/dart-sdk/bin:$HOME/.pub-cache/bin` to the rc file.
 # 
 # created on : 2018.06.28.
-# last update: 2018.11.20.
+# last update: 2019.05.28.
 # 
 # by meinside@gmail.com
 
