@@ -1,7 +1,7 @@
 " meinside's .vimrc file,
 " created by meinside@gmail.com,
 "
-" last update: 2019.05.28.
+" last update: 2019.05.30.
 "
 " XXX - change default text editor:
 " $ sudo update-alternatives --config editor
@@ -62,7 +62,28 @@ let g:rainbow_active = 1
 
 " For autocompletion
 if has('nvim')
-	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+	" NOTE: python 3.6.1+ is needed for latest deoplete since v5.0
+	" NOTE: but raspbian doesn't support python 3.6+ yet.
+	"
+	" NOTE: following lines can be a solution:
+	"
+	" $ sudo apt-get install build-essential tk-dev libncurses5-dev libncursesw5-dev libreadline6-dev libdb5.3-dev libgdbm-dev libsqlite3-dev libssl-dev libbz2-dev libexpat1-dev liblzma-dev zlib1g-dev libffi-dev
+	" $ wget https://www.python.org/ftp/python/3.7.3/Python-3.7.3.tgz
+	" $ tar -xzvf Python-3.7.3.tgz && cd Python-3.7.3
+	" $ ./configure && make
+	" $ sudo make altinstall
+	" $ sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.5 0
+	" $ sudo update-alternatives --install /usr/bin/python3 python3 /usr/local/bin/python3.7 1
+	" $ sudo update-alternatives --config python3
+	" # had to edit the first line of `/usr/bin/lsb_release`: python3 => python3.5
+	" $ pip3 install --upgrade --user pynvim
+	"
+	" NOTE: but these will break other systems dependent on python 3.5
+	"
+	" NOTE: so for now, just using the last version of deoplete which depends on python 3.5
+	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins', 'tag': '4.0' }
+	"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+
 	let g:deoplete#enable_at_startup = 1
 	let g:deoplete#enable_smart_case = 1
 
