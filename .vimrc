@@ -151,9 +151,6 @@ if !filereadable(lowperf)
 	endif
 endif
 
-" theme
-Plug 'flrnprz/plastic.vim'
-
 "
 """"""""
 
@@ -188,6 +185,7 @@ set t_Co=256
 if exists('$TMUX')
 	set termguicolors	" not working in terminals
 endif
+colo elflord
 
 " file browser (netrw)
 " :Ex, :Sex, :Vex
