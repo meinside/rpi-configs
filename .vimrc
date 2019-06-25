@@ -1,7 +1,7 @@
 " meinside's .vimrc file,
 " created by meinside@gmail.com,
 "
-" last update: 2019.06.03.
+" last update: 2019.06.25.
 "
 " XXX - change default text editor:
 " $ sudo update-alternatives --config editor
@@ -62,11 +62,7 @@ let g:rainbow_active = 1
 
 " For autocompletion
 if has('nvim')
-	" NOTE: python 3.6.1+ is needed for latest deoplete since v5.0,
-	" NOTE: but raspbian (stretch) doesn't support python 3.6+ yet,
-	" NOTE: so for now, just using the last version of deoplete which depends on python 3.5
-	"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins', 'tag': '4.0' }
+	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 	let g:deoplete#enable_at_startup = 1
 	let g:deoplete#enable_smart_case = 1
