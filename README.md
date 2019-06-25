@@ -3,7 +3,7 @@ by Sungjin Han <meinside@gmail.com>
 
 ## Description
 
-My personal dot/config files for Raspberry Pi server, currently running on **Raspbian Stretch**.
+My personal dot/config files for Raspberry Pi server, currently running on **Raspbian Buster**.
 
 ---
 
