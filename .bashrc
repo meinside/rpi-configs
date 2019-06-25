@@ -1,7 +1,7 @@
 # .bashrc for Raspberry Pi
 #
 # created on 2012.05.31.
-# updated on 2019.05.28.
+# updated on 2019.06.25.
 #
 # ... by meinside@gmail.com
 
@@ -82,6 +82,9 @@ if [[ -z $TMUX ]]; then
 
 	# for Node.js
 	export PATH=$PATH:/opt/node/bin
+
+	# for Rust
+	export PATH=$PATH:$HOME/.cargo/bin
 
 	# additional paths
 	export PATH="$PATH:$HOME/bin:$HOME/.local/bin"
