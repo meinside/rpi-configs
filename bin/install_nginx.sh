@@ -12,8 +12,8 @@
 #   # for subdomain certificates (will restart nginx when issued):
 #   $ sudo certbot certonly --authenticator standalone -d "subdomain1.example.com" --pre-hook "systemctl stop nginx" --post-hook "systemctl start nginx"
 
-#   # or for wildcard certificate only:
-#   $ sudo certbot certonly --manual --preferred-challenges=dns --agree-tos -d "*.example.com"
+#   # or for certificate for wildcard and root domain:
+#   $ sudo certbot certonly --manual --preferred-challenges=dns --agree-tos -d "*.example.com" -d "example.com"
 #
 # * for auto-renewing SSL certificates:
 #   $ sudo crontab -e
