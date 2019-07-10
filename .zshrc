@@ -1,7 +1,7 @@
 # .zshrc
 #
 # created on 2014.06.30.
-# updated on 2019.06.25.
+# updated on 2019.07.10.
 #
 # ... by meinside@gmail.com
 #
@@ -83,9 +83,6 @@ fi
 
 if [[ -z $TMUX ]]; then
 
-	# for Ruby (RVM)
-	[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
 	# for Go
 	if [ -d /opt/go/bin ]; then
 		export GOROOT=/opt/go
@@ -102,6 +99,9 @@ if [[ -z $TMUX ]]; then
 
 	# for Node.js
 	export PATH=$PATH:/opt/node/bin
+
+	# for Ruby (RVM)
+	[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 	# for Rust
 	export PATH=$PATH:$HOME/.cargo/bin

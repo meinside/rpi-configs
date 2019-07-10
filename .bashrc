@@ -1,7 +1,7 @@
 # .bashrc for Raspberry Pi
 #
 # created on 2012.05.31.
-# updated on 2019.06.25.
+# updated on 2019.07.10.
 #
 # ... by meinside@gmail.com
 
@@ -63,9 +63,6 @@ fi
 
 if [[ -z $TMUX ]]; then
 
-	# for RVM
-	[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
 	# for Go
 	if [ -d /opt/go/bin ]; then
 		export GOROOT=/opt/go
@@ -82,6 +79,9 @@ if [[ -z $TMUX ]]; then
 
 	# for Node.js
 	export PATH=$PATH:/opt/node/bin
+
+	# for RVM
+	[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 	# for Rust
 	export PATH=$PATH:$HOME/.cargo/bin
