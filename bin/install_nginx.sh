@@ -21,7 +21,7 @@
 #   0 0 1 * * certbot renew --pre-hook "systemctl stop nginx" --post-hook "systemctl start nginx"
 #
 # created on : 2017.08.16.
-# last update: 2019.07.02.
+# last update: 2019.07.11.
 # 
 # by meinside@gmail.com
 
@@ -106,7 +106,7 @@ function build {
 		--group=www-data \
 		--sbin-path="${NGINX_BIN}" \
 		--prefix=/etc/nginx \
-		--pid-path=/var/run/nginx.pid \
+		--pid-path=/run/nginx.pid \
 		--error-log-path=/var/log/nginx/error.log \
 		--http-log-path=/var/log/nginx/access.log \
 		--with-http_ssl_module \
@@ -168,7 +168,7 @@ After=syslog.target network.target remote-fs.target nss-lookup.target
 
 [Service]
 Type=forking
-PIDFile=/var/run/nginx.pid
+PIDFile=/run/nginx.pid
 ExecStartPre=/usr/local/sbin/nginx -t
 ExecStart=/usr/local/sbin/nginx
 ExecReload=/bin/kill -s HUP \$MAINPID
