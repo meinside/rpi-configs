@@ -2,9 +2,9 @@
 
 # install_leiningen.sh
 # 
-# for downloading and setting up 'lein'
+# for downloading and setting up 'lein' with 'zulu-embedded'
 # 
-# last update: 2019.04.24.
+# last update: 2019.07.11.
 # 
 # by meinside@gmail.com
 
@@ -23,7 +23,7 @@ LEIN_BIN="/usr/local/bin/lein"
 JDK_DIR=/opt/jdk
 
 # https://www.azul.com/downloads/zulu-embedded/
-ZULU_EMBEDDED_VERSION="zulu11.1.8-ca-jdk11-c2-linux_aarch32hf"
+ZULU_EMBEDDED_VERSION="zulu11.31.16-ca-jdk11.0.3-linux_aarch32hf"
 ZULU_EMBEDDED_TGZ="http://cdn.azul.com/zulu-embedded/bin/${ZULU_EMBEDDED_VERSION}.tar.gz"
 
 function prep {
