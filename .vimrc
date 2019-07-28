@@ -1,7 +1,7 @@
 " meinside's .vimrc file,
 " created by meinside@gmail.com,
 "
-" last update: 2019.06.25.
+" last update: 2019.07.28.
 "
 " XXX - change default text editor:
 " $ sudo update-alternatives --config editor
@@ -81,6 +81,14 @@ Plug 'mattn/gist-vim'
 
 " For Clojure
 Plug 'guns/vim-clojure-static', {'for': 'clojure'}
+Plug 'tpope/vim-salve', {'for': 'clojure'}
+Plug 'tpope/vim-projectionist', {'for': 'clojure'}
+Plug 'tpope/vim-dispatch', {'for': 'clojure'}
+" <C-X><C-O> for autocompletion,
+" <K> for documentation, (:Doc)
+" [+d for displaying source of a symbol, (:Source)
+" :Console, :Eval, ...
+Plug 'tpope/vim-fireplace', {'for': 'clojure'}
 
 " For Go
 Plug 'fatih/vim-go', {'for': 'go', 'do': ':GoInstallBinaries'}
@@ -110,8 +118,6 @@ if !filereadable(lowperf)
 	if has('nvim')
 		Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': './install.sh'}
 		let g:LanguageClient_serverCommands = {}
-		nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-		nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 		nnoremap <silent> <F3> :call LanguageClient#textDocument_rename()<CR>
 	endif
 

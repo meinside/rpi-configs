@@ -1,5 +1,5 @@
 # git ignore file of meinside@gmail.com
-# last update: 2019.07.05.
+# last update: 2019.07.28.
 
 # unnecessary binary files
 *.o
@@ -88,6 +88,7 @@ srcs
 .gitconfig
 .gtmx.json
 .gnupg
+.lsp/
 .oh-my-zsh/
 
 # history files
