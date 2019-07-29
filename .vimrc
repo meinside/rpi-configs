@@ -1,7 +1,7 @@
 " meinside's .vimrc file,
 " created by meinside@gmail.com,
 "
-" last update: 2019.07.28.
+" last update: 2019.07.29.
 "
 " XXX - change default text editor:
 " $ sudo update-alternatives --config editor
@@ -84,6 +84,8 @@ Plug 'guns/vim-clojure-static', {'for': 'clojure'}
 Plug 'tpope/vim-salve', {'for': 'clojure'}
 Plug 'tpope/vim-projectionist', {'for': 'clojure'}
 Plug 'tpope/vim-dispatch', {'for': 'clojure'}
+" $ go get github.com/cespare/goclj/cljfmt
+Plug 'dmac/vim-cljfmt', {'for': 'clojure'}
 " <C-X><C-O> for autocompletion,
 " <K> for documentation, (:Doc)
 " [+d for displaying source of a symbol, (:Source)
