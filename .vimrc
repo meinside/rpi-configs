@@ -1,7 +1,7 @@
 " meinside's .vimrc file,
 " created by meinside@gmail.com,
 "
-" last update: 2019.07.29.
+" last update: 2019.07.30.
 "
 " XXX - change default text editor:
 " $ sudo update-alternatives --config editor
@@ -81,6 +81,8 @@ Plug 'mattn/gist-vim'
 
 " For Clojure
 Plug 'guns/vim-clojure-static', {'for': 'clojure'}
+" :Slamhound
+Plug 'guns/vim-slamhound', {'for': 'clojure'}
 Plug 'tpope/vim-salve', {'for': 'clojure'}
 Plug 'tpope/vim-projectionist', {'for': 'clojure'}
 Plug 'tpope/vim-dispatch', {'for': 'clojure'}
