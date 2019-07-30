@@ -26,4 +26,15 @@
                        [slamhound "1.5.5"]]
 
         ;; global variables
-        :global-vars {*print-length* 20}}}
+        :global-vars {*print-length* 20}}
+
+ ;; profile for headless nREPL
+ :headless-repl {
+                 ;; plugins
+                 :plugins []
+
+                 ;; dependencies
+                 :dependencies []
+
+                 ;; global variables
+                 :global-vars {*print-length* 20}}}
