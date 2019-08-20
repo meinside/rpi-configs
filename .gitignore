@@ -1,5 +1,5 @@
 # git ignore file of meinside@gmail.com
-# last update: 2019.07.28.
+# last update: 2019.08.20.
 
 # unnecessary binary files
 *.o
@@ -118,6 +118,7 @@ srcs
 .vim
 .viminfo
 .vimrc.lowperf
+.vscode-server/
 .w3m/
 .zcompdump-*
 .zsh-update
