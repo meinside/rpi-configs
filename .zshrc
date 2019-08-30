@@ -1,7 +1,7 @@
-# .zshrc
+# .zshrc for Raspberry Pi
 #
 # created on 2014.06.30.
-# updated on 2019.07.10.
+# updated on 2019.08.30.
 #
 # ... by meinside@gmail.com
 #
@@ -71,12 +71,6 @@ if [ -x /usr/bin/dircolors ]; then
     alias grep="grep --color=auto"
 fi
 
-# aliases
-. ~/.aliases
-if [ -f ~/.custom_aliases ]; then
-    . ~/.custom_aliases
-fi
-
 ######################
 ##  for development  #
 ######################
@@ -122,3 +116,15 @@ export WORKON_HOME=$HOME/.virtualenvs
 if [ -d /usr/share/zsh-syntax-highlighting/  ]; then
 	source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
+
+# aliases
+. ~/.aliases
+
+# custom environment variables
+if [ -f ~/.custom_env ]; then
+    . ~/.custom_env
+fi
+
+# remove redundant paths
+typeset -aU path
+
