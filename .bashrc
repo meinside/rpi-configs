@@ -1,7 +1,7 @@
 # .bashrc for Raspberry Pi
 #
 # created on 2012.05.31.
-# updated on 2019.08.30.
+# updated on 2019.09.03.
 #
 # ... by meinside@gmail.com
 
@@ -95,7 +95,7 @@ export WORKON_HOME=$HOME/.virtualenvs
 # aliases
 . ~/.aliases
 
-# custom environment variables
+# load custom environment variables (like GOPRIVATE, PATH, alias, ...) if exist
 if [ -f ~/.custom_env ]; then
     . ~/.custom_env
 fi

@@ -1,7 +1,7 @@
 # .zshrc for Raspberry Pi
 #
 # created on 2014.06.30.
-# updated on 2019.08.30.
+# updated on 2019.09.03.
 #
 # ... by meinside@gmail.com
 #
@@ -120,7 +120,7 @@ fi
 # aliases
 . ~/.aliases
 
-# custom environment variables
+# load custom environment variables (like GOPRIVATE, PATH, alias, ...) if exist
 if [ -f ~/.custom_env ]; then
     . ~/.custom_env
 fi
