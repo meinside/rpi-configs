@@ -2,7 +2,7 @@
 #
 # script for recovering wifi connection
 #
-# last update: 2017.10.24.
+# last update: 2019.09.10.
 #
 #
 # * for running every five minute:
@@ -25,9 +25,9 @@ while read -r interface; do
 	if [ $? != 0 ]; then
 		echo "Restaring wlan interface: ${interface} ..."
 
-		sudo /sbin/ifdown ${interface}
+		sudo /sbin/ifconfig ${interface} down
 		sleep ${SLEEP_SECONDS}
-		sudo /sbin/ifup --force ${interface}
+		sudo /sbin/ifconfig ${interface} up
 	fi
 done <<< `ls /sys/class/net | grep wl`
 
