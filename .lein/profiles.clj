@@ -1,8 +1,13 @@
 ;; .lein/profiles.clj
 ;;
-;; last update: 2019.07.29.
+;; last update: 2019.10.17.
 
 {:user {
+        ;; repl-options
+        :repl-options {
+                       ;; timeout: 180 secs
+                       :timeout 180000}
+
         ;; plugins
         :plugins [
                   ;; https://github.com/kumarshantanu/lein-exec
