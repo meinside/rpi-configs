@@ -34,7 +34,7 @@ BOOTSTRAP_BRANCH="release-branch.go1.4"
 
 # XXX - edit for different version of Go (see: https://go.googlesource.com/go/+refs)
 #INSTALL_BRANCH="release-branch.go1.6"	# branch
-INSTALL_BRANCH="go1.13.2"	# tag
+INSTALL_BRANCH="go1.13.3"	# tag
 
 function prep {
 	# install essential packages
