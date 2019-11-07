@@ -4,9 +4,10 @@
 # 
 # for cloning config files from github,
 # and setting up several things for Raspberry Pi
-# (https://raw.github.com/meinside/raspiconfigs/master/bin/prep.sh)
+#
+# (https://raw.githubusercontent.com/meinside/rpi-configs/master/bin/prep.sh)
 # 
-# last update: 2016.11.30.
+# last update: 2019.11.07.
 # 
 # by meinside@gmail.com
 
