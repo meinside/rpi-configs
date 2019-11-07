@@ -1,5 +1,5 @@
 # git ignore file of meinside@gmail.com
-# last update: 2019.09.02.
+# last update: 2019.11.07.
 
 # unnecessary binary files
 *.o
@@ -38,6 +38,9 @@ backups/
 tmp/
 .rpi-firmware
 
+# clojure files/dirs
+.clojure/
+
 # dart files/dirs
 .dart/
 .dartServer/
@@ -56,6 +59,7 @@ node_modules
 .bundle
 .bundler
 .rvm/
+.solargraph/
 
 # rust files/dirs
 .cargo/

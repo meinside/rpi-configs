@@ -1,0 +1,12 @@
+;; .config/conjure/.conjure.edn
+;;
+;; configuration file for conjure (for nvim)
+;; (https://github.com/Olical/conjure#configuration)
+;;
+;; last update: 2019.11.07.
+
+{:conns {
+         :dev {
+               :port #slurp-edn ".prepl-port"
+               :hooks {
+                       :eval #(str "(time " % "\n)")}}}}
