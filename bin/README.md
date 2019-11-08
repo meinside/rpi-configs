@@ -10,6 +10,10 @@ A script that checks for WiFi connectivity (with `ping`) and restart the interfa
 
 A script for generating self-signed certificates for development.
 
+## install_clojure.sh
+
+A script for installing [JDK](https://www.azul.com/downloads/zulu-embedded/), [clojure](https://clojure.org/guides/getting_started#_installation_on_linux), and [leiningen](https://leiningen.org/).
+
 ## install_dart.sh
 
 A script for installing [Dart](https://www.dartlang.org/).
@@ -29,10 +33,6 @@ A script for building and installing latest [ffmpeg](https://www.ffmpeg.org/).
 ## install_go.sh
 
 A script for building and installing [Golang](https://golang.org/).
-
-## install_leiningen.sh
-
-A script for installing [leiningen](https://leiningen.org/) which is needed for [Clojure](https://clojure.org/).
 
 ## install_nginx.sh
 
