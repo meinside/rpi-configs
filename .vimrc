@@ -3,14 +3,12 @@
 "
 " last update: 2019.11.12.
 "
-" XXX - change default text editor:
-" $ sudo update-alternatives --config editor
-"
-" XXX - setup for nvim:
+" NOTE: setup for nvim:
 " $ sudo apt-get install python3-pip
 " $ pip3 install --upgrade --user pynvim
 "
-" XXX - setup for coc.nvim:
+"
+" NOTE: setup for coc.nvim:
 " $ bin/install_nodejs.sh
 
 """"""""""""""""""""""""""""""""""""
@@ -50,6 +48,9 @@ endif
 
 """"""""
 " plugins
+
+" colorschemes (https://github.com/rafi/awesome-vim-colorschemes)
+Plug 'kristijanhusak/vim-hybrid-material'
 
 " Useful plugins
 Plug 'jiangmiao/auto-pairs'
@@ -247,7 +248,6 @@ set t_Co=256
 if exists('$TMUX')
 	set termguicolors	" not working in terminals
 endif
-colo elflord
 
 " file browser (netrw)
 " :Ex, :Sex, :Vex
@@ -295,4 +295,9 @@ if has("autocmd")
 else
     set autoindent		" always set autoindenting on
 endif " has("autocmd")
+
+" set colorscheme
+let g:hybrid_transparent_background = 1
+set background=dark
+colorscheme hybrid_material
 
