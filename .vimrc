@@ -134,6 +134,8 @@ if has('nvim')
     "Plug 'ncm2/float-preview.nvim'
     "set completeopt-=preview
 
+	highlight link CocFloating markdown
+
 	" To close preview window after selection
 	autocmd CompleteDone * pclose
 
