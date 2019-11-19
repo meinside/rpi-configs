@@ -6,7 +6,7 @@
 # from: https://nodejs.org/dist
 # 
 # created on : 2013.07.19.
-# last update: 2019.10.22.
+# last update: 2019.11.19.
 # 
 # by meinside@gmail.com
 
@@ -19,7 +19,7 @@ GREEN="\033[0;32m"
 YELLOW="\033[0;33m"
 RESET="\033[0m"
 
-VERSION="12.13.0"	# XXX - edit this for other versions
+VERSION="12.13.1"	# XXX - edit this for other versions
 PLATFORM=`uname -m`	# armv7l, armv6l, ...
 
 NODEJS_DIST_BASEURL="https://nodejs.org/dist"
