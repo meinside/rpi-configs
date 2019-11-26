@@ -1,7 +1,7 @@
 # .zshrc for Raspberry Pi
 #
 # created on 2014.06.30.
-# updated on 2019.09.03.
+# updated on 2019.11.26.
 #
 # ... by meinside@gmail.com
 #
@@ -90,6 +90,8 @@ if [[ -z $TMUX ]]; then
 
 	# for Lein (Clojure)
 	export LEIN_JVM_OPTS=""
+	# https://github.com/venantius/ultra/issues/108
+	export LEIN_USE_BOOTCLASSPATH=no
 
 	# for Node.js
 	export PATH=$PATH:/opt/node/bin

@@ -1,6 +1,6 @@
 ;; .lein/profiles.clj
 ;;
-;; last update: 2019.10.17.
+;; last update: 2019.11.26.
 
 {:user {
         ;; repl-options
@@ -23,7 +23,10 @@
                   ;;[venantius/ultra "0.6.0"]
 
                   ;; https://github.com/xsc/lein-ancient
-                  [lein-ancient "0.6.15"]]
+                  [lein-ancient "0.6.15"]
+
+                  ;; https://github.com/venantius/ultra
+                  [venantius/ultra "0.6.0"]]
 
         ;; dependencies
         :dependencies [
@@ -31,15 +34,4 @@
                        [slamhound "1.5.5"]]
 
         ;; global variables
-        :global-vars {*print-length* 20}}
-
- ;; profile for headless nREPL
- :headless-repl {
-                 ;; plugins
-                 :plugins []
-
-                 ;; dependencies
-                 :dependencies []
-
-                 ;; global variables
-                 :global-vars {*print-length* 20}}}
+        :global-vars {*print-length* 20}}}
