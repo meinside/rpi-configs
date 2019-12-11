@@ -1,7 +1,7 @@
 " meinside's .vimrc file,
 " created by meinside@gmail.com,
 "
-" last update: 2019.12.04.
+" last update: 2019.12.11.
 "
 " NOTE: setup for nvim:
 " $ sudo apt-get install python3-pip
@@ -158,14 +158,24 @@ Plug 'mattn/gist-vim'
 
 " For Clojure
 " $ go get github.com/cespare/goclj/cljfmt
-Plug 'dmac/vim-cljfmt', {'for': 'clojure'}
+Plug 'dmac/vim-cljfmt'
+" >f, <f : move a form
+" >e, <e : move an element
+" >), <), >(, <( : move a parenthesis
+" <I, >I : insert at the beginning or end of a form
+" dsf : remove surroundings
+" cse(, cse), cseb : surround an element with parenthesis
+" cse[, cse] : surround an element with brackets
+" cse{, cse} : surround an element with braces
+Plug 'guns/vim-sexp'
+Plug 'tpope/vim-sexp-mappings-for-regular-people'
 
 " For Go
 Plug 'fatih/vim-go', {'for': 'go', 'do': ':GoInstallBinaries'}
 
 " For Ruby
-Plug 'vim-ruby/vim-ruby', {'for': 'ruby'}
-Plug 'tpope/vim-endwise', {'for': 'ruby'}
+Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-endwise'
 
 " XXX - do not load following plugins on machines with low performance:
 " (touch '~/.vimrc.lowperf' for it)
