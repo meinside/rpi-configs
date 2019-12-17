@@ -1,7 +1,7 @@
 " meinside's .vimrc file,
 " created by meinside@gmail.com,
 "
-" last update: 2019.12.11.
+" last update: 2019.12.17.
 "
 " NOTE: setup for nvim:
 " $ sudo apt-get install python3-pip
@@ -148,6 +148,11 @@ if has('nvim')
         \ 'coc-conjure', 'coc-go', 'coc-solargraph']
 endif
 
+" For Linting
+if has('nvim')
+    Plug 'dense-analysis/ale'
+endif
+
 " For source file browsing, XXX: ctags and vim-nox is needed! ($ sudo apt-get install vim-nox ctags)
 Plug 'majutsushi/tagbar'
 nmap <F8> :TagbarToggle<CR>
@@ -277,6 +282,15 @@ if &t_Co > 2 || has("gui_running")
 	syntax on
 	set hlsearch
 endif
+
+" For Linting
+"
+" * clojure:
+" $ npm install -g clj-kondo
+" $ go get -d github.com/candid82/joker && cd $GOPATH/src/github.com/candid82/joker && ./run.sh --version && go install
+let g:ale_linters = {
+    \ 'clojure': ['clj-kondo', 'joker']
+    \}
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
