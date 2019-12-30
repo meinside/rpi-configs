@@ -4,7 +4,7 @@
 # 
 # for setting up environment for ruby on Raspberry Pi
 # 
-# last update: 2017.04.14.
+# last update: 2019.12.30.
 # 
 # by meinside@gmail.com
 
@@ -28,7 +28,10 @@ sudo /usr/sbin/usermod -a -G rvm $USER
 sudo chown root.rvm /etc/profile.d/rvm.sh
 
 # when stuck with permission problems, try:
-#rvmsudo rvm fix-permissions system
+# $ rvmsudo rvm fix-permissions system
+
+# or retry after:
+# $ rvmsudo rvm cleanup all
 
 # re-login for loading rvm and installing ruby
 echo
