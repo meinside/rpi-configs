@@ -1,20 +1,12 @@
+# frozen_string_literal: true
+
 # My .irbrc file
 #
 # meinside@gmail.com
 #
-# last update: 2015.02.25.
+# last update: 2019.12.30.
 
-# initialize wirble
-begin
-  require 'wirble'
-  Wirble::Colorize.colors = Wirble::Colorize.colors.merge({
-    #object_class: :white,
-  })
-  Wirble.init
-  Wirble.colorize
-rescue
-  puts 'Wirble not installed'
-end
+# $ gem install solargraph
 
 # turn on auto completion
 require 'irb/completion'
@@ -24,21 +16,23 @@ IRB.conf[:AUTO_INDENT] = true
 
 # definitions of irb helper functions
 def clear
-	system 'clear'
+  system 'clear'
 end
 
+# monkey-patch for `Object`
 class Object
-	def own_methods(omit_superclass_methods = true)
-		omit_superclass_methods ? 
-			(self.methods - self.class.superclass.instance_methods).sort : 
-			(self.methods - Object.instance_methods).sort
-	end
+  def own_methods(omit_superclass_methods = true)
+    if omit_superclass_methods
+      (methods - self.class.superclass.instance_methods).sort
+    else
+      (methods - Object.instance_methods).sort
+    end
+  end
 
-	def ri(obj = self)
-		puts `ri '#{obj.kind_of?(String) ? obj : (obj.class == Class ? obj : obj.class)}'`
-	end
+  def ri(obj = self)
+    puts `ri '#{obj.is_a?(String) ? obj : (if obj.class == Class then obj else obj.class end)}'`
+  end
 end
 
 # for loading gems installed from git with bundler
 require 'bundler/setup'
-
