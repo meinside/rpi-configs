@@ -1,14 +1,16 @@
-" meinside's .vimrc file,
+" meinside's .vimrc file for n/vim,
 " created by meinside@gmail.com,
 "
-" last update: 2019.12.17.
+" last update: 2020.01.09.
 "
 " NOTE: setup for nvim:
+"
 " $ sudo apt-get install python3-pip
 " $ pip3 install --upgrade --user pynvim
 "
 "
 " NOTE: setup for coc.nvim:
+"
 " $ bin/install_nodejs.sh
 
 """"""""""""""""""""""""""""""""""""
@@ -157,7 +159,7 @@ endif
 Plug 'majutsushi/tagbar'
 nmap <F8> :TagbarToggle<CR>
 
-" For uploading Gist
+" For uploading Gist (:Gist / :Gist -p / ...)
 Plug 'mattn/webapi-vim'
 Plug 'mattn/gist-vim'
 
