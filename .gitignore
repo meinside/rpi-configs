@@ -1,5 +1,5 @@
 # git ignore file of meinside@gmail.com
-# last update: 2019.11.07.
+# last update: 2020.01.17.
 
 # unnecessary binary files
 *.o
@@ -125,7 +125,7 @@ srcs
 .vscode-server/
 .vscode-server-insiders/
 .w3m/
-.zcompdump-*
+.zcompdump*
 .zsh-update
 mbox
 pprof/
